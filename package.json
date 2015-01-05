@@ -11,5 +11,8 @@
     "url": "git@bitbucket.org:yaronn01/blessed-contrib.git"
   },
   "author": "Yaron Naveh (yaronn01@gmail.com)",
-  "license": ""
+  "license": "",
+  "devDependencies": {
+    "blessed": "0.0.37"
+  }
 }
