@@ -1,7 +1,7 @@
 var blessed = require('blessed')
 var contrib = require('../../index')
 
-var screen = blessed.screen({width: '80%', height: '80%'})
+var screen = blessed.screen()
 
 var rows = 3, cols = 3
 var grid = new contrib.Layout.Grid({rows: rows, cols: cols})
