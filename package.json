@@ -1,0 +1,15 @@
+{
+  "name": "blessed-contrib",
+  "version": "0.0.1",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@bitbucket.org:yaronn01/blessed-contrib.git"
+  },
+  "author": "Yaron Naveh (yaronn01@gmail.com)",
+  "license": ""
+}
