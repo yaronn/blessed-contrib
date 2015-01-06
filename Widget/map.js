@@ -36,4 +36,8 @@ Map.prototype.addMarker = function(coord, markerType) {
    this.innerMap.addMarker(coord, markerType)
 }
 
+Map.prototype.clearMarkers = function() {
+  this.innerMap.draw()
+}
+
 module.exports = Map

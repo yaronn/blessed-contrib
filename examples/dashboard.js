@@ -3,78 +3,55 @@ var contrib = require('../index')
 var map = require('../Widget/map')
 var line = require('../Widget/Charts/line')
 
-
-var map_opt = {
-  top: 'center',
-  left: 'center',
-  width: '70%',
-  height: '70%',
-  content: 'Hello {bold}world{/bold}!',
-  tags: true,
-  border: {
-    type: 'line'
-  },
-  
+var map_opt = {  
   canvas: {
     width: 140,
     height: 80
   }
-
 };
 
-
-var line_opt = {
-  top: 'center',
-  left: 'center',
-  width: '70%',
-  height: '70%',
-  content: 'Hello {bold}world{/bold}!',
-  tags: true,
-  border: {
-    type: 'line'
-  },
-  
+var line_opt = {  
   canvas: {
     width: 120,
     height: 80
   },
 
-  chart_options: {
-     responsive: false,
-     animation: false,
-     bezierCurve : false,
-     scaleShowGridLines: false,
-     scaleGridLineWidth: 0,
-     showTooltips: false,
-     scaleFontColor: "green",
-     pointLabelFontColor: "green",
-     scaleLineColor: "black",
-     scaleBeginAtZero: true,
-     showSmallBaseLines: false,
-     minSpaceBetweenXLabels: 1,
-     xLabelSpacing: 6,
-     yLabelSpacing: 8,
-     XLineOffset: 1,
-     scaleFontSize: 6,
-     datasetFill: false,
-     yLineOffset: 2
-  }
-
+  lineChartData : {   
+   datasets : [
+   {
+     label: "My First dataset",
+     fillColor : "red",
+     strokeColor : "yellow",
+     pointColor : "black",
+     pointStrokeColor : "black",
+     pointHighlightFill : "green",
+     pointHighlightStroke : "white",
+   }
+   ]
+ }
 }
 
-
-
-var grid = new contrib.Layout.Grid({rows: 1, cols: 2})
+var grid = new contrib.Layout.Grid({rows: 2, cols: 2})
 grid.set(0, 0, line, line_opt)
 grid.set(0, 1, map, map_opt)
+grid.set(1, 0, blessed.scrollabletext, {alwaysScroll: true, content: '', scrollbar:{bg: 'red', fg: 'blue'}})
+grid.set(1, 1, blessed.list, {selectedBg: 'blue', mouse: true, keys: true, items: ['123\t\t789', '456', 'ppp']})
+
+
 
 var screen = blessed.screen()
 grid.applyLayout(screen)
 
 var line = grid.get(0, 0)
 var map = grid.get(0, 1)
+var log = grid.get(1, 0)
+var list = grid.get(1, 1)
 
-map.addMarker({"lon" : "37.5000", "lat" : "-79.0000" })
+log.focus()
+
+screen.key(['escape', 'q', 'C-c'], function(ch, key) {
+  return process.exit(0);
+});
 
 
 var mockData = {
@@ -82,34 +59,37 @@ var mockData = {
    y: [0, 10, 40, 45, 45, 50, 55, 70, 65, 58, 50, 55, 60, 65, 70, 80, 70, 50, 40, 50, 60, 70, 82, 88, 89, 89, 89, 80, 72, 70]
 }
 
-var lineChartData = {
-     labels : mockData.x,
-     datasets : [
-       {
-         label: "My First dataset",
-         fillColor : "red",
-         strokeColor : "yellow",
-         pointColor : "black",
-         pointStrokeColor : "black",
-         pointHighlightFill : "green",
-         pointHighlightStroke : "white",
-         data : mockData.y
-       }
-     ]
-   }
 
-line.setData(lineChartData)
-
+var last = mockData.y[mockData.y.length-1]
+setLineData()
 screen.render()
 
-
-
-screen.key(['escape', 'q', 'C-c'], function(ch, key) {
-  return process.exit(0);
-});
-
 setInterval(function() {
-   //vusers.setData({'5', 6})
-   //hits.setData({'5', 6})
+   setLineData()   
    screen.render()
 }, 500)
+
+var arr = []
+setInterval(function() {
+   arr.push(Math.random() + 'this is some log')
+   log.setContent(arr.join('\r\n'))
+   //if (arr.length>10) arr.shift()
+   screen.render()
+}, 100)
+
+var marker = true
+setInterval(function() {
+   if (marker) map.addMarker({"lon" : "37.5000", "lat" : "-79.0000" })
+   else map.clearMarkers()
+   marker =! marker
+   screen.render()
+}, 1000)
+
+
+function setLineData() {  
+  
+  mockData.y.shift()
+  last = Math.max(last + Math.round(Math.random()*10) - 5, 10)    
+  mockData.y.push(last)     
+  line.setData(mockData.x, mockData.y)
+}
