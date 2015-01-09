@@ -23,9 +23,6 @@ Canvas.prototype.__proto__ = Box.prototype;
 
 Canvas.prototype.type = 'canvas';
 
-Canvas.prototype.renderInternal = function() {     
-}
-
 Canvas.prototype.render = function() {     
 
   this.clearPos(true);

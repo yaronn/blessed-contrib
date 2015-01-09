@@ -1,7 +1,9 @@
 var blessed = require('blessed')
 var contrib = require('../index')
-var map = require('../Widget/map')
-var line = require('../Widget/Charts/line')
+var mapWidget = require('../Widget/map')
+var logWidget = require('../Widget/log')
+var lineWidget = require('../Widget/Charts/line')
+
 
 var map_opt = {  
   canvas: {
@@ -32,10 +34,10 @@ var line_opt = {
 }
 
 var grid = new contrib.Layout.Grid({rows: 2, cols: 2})
-grid.set(0, 0, line, line_opt)
-grid.set(0, 1, map, map_opt)
-grid.set(1, 0, blessed.scrollabletext, {alwaysScroll: true, content: '', scrollbar:{bg: 'red', fg: 'blue'}})
-grid.set(1, 1, blessed.list, {selectedBg: 'blue', mouse: true, keys: true, items: ['123\t\t789', '456', 'ppp']})
+grid.set(0, 0, lineWidget, line_opt)
+grid.set(0, 1, mapWidget, map_opt)
+grid.set(1, 0, logWidget, {})
+grid.set(1, 1, blessed.list, {selectedBg: 'blue', mouse: false, keys: true, items: ['123\t\t789', '456', 'ppp']})
 
 
 
@@ -46,8 +48,6 @@ var line = grid.get(0, 0)
 var map = grid.get(0, 1)
 var log = grid.get(1, 0)
 var list = grid.get(1, 1)
-
-log.focus()
 
 screen.key(['escape', 'q', 'C-c'], function(ch, key) {
   return process.exit(0);
@@ -62,20 +62,23 @@ var mockData = {
 
 var last = mockData.y[mockData.y.length-1]
 setLineData()
+
+list.focus()
+
 screen.render()
+
 
 setInterval(function() {
    setLineData()   
    screen.render()
 }, 500)
 
-var arr = []
+
 setInterval(function() {
-   arr.push(Math.random() + 'this is some log')
-   log.setContent(arr.join('\r\n'))
-   //if (arr.length>10) arr.shift()
+   log.log(Math.random() + 'this is some log')   
    screen.render()
 }, 100)
+
 
 var marker = true
 setInterval(function() {
