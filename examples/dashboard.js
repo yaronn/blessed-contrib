@@ -1,8 +1,9 @@
 var blessed = require('blessed')
-var contrib = require('../index')
-var mapWidget = require('../Widget/map')
-var logWidget = require('../Widget/log')
-var lineWidget = require('../Widget/Charts/line')
+  , contrib = require('../index')
+  , mapWidget = require('../Widget/map')
+  , logWidget = require('../Widget/log')
+  , lineWidget = require('../Widget/Charts/line')
+  , tableWidget = require('../Widget/table')
 
 
 var map_opt = {  
@@ -37,8 +38,7 @@ var grid = new contrib.Layout.Grid({rows: 2, cols: 2})
 grid.set(0, 0, lineWidget, line_opt)
 grid.set(0, 1, mapWidget, map_opt)
 grid.set(1, 0, logWidget, {})
-grid.set(1, 1, blessed.list, {selectedBg: 'blue', mouse: false, keys: true, items: ['123\t\t789', '456', 'ppp']})
-
+grid.set(1, 1, tableWidget, {keys: true})
 
 
 var screen = blessed.screen()
@@ -47,7 +47,7 @@ grid.applyLayout(screen)
 var line = grid.get(0, 0)
 var map = grid.get(0, 1)
 var log = grid.get(1, 0)
-var list = grid.get(1, 1)
+var table = grid.get(1, 1)
 
 screen.key(['escape', 'q', 'C-c'], function(ch, key) {
   return process.exit(0);
@@ -63,10 +63,27 @@ var mockData = {
 var last = mockData.y[mockData.y.length-1]
 setLineData()
 
-list.focus()
+generateTable()
+table.focus()
 
 screen.render()
 
+
+function generateTable() {
+   var data = []
+
+   for (var i=0; i<30; i++) {
+     var row = []
+     for (var j=0; j<3; j++) {
+      row.push(Math.round(Math.random()*100))
+     }
+     data.push(row)
+   }
+
+   table.setData({headers: ['Aaa', 'Bbb', 'Ccc'], data: data})
+}
+
+setInterval(generateTable, 2000)
 
 setInterval(function() {
    setLineData()   

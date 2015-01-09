@@ -33,7 +33,7 @@ Grid.prototype.applyLayout = function(screen) {
          this.matrix[i][j].opts.left = margin + j * (width + space) + "%"
          this.matrix[i][j].opts.width = width + "%"
          this.matrix[i][j].opts.height = height + "%"
-         this.matrix[i][j].opts.border = {type: "line"}
+         this.matrix[i][j].opts.border = {type: "line", fg: "cyan"}
 
          this.matrix[i][j].instance = this.matrix[i][j].func(this.matrix[i][j].opts)
          screen.append(this.matrix[i][j].instance)
