@@ -14,5 +14,9 @@
   "license": "",
   "devDependencies": {
     "blessed": "0.0.37"
+  },
+  "dependencies": {
+    "memory-streams": "^0.1.0",
+    "picture-tube": "0.0.4"
   }
 }

@@ -4,7 +4,10 @@ var blessed = require('blessed')
   , logWidget = require('../Widget/log')
   , lineWidget = require('../Widget/Charts/line')
   , tableWidget = require('../Widget/table')
+  , pictureWidget = require('../Widget/picture')
 
+
+var screen = blessed.screen()
 
 var map_opt = {  
   canvas: {
@@ -34,16 +37,20 @@ var line_opt = {
  }
 }
 
+
 var grid = new contrib.Layout.Grid({rows: 3, cols: 2})
 grid.set(0, 0, lineWidget, line_opt)
 grid.set(0, 1, mapWidget, map_opt)
 grid.set(1, 0, logWidget, {})
 grid.set(1, 1, tableWidget, {keys: true})
-grid.set(2, 0, blessed.box, {})
+grid.set(2, 0, pictureWidget, {file: './examples/robot.png', cols: 32, onReady: ready})
 grid.set(2, 1, blessed.box, {})
 
+function ready() {
+  screen.render()
+}
 
-var screen = blessed.screen()
+
 grid.applyLayout(screen)
 
 var line = grid.get(0, 0)
