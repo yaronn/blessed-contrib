@@ -9,14 +9,14 @@ var blessed = require('blessed')
 var map_opt = {  
   canvas: {
     width: 140,
-    height: 80
+    height: 52
   }
 };
 
 var line_opt = {  
   canvas: {
-    width: 120,
-    height: 80
+    width: 152,
+    height: 68
   },
 
   lineChartData : {   
@@ -34,11 +34,13 @@ var line_opt = {
  }
 }
 
-var grid = new contrib.Layout.Grid({rows: 2, cols: 2})
+var grid = new contrib.Layout.Grid({rows: 3, cols: 2})
 grid.set(0, 0, lineWidget, line_opt)
 grid.set(0, 1, mapWidget, map_opt)
 grid.set(1, 0, logWidget, {})
 grid.set(1, 1, tableWidget, {keys: true})
+grid.set(2, 0, blessed.box, {})
+grid.set(2, 1, blessed.box, {})
 
 
 var screen = blessed.screen()

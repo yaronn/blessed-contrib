@@ -20,8 +20,8 @@ function Map(options) {
               , disableGraticule: true
               , disableFill: true
               , labelSpace: 5
-              , width: 150
-              , height: 80
+              , width: options.canvas.width
+              , height: options.canvas.height
               , shapeColor: "green"}
 
   this.innerMap = new InnerMap(opts, this._canvas)  
