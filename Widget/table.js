@@ -9,7 +9,6 @@ function Table(options) {
   }
 
   options = options || {};
-  options.bufferLength = options.bufferLength || 30
   options.columnSpacing = options.columnSpacing || 30
   options.bold = true
   this.options = options
@@ -20,7 +19,7 @@ function Table(options) {
           top: 2,
           width: 0,
           left: 1,    
-          selectedFg: 'green',      
+          selectedFg: 'white',
           selectedBg: 'blue',
           fg: "green",
           keys: true          

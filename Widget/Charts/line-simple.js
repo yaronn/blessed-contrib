@@ -13,7 +13,13 @@ function Line(options) {
   }
   
   options.showNthLabel = options.showNthLabel || 1
-  
+  options.style = options.style || {}  
+  options.style.line = options.style.line || "yellow"
+  options.style.text = options.style.text || "green"
+  options.style.baseline = options.style.baseline || "black"
+  options.xLabelPadding = options.xLabelPadding || 5
+  options.xPadding = options.xPadding || 10
+
   Canvas.call(this, options);
 
   this.on("attach", function() {
@@ -33,9 +39,9 @@ Line.prototype.type = 'line';
 Line.prototype.setData = function(labels, data) {           
     
     var self = this
-    var xLabelPadding = 5
+    var xLabelPadding = this.options.xLabelPadding
     var yLabelPadding = 2
-    var xPadding = 10
+    var xPadding = this.options.xPadding
     var yPadding = 10
     var c = this.ctx
 
@@ -70,8 +76,8 @@ Line.prototype.setData = function(labels, data) {
     }
 
 
-    c.strokeStyle = 'yellow'
-    c.fillStyle="green"
+    c.strokeStyle = this.options.style.line
+    c.fillStyle = this.options.style.text
 
     c.clearRect(0, 0, this.canvasSize.width, this.canvasSize.height);
 
@@ -97,7 +103,7 @@ Line.prototype.setData = function(labels, data) {
 
     c.stroke();
 
-    c.strokeStyle = 'black';
+    c.strokeStyle = this.options.style.baseline
 
     // Draw the axises
     c.beginPath();

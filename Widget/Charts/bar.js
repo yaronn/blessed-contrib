@@ -14,6 +14,10 @@ function Bar(options) {
   this.options.barSpacing = this.options.barSpacing || 9
   this.options.xOffset = this.options.xOffset || 5
   this.options.maxHeight = this.options.maxHeight || 7
+  if (this.options.showText===false)
+    this.options.showText = false
+  else
+    this.options.showText = true
 }
 
 Bar.prototype.calcSize = function() {
@@ -29,8 +33,8 @@ Bar.prototype.setData = function(bar) {
     , x = this.options.xOffset
     , y = this.options.maxHeight
 
-  for (var i=0; i<bar.titles.length; i++) {      
-      var h = Math.round(7 * (bar.data[i] / max));
+  for (var i=0; i<bar.data.length; i++) {      
+      var h = Math.round(this.options.maxHeight * (bar.data[i] / max));
 
       if (bar.data[i]>0) {  
         c.strokeStyle = 'blue'  
@@ -40,10 +44,13 @@ Bar.prototype.setData = function(bar) {
         c.strokeStyle = 'normal'
       }
 
-      c.fillStyle = 'white';
-      c.fillText(bar.data[i] .toString(), x + 1, y + 2);
+      c.fillStyle = 'white'
+      if (this.options.showText)
+        c.fillText(bar.data[i] .toString(), x + 1, y + 2);
       c.strokeStyle = 'normal'
-      c.fillText(bar.titles[i] , x+1, y + 4);
+      c.fillStyle = 'white';
+      if (this.options.showText)
+        c.fillText(bar.titles[i] , x+1, y + 4);
       
       x += this.options.barSpacing;  
   }  

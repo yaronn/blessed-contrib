@@ -12,7 +12,7 @@ function Grid(options) {
 }
 
 Grid.prototype.set = function(row, col, obj, opts) {
-   this.matrix[row][col] = {obj: obj, opts: opts}
+   this.matrix[row][col] = {obj: obj, opts: opts || {}}
 }
 
 Grid.prototype.get = function(row, col) {
