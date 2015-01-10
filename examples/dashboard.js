@@ -10,20 +10,10 @@ var blessed = require('blessed')
 
 var screen = blessed.screen()
 
-var map_opt = {  
-  canvas: {
-    width: 180,
-    height: 84
-  },
-  label: 'map'
-};
+
 
 var line_opt = {  
-  canvas: {
-    width: 172,
-    height: 100
-  },
-
+ 
   label: 'line',
 
   lineChartData : {   
@@ -41,15 +31,6 @@ var line_opt = {
  }
 }
 
-var bar_opt = {  
-  canvas: {
-    width: 80,
-    height: 20
-  },
-  label: 'bar'
-};
-
-
 var grid = new contrib.Layout.Grid({rows: 1, cols: 2})
 
 var grid1 = new contrib.Layout.Grid({rows: 1, cols: 2})
@@ -58,13 +39,13 @@ grid1.set(0, 1, logWidget, {fg: "green", selectedFg: "green", label: 'log'})
 
 var grid3 = new contrib.Layout.Grid({rows: 3, cols: 1})
 grid3.set(0, 0, tableWidget, {keys: true, fg: 'green', label: 'table data'})
-grid3.set(1, 0, barWidget, bar_opt)
+grid3.set(1, 0, barWidget, {label: 'bar'})
 grid3.set(2, 0, grid1)
 
 
 var grid2 = new contrib.Layout.Grid({rows: 2, cols: 1})
 grid2.set(0, 0, lineWidget, line_opt)
-grid2.set(1, 0, mapWidget, map_opt)
+grid2.set(1, 0, mapWidget, {label: 'map'})
 
 grid.set(0, 0, grid2)
 grid.set(0, 1, grid3)
@@ -108,7 +89,6 @@ var mockData = {
    x: ['00:00', '00:05', '00:10', '00:15', '00:20', '00:30', '00:40', '00:50', '01:00', '01:10', '01:20', '01:30', '01:40', '01:50', '02:00', '02:10', '02:20', '02:30', '02:40', '02:50', '03:00', '03:10', '03:20', '03:30', '03:40', '03:50', '04:00', '04:10', '04:20', '04:30'],
    y: [0, 10, 40, 45, 45, 50, 55, 70, 65, 58, 50, 55, 60, 65, 70, 80, 70, 50, 40, 50, 60, 70, 82, 88, 89, 89, 89, 80, 72, 70]
 }
-
 
 var last = mockData.y[mockData.y.length-1]
 setLineData()

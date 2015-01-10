@@ -5,6 +5,8 @@ var blessed = require('blessed')
 
 function Canvas(options, canvasType) {  
 
+  var self = this
+
   if (!(this instanceof Node)) {
     return new Canvas(options);
   }
@@ -13,18 +15,25 @@ function Canvas(options, canvasType) {
   this.options = options
   Box.call(this, options);
 
-  var innerCanvas = new InnerCanvas(options.canvas.width, options.canvas.height, canvasType)
+  this.on("attach", function() {
+    self.calcSize()
 
-  this._canvas = innerCanvas
-  this.ctx = this._canvas.getContext()
+    self._canvas = new InnerCanvas(this.canvasSize.width, this.canvasSize.height, canvasType)
+    self.ctx = self._canvas.getContext()    
+  })
 }
+
 
 Canvas.prototype.__proto__ = Box.prototype;
 
 Canvas.prototype.type = 'canvas';
 
+Canvas.prototype.calcSize = function() {
+    this.canvasSize = {width: this.width*2-12, height: this.height*4}
+}
+
 Canvas.prototype.clear = function() {
-  this.ctx.clearRect(0, 0, this.options.canvas.width, this.options.canvas.width);
+  this.ctx.clearRect(0, 0, this.canvasSize.width, this.canvasSize.height);
 }
 
 Canvas.prototype.render = function() {     

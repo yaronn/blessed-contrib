@@ -16,6 +16,10 @@ function Bar(options) {
   this.options.maxHeight = this.options.maxHeight || 7
 }
 
+Bar.prototype.calcSize = function() {
+    this.canvasSize = {width: this.width-2, height: this.height}
+}
+
 Bar.prototype.setData = function(bar) {  
   
   this.clear()

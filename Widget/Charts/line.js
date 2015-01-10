@@ -6,6 +6,8 @@ var blessed = require('blessed')
 
 function Line(options) {  
 
+  var self = this
+
   if (!(this instanceof Node)) {
     return new Line(options);
   }
@@ -35,7 +37,14 @@ function Line(options) {
   
   Canvas.call(this, options);
 
-  this.chart = new Chart(this.ctx)
+  this.on("attach", function() {
+    self.chart = new Chart(this.ctx)
+  })
+  
+}
+
+Line.prototype.calcSize = function() {
+    this.canvasSize = {width: this.width*2-12, height: this.height*4+12}
 }
 
 Line.prototype.__proto__ = Canvas.prototype;
