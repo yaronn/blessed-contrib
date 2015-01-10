@@ -2,7 +2,7 @@ var blessed = require('blessed')
   , contrib = require('../index')
   , mapWidget = require('../Widget/map')
   , logWidget = require('../Widget/log')
-  , lineWidget = require('../Widget/Charts/line')
+  , lineWidget = require('../Widget/Charts/line-simple')
   , tableWidget = require('../Widget/table')
   , pictureWidget = require('../Widget/picture')
   , barWidget = require('../Widget/Charts/bar')
@@ -10,41 +10,24 @@ var blessed = require('blessed')
 
 var screen = blessed.screen()
 
-
-
-var line_opt = {  
- 
-  label: 'line',
-
-  lineChartData : {   
-   datasets : [
-   {
-     label: "My First dataset",
-     fillColor : "red",
-     strokeColor : "yellow",
-     pointColor : "black",
-     pointStrokeColor : "black",
-     pointHighlightFill : "green",
-     pointHighlightStroke : "white",
-   }
-   ]
- }
-}
-
 var grid = new contrib.Layout.Grid({rows: 1, cols: 2})
 
 var grid1 = new contrib.Layout.Grid({rows: 1, cols: 2})
 grid1.set(0, 0, pictureWidget, {file: './examples/robot.png', cols: 22, onReady: ready, label: 'live'})
 grid1.set(0, 1, logWidget, {fg: "green", selectedFg: "green", label: 'log'})
 
+var grid4 = new contrib.Layout.Grid({rows: 1, cols: 2})
+grid4.set(0, 0, barWidget, {label: 'bar'})
+grid4.set(0, 1, lineWidget, {})
+
 var grid3 = new contrib.Layout.Grid({rows: 3, cols: 1})
 grid3.set(0, 0, tableWidget, {keys: true, fg: 'green', label: 'table data'})
-grid3.set(1, 0, barWidget, {label: 'bar'})
+grid3.set(1, 0, grid4)
 grid3.set(2, 0, grid1)
 
 
 var grid2 = new contrib.Layout.Grid({rows: 2, cols: 1})
-grid2.set(0, 0, lineWidget, line_opt)
+grid2.set(0, 0, lineWidget, {showNthLabel: 5, maxY: 100})
 grid2.set(1, 0, mapWidget, {label: 'map'})
 
 grid.set(0, 0, grid2)
@@ -60,11 +43,12 @@ function ready() {
 grid.applyLayout(screen)
 
 var line = grid2.get(0, 0)
+var line1 = grid4.get(0, 1)
 var map = grid2.get(1, 0)
 var log = grid1.get(0, 1)
 var table = grid3.get(0, 0)
 var pic = grid1.get(0, 0)
-var bar = grid3.get(1, 0)
+var bar = grid4.get(0, 0)
 
 
 setTimeout(function() {
@@ -72,8 +56,10 @@ setTimeout(function() {
 }, 2000)
 
 
+line1.setData(['a', 'b', 'c', 'd'], [1, 2, 3, 2])
+
 function fillBar() {
-  bar.setData({titles: ['a', 'b', 'c', 'd', 'e', 'f', 'g'], data: [Math.round(Math.random()*10),Math.round(Math.random()*10),Math.round(Math.random()*10),Math.round(Math.random()*10),Math.round(Math.random()*10),Math.round(Math.random()*10),Math.round(Math.random()*10)]})
+  bar.setData({titles: ['a', 'b', 'c', 'd'], data: [Math.round(Math.random()*10),Math.round(Math.random()*10),Math.round(Math.random()*10),Math.round(Math.random()*10)]})
 }
 fillBar()
 setInterval(fillBar, 2000)

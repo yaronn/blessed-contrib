@@ -30,7 +30,7 @@ function Line(options) {
      yLabelSpacing: 8,
      XLineOffset: 1,
      scaleFontSize: 6,
-     yLineOffset: 2 
+     yLineOffset: 2     
   }
 
   options.chart_options = utils.MergeRecursive(options.chart_options, chart_options)
@@ -44,7 +44,7 @@ function Line(options) {
 }
 
 Line.prototype.calcSize = function() {
-    this.canvasSize = {width: this.width*2-12, height: this.height*4+12}
+    this.canvasSize = {width: this.width*2-12, height: this.height*4-8}
 }
 
 Line.prototype.__proto__ = Canvas.prototype;
@@ -52,7 +52,7 @@ Line.prototype.__proto__ = Canvas.prototype;
 Line.prototype.type = 'line';
 
 Line.prototype.setData = function(labels, data) {       
-  var lineChartData = utils.MergeRecursive(this.options.lineChartData, {labels: labels})
+  var lineChartData = utils.MergeRecursive(this.options.chart_options.lineChartData, {labels: labels})
   lineChartData.datasets[0].data = data  
   this.chart.Line(lineChartData, this.options.chart_options)
 }

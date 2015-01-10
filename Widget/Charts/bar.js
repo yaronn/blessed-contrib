@@ -12,7 +12,7 @@ function Bar(options) {
 
   this.options.barWidth = this.options.barWidth || 6
   this.options.barSpacing = this.options.barSpacing || 9
-  this.options.xOffset = this.options.xOffset || 10
+  this.options.xOffset = this.options.xOffset || 5
   this.options.maxHeight = this.options.maxHeight || 7
 }
 
