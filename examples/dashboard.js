@@ -12,16 +12,19 @@ var screen = blessed.screen()
 
 var map_opt = {  
   canvas: {
-    width: 140,
-    height: 52
-  }
+    width: 180,
+    height: 84
+  },
+  label: 'map'
 };
 
 var line_opt = {  
   canvas: {
-    width: 152,
-    height: 68
+    width: 172,
+    height: 100
   },
+
+  label: 'line',
 
   lineChartData : {   
    datasets : [
@@ -42,40 +45,54 @@ var bar_opt = {
   canvas: {
     width: 80,
     height: 20
-  }
+  },
+  label: 'bar'
 };
 
 
-var grid = new contrib.Layout.Grid({rows: 3, cols: 2})
-grid.set(0, 0, lineWidget, line_opt)
-grid.set(0, 1, mapWidget, map_opt)
-grid.set(1, 0, logWidget, {fg: "green", selectedFg: "green"})
-grid.set(1, 1, tableWidget, {keys: true, fg: 'green'})
-grid.set(2, 0, pictureWidget, {file: './examples/robot.png', cols: 32, onReady: ready})
-grid.set(2, 1, barWidget, bar_opt)
+var grid = new contrib.Layout.Grid({rows: 1, cols: 2})
+
+var grid1 = new contrib.Layout.Grid({rows: 1, cols: 2})
+grid1.set(0, 0, pictureWidget, {file: './examples/robot.png', cols: 22, onReady: ready, label: 'live'})
+grid1.set(0, 1, logWidget, {fg: "green", selectedFg: "green", label: 'log'})
+
+var grid3 = new contrib.Layout.Grid({rows: 3, cols: 1})
+grid3.set(0, 0, tableWidget, {keys: true, fg: 'green', label: 'table data'})
+grid3.set(1, 0, barWidget, bar_opt)
+grid3.set(2, 0, grid1)
+
+
+var grid2 = new contrib.Layout.Grid({rows: 2, cols: 1})
+grid2.set(0, 0, lineWidget, line_opt)
+grid2.set(1, 0, mapWidget, map_opt)
+
+grid.set(0, 0, grid2)
+grid.set(0, 1, grid3)
+
+
+
 
 function ready() {
   screen.render()
 }
 
-
 grid.applyLayout(screen)
 
-var line = grid.get(0, 0)
-var map = grid.get(0, 1)
-var log = grid.get(1, 0)
-var table = grid.get(1, 1)
-var pic = grid.get(2, 0)
-var bar = grid.get(2, 1)
+var line = grid2.get(0, 0)
+var map = grid2.get(1, 0)
+var log = grid1.get(0, 1)
+var table = grid3.get(0, 0)
+var pic = grid1.get(0, 0)
+var bar = grid3.get(1, 0)
 
 
 setTimeout(function() {
-  pic.setImage({file: './examples/frog.png', cols: 32, onReady: ready})
+  pic.setImage({file: './examples/frog.png', cols: 22, onReady: ready})
 }, 2000)
 
 
 function fillBar() {
-  bar.setData({titles: ['a', 'b', 'c'], data: [Math.round(Math.random()*10),Math.round(Math.random()*10),Math.round(Math.random()*10)]})
+  bar.setData({titles: ['a', 'b', 'c', 'd', 'e', 'f', 'g'], data: [Math.round(Math.random()*10),Math.round(Math.random()*10),Math.round(Math.random()*10),Math.round(Math.random()*10),Math.round(Math.random()*10),Math.round(Math.random()*10),Math.round(Math.random()*10)]})
 }
 fillBar()
 setInterval(fillBar, 2000)
