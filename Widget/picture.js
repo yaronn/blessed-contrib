@@ -16,6 +16,15 @@ function Picture(options) {
   options.cols = options.cols || 50
   this.options = options
   
+  if (options.file) {
+    this.setImage(options)
+  }
+
+  Box.call(this, options); 
+}
+
+Picture.prototype.setImage = function(options) {
+  
   var tube = pictureTube({cols: options.cols});
   fs.createReadStream(options.file).pipe(tube);  
   this.writer = new streams.WritableStream();
@@ -26,9 +35,7 @@ function Picture(options) {
       options.onReady()
     }
   });
-  
 
-  Box.call(this, options); 
 }
 
 Picture.prototype.render = function() {      

@@ -17,6 +17,7 @@
   },
   "dependencies": {
     "memory-streams": "^0.1.0",
-    "picture-tube": "0.0.4"
+    "picture-tube": "0.0.4",
+    "term-canvas": "0.0.5"
   }
 }

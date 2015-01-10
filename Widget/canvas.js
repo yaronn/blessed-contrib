@@ -3,7 +3,7 @@ var blessed = require('blessed')
    , Box = blessed.Box
    , InnerCanvas = require('../../node-drawille-canvas').Canvas
 
-function Canvas(options) {  
+function Canvas(options, canvasType) {  
 
   if (!(this instanceof Node)) {
     return new Canvas(options);
@@ -13,7 +13,7 @@ function Canvas(options) {
   this.options = options
   Box.call(this, options);
 
-  var innerCanvas = new InnerCanvas(options.canvas.width, options.canvas.height)
+  var innerCanvas = new InnerCanvas(options.canvas.width, options.canvas.height, canvasType)
 
   this._canvas = innerCanvas
   this.ctx = this._canvas.getContext()
@@ -22,6 +22,10 @@ function Canvas(options) {
 Canvas.prototype.__proto__ = Box.prototype;
 
 Canvas.prototype.type = 'canvas';
+
+Canvas.prototype.clear = function() {
+  this.ctx.clearRect(0, 0, this.options.canvas.width, this.options.canvas.width);
+}
 
 Canvas.prototype.render = function() {     
 

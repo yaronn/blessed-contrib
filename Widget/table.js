@@ -19,8 +19,10 @@ function Table(options) {
           height: 0,
           top: 2,
           width: 0,
-          left: 1,          
+          left: 1,    
+          selectedFg: 'green',      
           selectedBg: 'blue',
+          fg: "green",
           keys: true          
         });  
 

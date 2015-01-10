@@ -5,6 +5,7 @@ var blessed = require('blessed')
   , lineWidget = require('../Widget/Charts/line')
   , tableWidget = require('../Widget/table')
   , pictureWidget = require('../Widget/picture')
+  , barWidget = require('../Widget/Charts/bar')
 
 
 var screen = blessed.screen()
@@ -37,14 +38,21 @@ var line_opt = {
  }
 }
 
+var bar_opt = {  
+  canvas: {
+    width: 80,
+    height: 20
+  }
+};
+
 
 var grid = new contrib.Layout.Grid({rows: 3, cols: 2})
 grid.set(0, 0, lineWidget, line_opt)
 grid.set(0, 1, mapWidget, map_opt)
-grid.set(1, 0, logWidget, {})
-grid.set(1, 1, tableWidget, {keys: true})
+grid.set(1, 0, logWidget, {fg: "green", selectedFg: "green"})
+grid.set(1, 1, tableWidget, {keys: true, fg: 'green'})
 grid.set(2, 0, pictureWidget, {file: './examples/robot.png', cols: 32, onReady: ready})
-grid.set(2, 1, blessed.box, {})
+grid.set(2, 1, barWidget, bar_opt)
 
 function ready() {
   screen.render()
@@ -57,6 +65,22 @@ var line = grid.get(0, 0)
 var map = grid.get(0, 1)
 var log = grid.get(1, 0)
 var table = grid.get(1, 1)
+var pic = grid.get(2, 0)
+var bar = grid.get(2, 1)
+
+
+setTimeout(function() {
+  pic.setImage({file: './examples/frog.png', cols: 32, onReady: ready})
+}, 2000)
+
+
+function fillBar() {
+  bar.setData({titles: ['a', 'b', 'c'], data: [Math.round(Math.random()*10),Math.round(Math.random()*10),Math.round(Math.random()*10)]})
+}
+fillBar()
+setInterval(fillBar, 2000)
+
+
 
 screen.key(['escape', 'q', 'C-c'], function(ch, key) {
   return process.exit(0);
