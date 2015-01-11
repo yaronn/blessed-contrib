@@ -34,7 +34,7 @@ function Map(options) {
 }
 
 Map.prototype.calcSize = function() {
-    this.canvasSize = {width: this.width*2-12, height: this.height*4-8}
+    this.canvasSize = {width: this.width*2-12, height: this.height*4-12}
 }
 
 Map.prototype.__proto__ = Canvas.prototype;

@@ -26,10 +26,10 @@ grid1.set(0, 2, grid5)
 
 var grid4 = new contrib.Layout.Grid({rows: 1, cols: 2})
 grid4.set(0, 0, barWidget, {label: 'Server Utilization (%)', barWidth: 4, barSpacing: 6, xOffset: 0, maxHeight: 9})
-grid4.set(0, 1, tableWidget, {keys: true, fg: 'green', label: 'Active Processes', columnSpacing: 12})
+grid4.set(0, 1, tableWidget, {keys: true, fg: 'green', label: 'Active Processes', columnSpacing: 16})
 
 var grid3 = new contrib.Layout.Grid({rows: 3, cols: 1})
-grid3.set(0, 0, lineWidget, {style: {line: "red", text: "white", baseline: "black"}, label: 'Errors Rate'})
+grid3.set(0, 0, lineWidget, {style: {line: "red", text: "white", baseline: "black"}, label: 'Errors Rate', maxY: 60})
 grid3.set(1, 0, grid4)
 grid3.set(2, 0, grid1)
 
@@ -51,8 +51,8 @@ function ready() {
 grid.applyLayout(screen)
 
 var line = grid2.get(0, 0)
-var line1 = grid3.get(0, 0)
-var line2 = grid1.get(0, 1)
+var errorsLine = grid3.get(0, 0)
+var latencyLine = grid1.get(0, 1)
 var map = grid2.get(1, 0)
 var log = grid1.get(0, 0)
 var table = grid4.get(0,1)
@@ -61,7 +61,9 @@ var sparkline = grid5.get(1, 0)
 var gauge = grid5.get(0, 0)
 var bar = grid4.get(0, 0)
 
-sparkline.setData(['Server1', 'Server2'], [[1,2,5,2,1,5, 1,2,5,2,1,5, 4,4,5,4,1,5, 1,2,5,2,1,5], [4,4,5,4,1,5, 1,2,5,2,1,5, 4,4,5,4,1,5, 1,2,5,2,1,5]])
+
+
+
 
 /*
 setTimeout(function() {
@@ -75,11 +77,13 @@ setInterval(function() {
   if (pct>100) pct = 0  
 }, 200)
 
-line1.setData(['a', 'b', 'c', 'd'], [1, 2, 3, 2])
-line2.setData(['a', 'b', 'c', 'd'], [1, 5, 5, 2])
+
+
+var servers = ['US1', 'US2', 'EU1', 'AU1', 'AS1', 'JP1']
+var commands = ['grep', 'node', 'java', 'timer', '~/ls -l', 'netns', 'watchdog', 'gulp', 'tar -xvf', 'awk', 'npm install']
 
 function fillBar() {
-  bar.setData({titles: ['US1', 'US2', 'EU1', 'AU1', 'AS1', 'JP1'], data: [Math.round(Math.random()*10),Math.round(Math.random()*10),Math.round(Math.random()*10),Math.round(Math.random()*10),Math.round(Math.random()*10),Math.round(Math.random()*10)]})
+  bar.setData({titles: servers, data: [Math.round(Math.random()*10),Math.round(Math.random()*10),Math.round(Math.random()*10),Math.round(Math.random()*10),Math.round(Math.random()*10),Math.round(Math.random()*10)]})
 }
 fillBar()
 setInterval(fillBar, 2000)
@@ -94,8 +98,24 @@ var mockData = {
    y: [0, 10, 40, 45, 45, 50, 55, 70, 65, 58, 50, 55, 60, 65, 70, 80, 70, 50, 40, 50, 60, 70, 82, 88, 89, 89, 89, 80, 72, 70]
 }
 
+var errorsData = {
+   x: ['00:00', '00:05', '00:10', '00:15', '00:20', '00:25'],
+   y: [30, 50, 70, 40, 50, 20]
+}
+
+var latencyData = {
+   x: ['t1', 't2', 't3', 't4'],
+   y: [5, 1, 7, 5]
+}
+
+
 var last = mockData.y[mockData.y.length-1]
+var lastError = errorsData.y[errorsData.y.length-1]
+var lastLatency = latencyData.y[latencyData.y.length-1]
+
 setLineData()
+setErrorsData()
+setLatencyData()
 
 generateTable()
 table.focus()
@@ -107,28 +127,43 @@ function generateTable() {
    var data = []
 
    for (var i=0; i<30; i++) {
-     var row = []
-     for (var j=0; j<4; j++) {
-      row.push(Math.round(Math.random()*100))
-     }
+     var row = []          
+     //row.push(servers[Math.round(Math.random()*(servers.length-1))])
+     row.push(commands[Math.round(Math.random()*(commands.length-1))])
+     row.push(Math.round(Math.random()*5))
+     row.push(Math.round(Math.random()*100))
+
      data.push(row)
    }
 
-   table.setData({headers: ['Server', 'Command', 'Cpu (%)', 'Memory'], data: data})
+   table.setData({headers: ['Process', 'Cpu (%)', 'Memory'], data: data})
 }
 
-setInterval(generateTable, 2000)
+setInterval(generateTable, 3000)
+
 
 setInterval(function() {
    setLineData()   
    screen.render()
 }, 500)
 
+setInterval(function() {   
+   setErrorsData()
+   screen.render()
+}, 1500)
+
+setInterval(function() {   
+   setLatencyData()
+   screen.render()
+}, 5000)
 
 setInterval(function() {
-   log.log(Math.random() + 'this is some log')   
+   var rnd = Math.round(Math.random()*3)
+   if (rnd==0) log.log('starting process ' + commands[Math.round(Math.random()*(commands.length-1))])   
+   else if (rnd==1) log.log('terminating server ' + servers[Math.round(Math.random()*(servers.length-1))])
+   else if (rnd==2) log.log('avg. wait time ' + Math.random().toFixed(2))
    screen.render()
-}, 100)
+}, 500)
 
 
 var marker = true
@@ -151,4 +186,33 @@ function setLineData() {
   last = Math.max(last + Math.round(Math.random()*10) - 5, 10)    
   mockData.y.push(last)     
   line.setData(mockData.x, mockData.y)
+}
+
+function setErrorsData() {    
+  errorsData.y.shift()
+  lastError = Math.max(lastError + Math.round(Math.random()*20) - 10, 10)
+  errorsData.y.push(lastError)       
+  errorsLine.setData(errorsData.x, errorsData.y)
+}
+
+
+function setLatencyData() {    
+  latencyData.y.shift()
+  lastLatency = Math.max(lastLatency + Math.round(Math.random()*8) - 4, 3)
+  latencyData.y.push(lastLatency)       
+  latencyLine.setData(latencyData.x, latencyData.y)
+}
+
+var spark1 = [1,2,5,2,1,5, 1,2,5,2,1,5, 4,4,5,4,1,5, 1,2,5,2,1,5, 1,2,5,2,1,5, 1,2,5,2,1,5]
+var spark2 = [4,4,5,4,1,5, 1,2,5,2,1,5, 4,4,5,4,1,5, 1,2,5,2,1,5, 1,2,5,2,1,5, 1,2,5,2,1,5]
+
+//refreshSpark()
+setInterval(refreshSpark, 1000)
+
+function refreshSpark() {
+  spark1.shift()
+  spark1.push(Math.random()*5+1)       
+  spark2.shift()
+  spark2.push(Math.random()*5+1)       
+  sparkline.setData(['Server1', 'Server2'], [spark1, spark2])  
 }
