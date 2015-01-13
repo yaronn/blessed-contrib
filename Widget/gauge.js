@@ -10,7 +10,7 @@ function Gauge(options) {
     return new Gauge(options);
   }
 
-  Canvas.call(this, options, require('../../ansi-term'));
+  Canvas.call(this, options, require('ansi-term'));
 
   this.on("attach", function() {
     this.setPercent(0)
