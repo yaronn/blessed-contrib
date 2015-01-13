@@ -1,7 +1,7 @@
 var blessed = require('blessed')
    , Node = blessed.Node
    , Box = blessed.Box
-   , InnerCanvas = require('drawille-canvas').Canvas
+   , InnerCanvas = require('drawille-canvas-blessed-contrib').Canvas
 
 function Canvas(options, canvasType) {  
 
