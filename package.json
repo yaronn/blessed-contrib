@@ -16,6 +16,7 @@
     "blessed": "0.0.37"
   },
   "dependencies": {
+    "ansi-term": "git+https://git@bitbucket.org/yaronn01/ansi-term.git",
     "canvas-map": "git+https://git@bitbucket.org/yaronn01/canvas-map.git",
     "drawille-canvas": "git+https://git@bitbucket.org/yaronn01/node-drawille-canvas.git",
     "memory-streams": "^0.1.0",
