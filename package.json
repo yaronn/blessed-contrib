@@ -16,7 +16,7 @@
     "blessed": "0.0.37"
   },
   "dependencies": {
-    "ansi-term-blessed-contrib": "ansi-term",
+    "ansi-term": "ansi-term",
     "map-canvas": ">=0.0.1",
     "drawille-canvas-blessed-contrib": ">=0.0.1",
     "memory-streams": "^0.1.0",
