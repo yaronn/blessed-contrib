@@ -1,7 +1,7 @@
 var blessed = require('blessed')
    , Node = blessed.Node   
    , Canvas = require('./canvas')
-   , InnerMap = require('../../canvas-map/map')
+   , InnerMap = require('canvas-map')
 
 function Map(options) {  
 

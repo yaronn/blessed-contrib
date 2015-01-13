@@ -1,7 +1,6 @@
 var blessed = require('blessed')
    , Node = blessed.Node   
    , Canvas = require('../canvas')
-   , Chart = require('../../../chart.js/Chart.js')
    , utils = require('../../utils.js')
 
 function Line(options) {  
@@ -21,10 +20,6 @@ function Line(options) {
   options.xPadding = options.xPadding || 10
 
   Canvas.call(this, options);
-
-  this.on("attach", function() {
-    self.chart = new Chart(this.ctx)
-  })
   
 }
 
