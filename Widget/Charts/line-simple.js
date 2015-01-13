@@ -33,6 +33,10 @@ Line.prototype.type = 'line';
 
 Line.prototype.setData = function(labels, data) {           
     
+    if (!this.ctx) {
+      throw "error: canvas context does not exist. setData() for line charts must be called after the chart has been added to the screen via screen.append()"
+    }
+
     var self = this
     var xLabelPadding = this.options.xLabelPadding
     var yLabelPadding = 2

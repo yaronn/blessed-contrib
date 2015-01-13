@@ -26,6 +26,10 @@ Bar.prototype.calcSize = function() {
 
 Bar.prototype.setData = function(bar) {  
   
+   if (!this.ctx) {
+      throw "error: canvas context does not exist. setData() for bar charts must be called after the chart has been added to the screen via screen.append()"
+   }
+
   this.clear()
 
   var c = this.ctx

@@ -27,7 +27,11 @@ Gauge.prototype.__proto__ = Canvas.prototype;
 Gauge.prototype.type = 'gauge';
 
 Gauge.prototype.setPercent = function(percent) {           
-        
+    
+    if (!this.ctx) {
+      throw "error: canvas context does not exist. setData() for line charts must be called after the chart has been added to the screen via screen.append()"
+    }
+
     var c = this.ctx    
 
     c.strokeStyle = 'magenta'

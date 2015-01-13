@@ -26,6 +26,14 @@ the widgets in blessed-contrib follow the same pattern as in the blessed project
      , someWidget = contrib.someWidget({prop: value})
 
    screen.append(someWidget)
+
+   //configure widget after append
+   someWidget.setData({data: value})
+
+   screen.key(['escape', 'q', 'C-c'], function(ch, key) {
+     return process.exit(0);
+   });
+
    screen.render()
 `````
 
@@ -50,11 +58,12 @@ You can also use a layout to position the widgets for you. See details in the da
          , xLabelPadding: 3
          , xPadding: 5
          , label: 'Title'})
-   var lineData = {
+   var data = {
          x: ['t1', 't2', 't3', 't4'],
          y: [5, 1, 7, 5]
       }
-   line.setData(data)
+   screen.append(line) //must append before setting data
+   line.setData(data.x, data.y)
 `````
 
 
@@ -69,6 +78,7 @@ var bar = contrib.bar(
    , barSpacing: 6
    , xOffset: 0
    , maxHeight: 9})
+screen.append(bar) //must append before setting data   
 bar.setData({titles: ['bar1', 'bar2']], data: [5, 10]})
 `````
 

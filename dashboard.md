@@ -32,7 +32,7 @@ A simple dashboard:
 
 `````javascript
    var blessed = require('blessed')
-     , contrib = require('../index')
+     , contrib = require('blessed-contrib')
      , screen = blessed.screen()
      , grid = new contrib.grid({rows: 1, cols: 2})
 
