@@ -6,7 +6,7 @@ Community widgets and samples for blessed
 
 [@YaronNaveh](http://twitter.com/YaronNaveh)
 
-<img src="./docs/images/term3.gif" />
+![term](./docs/images/term3.gif)
 
 The dashboard sample [is here](dashboard.md)
 
@@ -39,7 +39,7 @@ You can also use a layout to position the widgets for you. See details in the da
 
 ### Line Chart
 
-<img src="./docs/images/line.gif" />
+![line](./docs/images/line.gif)
 
 `````javascript
    var line = contrib.line(
@@ -60,7 +60,7 @@ You can also use a layout to position the widgets for you. See details in the da
 
 ### Bar Chart
 
-<img src="./docs/images/bar.gif" />
+![bar](./docs/images/bar.gif)
 
 `````javascript
 var bar = contrib.bar(
@@ -75,7 +75,7 @@ bar.setData({titles: ['bar1', 'bar2']], data: [5, 10]})
 
 ### Map
 
-<img src="./docs/images/map.gif" />
+![map](./docs/images/map.gif)
 
 `````javascript
    var map = contrib.map({label: 'World Map'})
@@ -85,7 +85,7 @@ bar.setData({titles: ['bar1', 'bar2']], data: [5, 10]})
 
 ### Gauge
 
-<img src="./docs/images/gauge.gif" />
+![gauge](./docs/images/gauge.gif)
 
 `````javascript
    var gauge = contrib.gauge({label: 'Progress'})
@@ -94,7 +94,7 @@ bar.setData({titles: ['bar1', 'bar2']], data: [5, 10]})
 
 ### Rolling Log
 
-<img src="./docs/images/log.gif" />
+![log](./docs/images/log.gif)
 
 `````javascript
    var log = contrib.log(
@@ -107,7 +107,7 @@ bar.setData({titles: ['bar1', 'bar2']], data: [5, 10]})
 
 ### Picture
 
-<img src="./docs/images/picture.gif" />
+![picture](./docs/images/picture.gif)
 
 `````javascript
 var pic = contrib.picture({file: './flower.png', cols: 25, onReady: ready})
@@ -119,7 +119,7 @@ note: only png images are supported
 
 ### Sparkline
 
-<img src="./docs/images/spark.gif" />
+![spark](./docs/images/spark.gif)
 
 `````javascript
    var spark = contrib.sparkline(
@@ -132,7 +132,7 @@ note: only png images are supported
 
 ### Table
 
-<img src="./docs/images/table.gif" />
+![table](./docs/images/table.gif)
 
 `````javascript
    var table = contrib.table(
@@ -187,7 +187,7 @@ Grids can be nested:
 
 ### Terminal Dashboard
 
-<img src="./docs/images/term3.gif" />
+![term](./docs/images/term3.gif)
 
 The dashboard details [are here](dashboard.md)
 
