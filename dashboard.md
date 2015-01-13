@@ -4,16 +4,16 @@ A framework for building custom terminal dashboards using javascript.
 
 ## Contributors:
 
-(@YaronNaveh)[http://twitter.com/YaronNaveh]
+[@YaronNaveh](http://twitter.com/YaronNaveh)
 
-<img src="https://raw.githubusercontent.com/yaronn/blessed-contrib/master/docs/images/term3.gif"  width="220px" />
+<img src="./docs/images/term3.gif" />
 
 
 ## Running the sample
 
-   git clone ...
-   cd blessed-contrib
-   node ./exampels/dashboard.js
+    git clone ...
+    cd blessed-contrib
+    node ./exampels/dashboard.js
 
 (the sample source code is here)
 
@@ -67,4 +67,4 @@ A simple dashboard:
 `````
 
 ## More Information
-(@YaronNaveh)[http://twitter.com/YaronNaveh]
+[@YaronNaveh](http://twitter.com/YaronNaveh)

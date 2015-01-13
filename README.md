@@ -4,15 +4,15 @@ Community widgets and samples for blessed
 
 ## Contributors:
 
-(@YaronNaveh)[http://twitter.com/YaronNaveh]
+[@YaronNaveh](http://twitter.com/YaronNaveh)
 
-[pic]
+<img src="./docs/images/term3.gif" />
 
-For the dashboard sample navigate here
+The dashboard sample [is here](dashboard.md)
 
 ## Installation
 
-   npm install blessed-contrib
+    npm install blessed-contrib
 
 
 ##Usage
@@ -37,9 +37,9 @@ You can also use a layout to position the widgets for you. See details in the da
 ## Widgets
 
 
-## Line Chart
+### Line Chart
 
-[pic]
+<img src="./docs/images/line.gif" />
 
 `````javascript
    var line = contrib.line(
@@ -58,9 +58,9 @@ You can also use a layout to position the widgets for you. See details in the da
 `````
 
 
-## Bar Chart
+### Bar Chart
 
-[pic]
+<img src="./docs/images/bar.gif" />
 
 `````javascript
 var bar = contrib.bar(
@@ -73,9 +73,9 @@ bar.setData({titles: ['bar1', 'bar2']], data: [5, 10]})
 `````
 
 
-## Map
+### Map
 
-[pic]
+<img src="./docs/images/map.gif" />
 
 `````javascript
    var map = contrib.map({label: 'World Map'})
@@ -83,18 +83,18 @@ bar.setData({titles: ['bar1', 'bar2']], data: [5, 10]})
 `````
 
 
-## Gauge
+### Gauge
 
-[pic]
+<img src="./docs/images/gauge.gif" />
 
 `````javascript
    var gauge = contrib.gauge({label: 'Progress'})
    gauge.setPercent(25)
 `````
 
-## Rolling Log
+### Rolling Log
 
-[pic]
+<img src="./docs/images/log.gif" />
 
 `````javascript
    var log = contrib.log(
@@ -105,9 +105,9 @@ bar.setData({titles: ['bar1', 'bar2']], data: [5, 10]})
 `````
 
 
-## Picture
+### Picture
 
-[pic]
+<img src="./docs/images/picture.gif" />
 
 `````javascript
 var pic = contrib.picture({file: './flower.png', cols: 25, onReady: ready})
@@ -117,9 +117,9 @@ function ready() {screen.render()}
 note: only png images are supported
 
 
-## Sparkline
+### Sparkline
 
-[pic]
+<img src="./docs/images/spark.gif" />
 
 `````javascript
    var spark = contrib.sparkline(
@@ -130,9 +130,9 @@ note: only png images are supported
    sparkline.setData(['Sparkline1', 'Sparkline2'], [ [10, 20, 30, 20], [40, 10, 40, 50]])  
 `````
 
-## Table
+### Table
 
-[pic]
+<img src="./docs/images/table.gif" />
 
 `````javascript
    var table = contrib.table(
@@ -147,12 +147,10 @@ note: only png images are supported
    table.setData({headers: ['col1', col2'], data: [ [1, 2] , [3, 4] ]})
 `````
 
-## Layouts
+### Layouts
 
 
-## Grid
-
-[pic]
+### Grid
 
 A grid layout can auto position your elements in a grid layout.
 When using a grid, you should not create the widgets, rather specify to the grid which widget to create and with which params.
@@ -187,10 +185,11 @@ Grids can be nested:
 ## Samples
 
 
-## Terminal Dashboard
-[pic]
+### Terminal Dashboard
 
-See dashboard details here
+<img src="./docs/images/term3.gif" />
+
+The dashboard details [are here](dashboard.md)
 
 ## More Information
-(@YaronNaveh)[http://twitter.com/YaronNaveh]
+[@YaronNaveh](http://twitter.com/YaronNaveh)
