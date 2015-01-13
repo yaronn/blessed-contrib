@@ -8,7 +8,7 @@ function Bar(options) {
     return new Bar(options);
   }
 
-  Canvas.call(this, options, require('../../../ansi-term'));
+  Canvas.call(this, options, require('ansi-term'));
 
   this.options.barWidth = this.options.barWidth || 6
   this.options.barSpacing = this.options.barSpacing || 9
