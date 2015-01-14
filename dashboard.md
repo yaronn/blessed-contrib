@@ -6,7 +6,7 @@ A framework for building custom terminal dashboards using javascript.
 
 [@YaronNaveh](http://twitter.com/YaronNaveh)
 
-![term](./docs/images/term3.gif)
+<img src="./docs/images/term3.gif" alt="term" width="200">
 
 
 ## Running the sample
