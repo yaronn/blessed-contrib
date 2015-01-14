@@ -1,35 +1,60 @@
 ## blessed-contrib
 
-Community widgets and samples for blessed
+A collection of [blessed](https://github.com/chjj/blessed) and  [drawille](https://github.com/madbence/node-drawille) custom widgets and samples.
 
-## Contributors:
+Build dashboards (or any other application) using ascii/ansi art and javascript.
 
-[@YaronNaveh](http://twitter.com/YaronNaveh)
+Friendly to terminals, ssh and developers.
 
-![term](./docs/images/term3.gif)
 
-The dashboard sample [is here](dashboard.md)
 
-## Installation
+**Contributors:**
 
+Yaron Naveh ([@YaronNaveh](http://twitter.com/YaronNaveh))
+
+**Demo:**
+
+<img src="./docs/images/term3.gif" alt="term" width="800">
+
+([source code](./examples/dashboard.js))
+
+**Running the demo**
+
+    git clone https://github.com/yaronn/blessed-contrib.git
+    cd blessed-contrib
+    npm install
+    node ./exampels/dashboard.js
+
+Tested on Linux and OS X. In order to use on windows need to install Braille fonts (not tested).
+
+## Installation (to build custom projects)
+
+    npm install blessed
     npm install blessed-contrib
-
 
 ##Usage
 
-the widgets in blessed-contrib follow the same pattern as in the blessed project:
+the widgets in blessed-contrib follow the same pattern as in the [blessed](https://github.com/chjj/blessed) project:
 
 `````javascript
    var blessed = require('blessed')
      , contrib = require('blessed-contrib')
      , screen = blessed.screen()
-     , someWidget = contrib.someWidget({prop: value})
-
-   screen.append(someWidget)
-
-   //configure widget after append
-   someWidget.setData({data: value})
-
+     , line = contrib.line(
+         { style: 
+           { line: "yellow"
+           , text: "green"
+           , baseline: "black"}
+         , xLabelPadding: 3
+         , xPadding: 5
+         , label: 'Title'})
+     , data = {
+         x: ['t1', 't2', 't3', 't4'],
+         y: [5, 1, 7, 5]
+      }
+   screen.append(line) //must append before setting data
+   line.setData(data.x, data.y)
+   
    screen.key(['escape', 'q', 'C-c'], function(ch, key) {
      return process.exit(0);
    });
@@ -39,7 +64,7 @@ the widgets in blessed-contrib follow the same pattern as in the blessed project
 
 See bellow for a complete list of widgets.
 
-You can also use a layout to position the widgets for you. See details in the dashboard sample.
+You can also use a layout to position the widgets for you (details in the layouts section).
 
 
 ## Widgets
@@ -47,7 +72,7 @@ You can also use a layout to position the widgets for you. See details in the da
 
 ### Line Chart
 
-![line](./docs/images/line.gif)
+<img src="./docs/images/line.gif" alt="line" width="400">
 
 `````javascript
    var line = contrib.line(
@@ -69,23 +94,25 @@ You can also use a layout to position the widgets for you. See details in the da
 
 ### Bar Chart
 
-![bar](./docs/images/bar.gif)
+<img src="./docs/images/bar.gif" alt="bar" width="250">
 
 `````javascript
-var bar = contrib.bar(
-   { label: 'Server Utilization (%)'
-   , barWidth: 4
-   , barSpacing: 6
-   , xOffset: 0
-   , maxHeight: 9})
-screen.append(bar) //must append before setting data   
-bar.setData({titles: ['bar1', 'bar2']], data: [5, 10]})
+    var bar = contrib.bar(
+       { label: 'Server Utilization (%)'
+       , barWidth: 4
+       , barSpacing: 6
+       , xOffset: 0
+       , maxHeight: 9})
+    screen.append(bar) //must append before setting data   
+    bar.setData(
+       { titles: ['bar1', 'bar2']]
+       , data: [5, 10]})
 `````
 
 
 ### Map
 
-![map](./docs/images/map.gif)
+<img src="./docs/images/map.gif" alt="map" width="500">
 
 `````javascript
    var map = contrib.map({label: 'World Map'})
@@ -95,7 +122,7 @@ bar.setData({titles: ['bar1', 'bar2']], data: [5, 10]})
 
 ### Gauge
 
-![gauge](./docs/images/gauge.gif)
+<img src="./docs/images/gauge.gif" alt="gauge" width="170">
 
 `````javascript
    var gauge = contrib.gauge({label: 'Progress'})
@@ -104,7 +131,7 @@ bar.setData({titles: ['bar1', 'bar2']], data: [5, 10]})
 
 ### Rolling Log
 
-![log](./docs/images/log.gif)
+<img src="./docs/images/log.gif" alt="log" width="180">
 
 `````javascript
    var log = contrib.log(
@@ -117,11 +144,12 @@ bar.setData({titles: ['bar1', 'bar2']], data: [5, 10]})
 
 ### Picture
 
-![picture](./docs/images/picture.gif)
-
 `````javascript
-var pic = contrib.picture({file: './flower.png', cols: 25, onReady: ready})
-function ready() {screen.render()}
+    var pic = contrib.picture(
+       { file: './flower.png'
+       , cols: 25
+       , onReady: ready})
+    function ready() {screen.render()}
 `````
 
 note: only png images are supported
@@ -129,7 +157,7 @@ note: only png images are supported
 
 ### Sparkline
 
-![spark](./docs/images/spark.gif)
+<img src="./docs/images/spark.gif" alt="spark" width="180">
 
 `````javascript
    var spark = contrib.sparkline(
@@ -137,12 +165,15 @@ note: only png images are supported
      , tags: true
      , style: { fg: 'blue' }})
 
-   sparkline.setData(['Sparkline1', 'Sparkline2'], [ [10, 20, 30, 20], [40, 10, 40, 50]])  
+   sparkline.setData(
+   [ 'Sparkline1', 'Sparkline2'], 
+   [ [10, 20, 30, 20]
+   , [40, 10, 40, 50]])
 `````
 
 ### Table
 
-![table](./docs/images/table.gif)
+<img src="./docs/images/table.gif" alt="table" width="250">
 
 `````javascript
    var table = contrib.table(
@@ -154,7 +185,11 @@ note: only png images are supported
    //allow control the table with the keyboard
    table.focus()
 
-   table.setData({headers: ['col1', col2'], data: [ [1, 2] , [3, 4] ]})
+   table.setData(
+   { headers: ['col1', col2']
+   , data: 
+      [ [1, 2] 
+      , [3, 4] ]})
 `````
 
 ### Layouts
@@ -197,9 +232,63 @@ Grids can be nested:
 
 ### Terminal Dashboard
 
-![term](./docs/images/term3.gif)
+<img src="./docs/images/term3.gif" alt="term" width="800">
 
-The dashboard details [are here](dashboard.md)
+**Running the sample**
+
+    git clone https://github.com/yaronn/blessed-contrib.git
+    cd blessed-contrib
+    npm install
+    node ./exampels/dashboard.js
+
+**Installation (for a custom dashbaord)**
+
+    npm install blessed
+    npm install blessed-contrib
+
+
+**A simple dashboard**
+
+`````javascript
+   var blessed = require('blessed')
+     , contrib = require('blessed-contrib')
+     , screen = blessed.screen()
+     , grid = new contrib.grid({rows: 1, cols: 2})
+
+   grid.set(0, 0, contrib.line, 
+     { style: 
+       { line: "yellow"
+       , text: "green"
+       , baseline: "black"}
+     , xLabelPadding: 3
+     , xPadding: 5
+     , label: 'Stocks'})
+
+   grid.set(0, 1, contrib.map, {label: 'Servers Location'})
+
+   grid.applyLayout(screen)
+
+   var line = grid.get(0, 0)
+   var map = grid.get(0, 1)
+
+   var lineData = {
+      x: ['t1', 't2', 't3', 't4'],
+      y: [5, 1, 7, 5]
+   }
+
+   line.setData(lineData.x, lineData.y)
+
+   screen.key(['escape', 'q', 'C-c'], function(ch, key) {
+     return process.exit(0);
+   });
+
+   screen.render()
+`````
+
+**Rich dashboard**
+
+See [source code](./examples/dashboard.js)
+
 
 ## More Information
-[@YaronNaveh](http://twitter.com/YaronNaveh)
+Created by Yaron Naveh ([twitter](http://twitter.com/YaronNaveh), [blog](http://webservices20.blogspot.com/))
