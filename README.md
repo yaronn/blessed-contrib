@@ -20,7 +20,7 @@ Yaron Naveh ([@YaronNaveh](http://twitter.com/YaronNaveh))
     git clone https://github.com/yaronn/blessed-contrib.git
     cd blessed-contrib
     npm install
-    node ./exampels/dashboard.js
+    node ./examples/dashboard.js
 
 Tested on Linux and OS X. In order to use on windows need to install Braille fonts (not tested).
 
@@ -236,7 +236,7 @@ Grids can be nested:
     git clone https://github.com/yaronn/blessed-contrib.git
     cd blessed-contrib
     npm install
-    node ./exampels/dashboard.js
+    node ./examples/dashboard.js
 
 **Installation (for a custom dashbaord)**
 
