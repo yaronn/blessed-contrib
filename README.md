@@ -69,7 +69,7 @@ You can also use a layout to position the widgets for you. See details in the da
 
 ### Bar Chart
 
-<img src="./docs/images/bar.gif" alt="bar" width="300">
+<img src="./docs/images/bar.gif" alt="bar" width="250">
 
 `````javascript
 var bar = contrib.bar(
@@ -85,7 +85,7 @@ bar.setData({titles: ['bar1', 'bar2']], data: [5, 10]})
 
 ### Map
 
-<img src="./docs/images/map.gif" alt="map" width="600">
+<img src="./docs/images/map.gif" alt="map" width="500">
 
 `````javascript
    var map = contrib.map({label: 'World Map'})
@@ -95,7 +95,7 @@ bar.setData({titles: ['bar1', 'bar2']], data: [5, 10]})
 
 ### Gauge
 
-<img src="./docs/images/gauge.gif" alt="gauge" width="200">
+<img src="./docs/images/gauge.gif" alt="gauge" width="170">
 
 `````javascript
    var gauge = contrib.gauge({label: 'Progress'})
@@ -104,7 +104,7 @@ bar.setData({titles: ['bar1', 'bar2']], data: [5, 10]})
 
 ### Rolling Log
 
-<img src="./docs/images/log.gif" alt="log" width="200">
+<img src="./docs/images/log.gif" alt="log" width="180">
 
 `````javascript
    var log = contrib.log(
@@ -127,7 +127,7 @@ note: only png images are supported
 
 ### Sparkline
 
-<img src="./docs/images/spark.gif" alt="spark" width="200">
+<img src="./docs/images/spark.gif" alt="spark" width="180">
 
 `````javascript
    var spark = contrib.sparkline(
@@ -140,7 +140,7 @@ note: only png images are supported
 
 ### Table
 
-<img src="./docs/images/table.gif" alt="table" width="300">
+<img src="./docs/images/table.gif" alt="table" width="250">
 
 `````javascript
    var table = contrib.table(
