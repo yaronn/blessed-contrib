@@ -1,15 +1,16 @@
 ## blessed-contrib
 
-Community widgets and samples for [blessed](https://github.com/chjj/blessed)
+Community widgets and samples for [blessed](https://github.com/chjj/blessed).
 
 **Contributors:**
 
 [@YaronNaveh](http://twitter.com/YaronNaveh)
 
+**Sample Usage:**
 
 <img src="./docs/images/term3.gif" alt="term" width="800">
 
-The dashboard sample [is here](dashboard.md).
+You can build your own dashboard ([doc](dashboard.md), [code](./examples/dashboard.js)).
 
 ## Installation
 
@@ -18,7 +19,7 @@ The dashboard sample [is here](dashboard.md).
 
 ##Usage
 
-the widgets in blessed-contrib follow the same pattern as in the blessed project:
+the widgets in blessed-contrib follow the same pattern as in the [blessed](https://github.com/chjj/blessed) project:
 
 `````javascript
    var blessed = require('blessed')
@@ -40,7 +41,7 @@ the widgets in blessed-contrib follow the same pattern as in the blessed project
 
 See bellow for a complete list of widgets.
 
-You can also use a layout to position the widgets for you. See details in the dashboard sample.
+You can also use a layout to position the widgets for you (details in the layouts section).
 
 
 ## Widgets
@@ -73,14 +74,16 @@ You can also use a layout to position the widgets for you. See details in the da
 <img src="./docs/images/bar.gif" alt="bar" width="250">
 
 `````javascript
-var bar = contrib.bar(
-   { label: 'Server Utilization (%)'
-   , barWidth: 4
-   , barSpacing: 6
-   , xOffset: 0
-   , maxHeight: 9})
-screen.append(bar) //must append before setting data   
-bar.setData({titles: ['bar1', 'bar2']], data: [5, 10]})
+    var bar = contrib.bar(
+       { label: 'Server Utilization (%)'
+       , barWidth: 4
+       , barSpacing: 6
+       , xOffset: 0
+       , maxHeight: 9})
+    screen.append(bar) //must append before setting data   
+    bar.setData(
+       { titles: ['bar1', 'bar2']]
+       , data: [5, 10]})
 `````
 
 
@@ -119,8 +122,11 @@ bar.setData({titles: ['bar1', 'bar2']], data: [5, 10]})
 ### Picture
 
 `````javascript
-var pic = contrib.picture({file: './flower.png', cols: 25, onReady: ready})
-function ready() {screen.render()}
+    var pic = contrib.picture(
+       { file: './flower.png'
+       , cols: 25
+       , onReady: ready})
+    function ready() {screen.render()}
 `````
 
 note: only png images are supported
@@ -136,7 +142,10 @@ note: only png images are supported
      , tags: true
      , style: { fg: 'blue' }})
 
-   sparkline.setData(['Sparkline1', 'Sparkline2'], [ [10, 20, 30, 20], [40, 10, 40, 50]])  
+   sparkline.setData(
+   [ 'Sparkline1', 'Sparkline2'], 
+   [ [10, 20, 30, 20]
+   , [40, 10, 40, 50]])
 `````
 
 ### Table
@@ -153,7 +162,11 @@ note: only png images are supported
    //allow control the table with the keyboard
    table.focus()
 
-   table.setData({headers: ['col1', col2'], data: [ [1, 2] , [3, 4] ]})
+   table.setData(
+   { headers: ['col1', col2']
+   , data: 
+      [ [1, 2] 
+      , [3, 4] ]})
 `````
 
 ### Layouts
