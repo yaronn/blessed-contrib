@@ -29,6 +29,7 @@ Tested on Linux and OS X. In order to use on windows need to install Braille fon
 
 ## Installation (to build custom projects)
 
+    npm install blessed
     npm install blessed-contrib
 
 ##Usage
@@ -39,13 +40,21 @@ the widgets in blessed-contrib follow the same pattern as in the [blessed](https
    var blessed = require('blessed')
      , contrib = require('blessed-contrib')
      , screen = blessed.screen()
-     , someWidget = contrib.someWidget({prop: value})
-
-   screen.append(someWidget)
-
-   //configure widget after append
-   someWidget.setData({data: value})
-
+     , line = contrib.line(
+         { style: 
+           { line: "yellow"
+           , text: "green"
+           , baseline: "black"}
+         , xLabelPadding: 3
+         , xPadding: 5
+         , label: 'Title'})
+     , data = {
+         x: ['t1', 't2', 't3', 't4'],
+         y: [5, 1, 7, 5]
+      }
+   screen.append(line) //must append before setting data
+   line.setData(data.x, data.y)
+   
    screen.key(['escape', 'q', 'C-c'], function(ch, key) {
      return process.exit(0);
    });
