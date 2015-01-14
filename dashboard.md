@@ -11,7 +11,7 @@ Yaron Naveh ([@YaronNaveh](http://twitter.com/YaronNaveh))
 
 ## Running the sample
 
-    git clone ...
+    git clone https://github.com/yaronn/blessed-contrib.git
     cd blessed-contrib
     npm install
     node ./exampels/dashboard.js
