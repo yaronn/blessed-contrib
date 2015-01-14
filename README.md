@@ -214,4 +214,4 @@ Grids can be nested:
 The dashboard details [are here](dashboard.md).
 
 ## More Information
-[twitter](http://twitter.com/YaronNaveh), [blog](http://webservices20.blogspot.com/)
+Created by Yaron Naveh ([twitter](http://twitter.com/YaronNaveh), [blog](http://webservices20.blogspot.com/))
