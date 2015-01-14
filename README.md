@@ -1,11 +1,10 @@
 ## blessed-contrib
 
-A collection of [blessed](https://github.com/chjj/blessed) and  [drawille](https://github.com/madbence/node-drawille) custom widgets and samples.
-
 Build dashboards (or any other application) using ascii/ansi art and javascript.
 
 Friendly to terminals, ssh and developers.
 
+Extends [blessed](https://github.com/chjj/blessed) with custom  [drawille](https://github.com/madbence/node-drawille) and other widgets.
 
 
 **Contributors:**
