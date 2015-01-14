@@ -1,6 +1,8 @@
 ## blessed-contrib
 
-Community widgets and samples for [blessed](https://github.com/chjj/blessed).
+Community widgets and samples for [blessed](https://github.com/chjj/blessed) and  [drawille](https://github.com/madbence/node-drawille).
+Build dashboards (or any other application) using ascii/ansi art and javascript. 
+Friendly to terminals, ssh and developers.
 
 **Contributors:**
 
@@ -10,12 +12,20 @@ Yaron Naveh ([@YaronNaveh](http://twitter.com/YaronNaveh))
 
 <img src="./docs/images/term3.gif" alt="term" width="800">
 
-You can build your own dashboards ([doc](dashboard.md), [code](./examples/dashboard.js)).
+You can build your own dashboards ([code](./examples/dashboard.js).
 
-## Installation
+**Running the demo**
+
+    git clone https://github.com/yaronn/blessed-contrib.git
+    cd blessed-contrib
+    npm install
+    node ./exampels/dashboard.js
+
+Tested on Linux and OS X. In order to use on windows need to install Braille fonts (not tested).
+
+## Installation (to build custom projects)
 
     npm install blessed-contrib
-
 
 ##Usage
 
@@ -211,7 +221,60 @@ Grids can be nested:
 
 <img src="./docs/images/term3.gif" alt="term" width="800">
 
-The dashboard details [are here](dashboard.md).
+**Running the sample**
+
+    git clone https://github.com/yaronn/blessed-contrib.git
+    cd blessed-contrib
+    npm install
+    node ./exampels/dashboard.js
+
+**Installation (for a custom dashbaord)**
+
+   npm install blessed
+   npm install blessed-contrib
+
+
+**A simple dashboard**
+
+`````javascript
+   var blessed = require('blessed')
+     , contrib = require('blessed-contrib')
+     , screen = blessed.screen()
+     , grid = new contrib.grid({rows: 1, cols: 2})
+
+   grid.set(0, 0, contrib.line, 
+     { style: 
+       { line: "yellow"
+       , text: "green"
+       , baseline: "black"}
+     , xLabelPadding: 3
+     , xPadding: 5
+     , label: 'Stocks'})
+
+   grid.set(0, 1, contrib.map, {label: 'Servers Location'})
+
+   grid.applyLayout(screen)
+
+   var line = grid.get(0, 0)
+   var map = grid.get(0, 1)
+
+   var lineData = {
+      x: ['t1', 't2', 't3', 't4'],
+      y: [5, 1, 7, 5]
+   }
+
+   line.setData(lineData.x, lineData.y)
+
+   screen.key(['escape', 'q', 'C-c'], function(ch, key) {
+     return process.exit(0);
+   });
+
+   screen.render()
+`````
+
+**Rich dashboard**
+See source [here](./examples/dashboard.js)
+
 
 ## More Information
 Created by Yaron Naveh ([twitter](http://twitter.com/YaronNaveh), [blog](http://webservices20.blogspot.com/))
