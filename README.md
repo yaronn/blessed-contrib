@@ -6,7 +6,7 @@ Community widgets and samples for blessed
 
 [@YaronNaveh](http://twitter.com/YaronNaveh)
 
-![term](./docs/images/term3.gif)
+<img src="./docs/images/term3.gif" alt="term" width="800">
 
 The dashboard sample [is here](dashboard.md)
 
@@ -47,7 +47,7 @@ You can also use a layout to position the widgets for you. See details in the da
 
 ### Line Chart
 
-![line](./docs/images/line.gif)
+<img src="./docs/images/line.gif" alt="line" width="400">
 
 `````javascript
    var line = contrib.line(
@@ -69,7 +69,7 @@ You can also use a layout to position the widgets for you. See details in the da
 
 ### Bar Chart
 
-![bar](./docs/images/bar.gif)
+<img src="./docs/images/bar.gif" alt="bar" width="400">
 
 `````javascript
 var bar = contrib.bar(
@@ -85,7 +85,7 @@ bar.setData({titles: ['bar1', 'bar2']], data: [5, 10]})
 
 ### Map
 
-![map](./docs/images/map.gif)
+<img src="./docs/images/map.gif" alt="map" width="400">
 
 `````javascript
    var map = contrib.map({label: 'World Map'})
@@ -95,7 +95,7 @@ bar.setData({titles: ['bar1', 'bar2']], data: [5, 10]})
 
 ### Gauge
 
-![gauge](./docs/images/gauge.gif)
+<img src="./docs/images/gauge.gif" alt="gauge" width="300">
 
 `````javascript
    var gauge = contrib.gauge({label: 'Progress'})
@@ -104,7 +104,7 @@ bar.setData({titles: ['bar1', 'bar2']], data: [5, 10]})
 
 ### Rolling Log
 
-![log](./docs/images/log.gif)
+<img src="./docs/images/log.gif" alt="log" width="300">
 
 `````javascript
    var log = contrib.log(
@@ -117,7 +117,7 @@ bar.setData({titles: ['bar1', 'bar2']], data: [5, 10]})
 
 ### Picture
 
-![picture](./docs/images/picture.gif)
+<img src="./docs/images/picture.gif" alt="picture" width="300">
 
 `````javascript
 var pic = contrib.picture({file: './flower.png', cols: 25, onReady: ready})
@@ -129,7 +129,7 @@ note: only png images are supported
 
 ### Sparkline
 
-![spark](./docs/images/spark.gif)
+<img src="./docs/images/spark.gif" alt="spark" width="300">
 
 `````javascript
    var spark = contrib.sparkline(
@@ -142,7 +142,7 @@ note: only png images are supported
 
 ### Table
 
-![table](./docs/images/table.gif)
+<img src="./docs/images/table.gif" alt="table" width="400">
 
 `````javascript
    var table = contrib.table(
@@ -197,7 +197,7 @@ Grids can be nested:
 
 ### Terminal Dashboard
 
-![term](./docs/images/term3.gif)
+<img src="./docs/images/term3.gif" alt="term" width="800">
 
 The dashboard details [are here](dashboard.md)
 
