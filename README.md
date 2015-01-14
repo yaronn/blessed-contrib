@@ -286,6 +286,8 @@ Grids can be nested:
 
 See [source code](./examples/dashboard.js)
 
+## License
+This library is under the [MIT License](http://opensource.org/licenses/MIT)
 
 ## More Information
 Created by Yaron Naveh ([twitter](http://twitter.com/YaronNaveh), [blog](http://webservices20.blogspot.com/))
