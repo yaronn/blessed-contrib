@@ -2,7 +2,7 @@
 
 Community widgets and samples for blessed
 
-## Contributors:
+### Contributors:
 
 [@YaronNaveh](http://twitter.com/YaronNaveh)
 
