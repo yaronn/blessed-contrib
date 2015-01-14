@@ -13,6 +13,7 @@ A framework for building custom terminal dashboards using javascript.
 
     git clone ...
     cd blessed-contrib
+    npm install
     node ./exampels/dashboard.js
 
 (the sample source code is here)
