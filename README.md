@@ -211,7 +211,7 @@ Grids can be nested:
 
 <img src="./docs/images/term3.gif" alt="term" width="800">
 
-The dashboard details [are here](dashboard.md)
+The dashboard details [are here](dashboard.md).
 
 ## More Information
-[@YaronNaveh](http://twitter.com/YaronNaveh)
+[twitter](http://twitter.com/YaronNaveh), [blog](http://webservices20.blogspot.com/)
