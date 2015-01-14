@@ -1,13 +1,15 @@
 ## blessed-contrib
 
-Community widgets and samples for blessed
+Community widgets and samples for [blessed](https://github.com/chjj/blessed)
 
 **Contributors:**
+
 [@YaronNaveh](http://twitter.com/YaronNaveh)
+
 
 <img src="./docs/images/term3.gif" alt="term" width="800">
 
-The dashboard sample [is here](dashboard.md)
+The dashboard sample [is here](dashboard.md).
 
 ## Installation
 
