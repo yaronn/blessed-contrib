@@ -4,7 +4,7 @@ Community widgets and samples for [blessed](https://github.com/chjj/blessed).
 
 **Contributors:**
 
-[@YaronNaveh](http://twitter.com/YaronNaveh)
+Yaron Naveh ([@YaronNaveh](http://twitter.com/YaronNaveh))
 
 **Demo:**
 
