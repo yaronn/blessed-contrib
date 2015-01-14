@@ -1,7 +1,9 @@
 ## blessed-contrib
 
 Community widgets and samples for [blessed](https://github.com/chjj/blessed) and  [drawille](https://github.com/madbence/node-drawille).
+
 Build dashboards (or any other application) using ascii/ansi art and javascript. 
+
 Friendly to terminals, ssh and developers.
 
 **Contributors:**
@@ -12,7 +14,7 @@ Yaron Naveh ([@YaronNaveh](http://twitter.com/YaronNaveh))
 
 <img src="./docs/images/term3.gif" alt="term" width="800">
 
-You can build your own dashboards ([code](./examples/dashboard.js).
+demo [source code](./examples/dashboard.js))
 
 **Running the demo**
 
@@ -230,8 +232,8 @@ Grids can be nested:
 
 **Installation (for a custom dashbaord)**
 
-   npm install blessed
-   npm install blessed-contrib
+    npm install blessed
+    npm install blessed-contrib
 
 
 **A simple dashboard**
@@ -273,7 +275,8 @@ Grids can be nested:
 `````
 
 **Rich dashboard**
-See source [here](./examples/dashboard.js)
+
+See [source code](./examples/dashboard.js)
 
 
 ## More Information
