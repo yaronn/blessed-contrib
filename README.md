@@ -6,11 +6,11 @@ Community widgets and samples for [blessed](https://github.com/chjj/blessed).
 
 [@YaronNaveh](http://twitter.com/YaronNaveh)
 
-**Sample Usage:**
+**Demo:**
 
 <img src="./docs/images/term3.gif" alt="term" width="800">
 
-You can build your own dashboard ([doc](dashboard.md), [code](./examples/dashboard.js)).
+You can build your own dashboards ([doc](dashboard.md), [code](./examples/dashboard.js)).
 
 ## Installation
 
