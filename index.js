@@ -1,14 +1,14 @@
 
-exports.grid = require('./Layout/grid.js')
+exports.grid = require('./layout/grid.js')
 
-exports.map = require('./Widget/map.js')
-exports.canvas = require('./Widget/canvas.js')
+exports.map = require('./widget/map.js')
+exports.canvas = require('./widget/canvas.js')
 
-exports.gauge = require('./Widget/gauge.js')
-exports.log = require('./Widget/log.js')
-exports.picture = require('./Widget/picture.js')
-exports.sparkline = require('./Widget/sparkline.js')
-exports.table = require('./Widget/table.js')
+exports.gauge = require('./widget/gauge.js')
+exports.log = require('./widget/log.js')
+exports.picture = require('./widget/picture.js')
+exports.sparkline = require('./widget/sparkline.js')
+exports.table = require('./widget/table.js')
 
-exports.bar = require('./Widget/Charts/bar.js')
-exports.line = require('./Widget/Charts/line-simple.js')
+exports.bar = require('./widget/charts/bar.js')
+exports.line = require('./widget/charts/line-simple.js')
