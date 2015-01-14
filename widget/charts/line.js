@@ -1,3 +1,4 @@
+/*
 var blessed = require('blessed')
    , Node = blessed.Node   
    , Canvas = require('../canvas')
@@ -58,3 +59,4 @@ Line.prototype.setData = function(labels, data) {
 }
 
 module.exports = Line
+*/
