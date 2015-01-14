@@ -4,7 +4,7 @@ A framework for building custom terminal dashboards using javascript.
 
 ## Contributors:
 
-[@YaronNaveh](http://twitter.com/YaronNaveh)
+Yaron Naveh ([@YaronNaveh](http://twitter.com/YaronNaveh))
 
 <img src="./docs/images/term3.gif" alt="term" width="800">
 
@@ -68,4 +68,4 @@ A simple dashboard:
 `````
 
 ## More Information
-[@YaronNaveh](http://twitter.com/YaronNaveh)
+Created by Yaron Naveh ([twitter](http://twitter.com/YaronNaveh), [blog](http://webservices20.blogspot.com/))
