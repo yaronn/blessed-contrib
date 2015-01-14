@@ -2,7 +2,7 @@
 
 Community widgets and samples for blessed
 
-*Contributors:*
+**Contributors:**
 [@YaronNaveh](http://twitter.com/YaronNaveh)
 
 <img src="./docs/images/term3.gif" alt="term" width="800">
