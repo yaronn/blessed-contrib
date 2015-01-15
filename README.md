@@ -183,7 +183,7 @@ note: only png images are supported
    table.focus()
 
    table.setData(
-   { headers: ['col1', col2']
+   { headers: ['col1', 'col2']
    , data: 
       [ [1, 2] 
       , [3, 4] ]})
