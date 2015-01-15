@@ -4,7 +4,7 @@ var contrib = require('../../index')
 var screen = blessed.screen()
 
 var rows = 3, cols = 3
-var grid = new contrib.Layout.Grid({rows: rows, cols: cols})
+var grid = new contrib.grid({rows: rows, cols: cols})
 for (var i=0; i<rows; i++) {
    for (var j=0; j<cols; j++)
    {
