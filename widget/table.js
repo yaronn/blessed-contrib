@@ -1,8 +1,8 @@
 var blessed = require('blessed')
    , Node = blessed.Node
-   , Box = blessed.Box      
+   , Box = blessed.Box
 
-function Table(options) {  
+function Table(options) {
 
   if (!(this instanceof Node)) {
     return new Table(options);
@@ -18,14 +18,14 @@ function Table(options) {
           height: 0,
           top: 2,
           width: 0,
-          left: 1,    
+          left: 1,
           selectedFg: 'white',
           selectedBg: 'blue',
           fg: "green",
-          keys: true          
-        });  
+          keys: true
+        });
 
-  this.append(this.rows)  
+  this.append(this.rows)
 }
 
 Table.prototype.render = function() {
@@ -36,22 +36,26 @@ Table.prototype.render = function() {
 }
 
 
-Table.prototype.setData = function(table) {    
-  
+Table.prototype.setData = function(table) {
+
   var dataToString = function(d) {
-    var str = ""
-    d.forEach(function(r) {      
-      var spaces = new Array(self.options.columnSpacing-r.toString().length).join(' ')
-      str += r + spaces
-    })
-    return str
-  }
+    var str = "";
+    d.forEach(function(r, i) {
+      var colsize = self.options.columnSpacing;
+      if(typeof self.options.columnSpacing == "object") {
+        colsize = self.options.columnSpacing[i];
+      }
+      var spaces = new Array(colsize-r.toString().length).join(' ');
+      str += r + spaces;
+    });
+    return str;
+  };
 
   var formatted = []
   var self = this
 
   table.data.forEach(function(d) {
-    var str = dataToString(d);    
+    var str = dataToString(d);
     formatted.push(str)
   })
   this.setContent(dataToString(table.headers))
