@@ -41,7 +41,7 @@ grid3.set(0, 1, contrib.table,
   { keys: true
   , fg: 'green'
   , label: 'Active Processes'
-  , columnSpacing: 16})
+  , columnSpacing: [24, 10, 10]})
 
 var grid4 = new contrib.grid({rows: 3, cols: 1})
 grid4.set(0, 0, contrib.line, 

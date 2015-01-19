@@ -177,7 +177,7 @@ note: only png images are supported
      { keys: true
      , fg: 'green'
      , label: 'Active Processes'
-     , columnSpacing: 16})
+     , columnSpacing: [16, 12, 12] /*or just 16*/})
 
    //allow control the table with the keyboard
    table.focus()

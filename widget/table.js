@@ -40,8 +40,14 @@ Table.prototype.setData = function(table) {
   
   var dataToString = function(d) {
     var str = ""
-    d.forEach(function(r) {
-      var spaceLength = self.options.columnSpacing - r.toString().length
+    d.forEach(function(r, i) {
+
+      var colsize = self.options.columnSpacing;
+      if(typeof self.options.columnSpacing == "object") {
+        colsize = self.options.columnSpacing[i];
+      }
+
+      var spaceLength = colsize - r.toString().length
       if (spaceLength < 0) {
         spaceLength = 0;
       }
