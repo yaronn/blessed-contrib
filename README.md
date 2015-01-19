@@ -31,7 +31,7 @@ Tested on Linux and OS X. In order to use on windows need to install Braille fon
 
 ##Usage
 
-the widgets in blessed-contrib follow the same pattern as in the [blessed](https://github.com/chjj/blessed) project:
+You can use any of the default widgets of [blessed](https://github.com/chjj/blessed) (texts, lists and etc). The widgets in blessed-contrib follow the same usage pattern:
 
 `````javascript
    var blessed = require('blessed')
