@@ -40,8 +40,12 @@ Table.prototype.setData = function(table) {
   
   var dataToString = function(d) {
     var str = ""
-    d.forEach(function(r) {      
-      var spaces = new Array(self.options.columnSpacing-r.toString().length).join(' ')
+    d.forEach(function(r) {
+      var spaceLength = self.options.columnSpacing - r.toString().length
+      if (spaceLength < 0) {
+        spaceLength = 0;
+      }
+      var spaces = new Array(spaceLength).join(' ')
       str += r + spaces
     })
     return str
