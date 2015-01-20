@@ -102,7 +102,7 @@ You can also use a layout to position the widgets for you (details in the layout
        , maxHeight: 9})
     screen.append(bar) //must append before setting data   
     bar.setData(
-       { titles: ['bar1', 'bar2']]
+       { titles: ['bar1', 'bar2']
        , data: [5, 10]})
 `````
 
