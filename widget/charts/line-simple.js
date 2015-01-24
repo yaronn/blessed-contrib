@@ -85,6 +85,7 @@ Line.prototype.setData = function(labels, data) {
     if (getMaxY()>=10) {
       yLabelIncrement = yLabelIncrement + (10 - yLabelIncrement % 10)
     }
+    yLabelIncrement = Math.max(yLabelIncrement, 1) // should not be zero
 
     // Draw the Y value texts
     for(var i = 0; i < getMaxY(); i += yLabelIncrement) {    
