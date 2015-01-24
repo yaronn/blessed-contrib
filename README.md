@@ -113,7 +113,7 @@ You can also use a layout to position the widgets for you (details in the layout
 
 `````javascript
    var map = contrib.map({label: 'World Map'})
-   map.addMarker({"lon" : "37.5000", "lat" : "-79.0000" })
+   map.addMarker({"lon" : "37.5000", "lat" : "-79.0000", color: "red", char: "X" })
 `````
 
 

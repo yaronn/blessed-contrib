@@ -153,7 +153,7 @@ function refreshSpark() {
 var marker = true
 setInterval(function() {
    if (marker) {
-    map.addMarker({"lon" : "37.5000", "lat" : "-79.0000" })
+    map.addMarker({"lon" : "37.5000", "lat" : "-79.0000", color: 'yellow', char: 'X' })
     map.addMarker({"lon" : "45.5200", "lat" : "-122.6819" })
     map.addMarker({"lon" : "53.3478", "lat" : "-6.2597" })
     map.addMarker({"lon" : "1.3000", "lat" : "103.8000" })
