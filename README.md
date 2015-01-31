@@ -9,7 +9,7 @@ Friendly to terminals, ssh and developers. Extends [blessed](https://github.com/
 
 Yaron Naveh ([@YaronNaveh](http://twitter.com/YaronNaveh))
 
-**Demo:**
+**Demo ([full size](https://raw.githubusercontent.com/yaronn/blessed-contrib/master/docs/images/term3.gif)):**
 
 <img src="./docs/images/term3.gif" alt="term" width="800">
 
