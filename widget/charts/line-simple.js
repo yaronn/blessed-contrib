@@ -63,6 +63,18 @@ Line.prototype.setData = function(labels, data) {
 
       return max;
     }
+    
+    function getMaxXLabelPadding() {
+      return getMaxY().toString().length * 2;
+    }
+
+    if (getMaxXLabelPadding() > xLabelPadding) {
+      xLabelPadding = getMaxXLabelPadding();
+    };
+
+    if ((xPadding - xLabelPadding) < 0) {
+      xPadding = xLabelPadding;
+    }
 
     function getXPixel(val) {
         return ((self.canvasSize.width - xPadding) / data.length) * val + (xPadding * 1.5);
