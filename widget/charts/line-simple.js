@@ -56,6 +56,7 @@ Line.prototype.setData = function(labels, data) {
       
       //max += 25 - max % 25;
       max*=1.2
+      max = Math.round(max);
 
       if (self.options.maxY) {
         return Math.max(max, self.options.maxY)
