@@ -78,7 +78,7 @@ Line.prototype.setData = function(labels, data) {
     }
 
     function getXPixel(val) {
-        return ((self.canvasSize.width - xPadding) / data.length) * val + (xPadding * 1.5);
+        return ((self.canvasSize.width - xPadding) / data.length) * val + (xPadding * 1.0) + 2;
     }
 
     function getYPixel(val) {
@@ -123,7 +123,7 @@ Line.prototype.setData = function(labels, data) {
 
     c.lineTo(xPadding, 0);
     c.lineTo(xPadding, this.canvasSize.height - yPadding);
-    c.lineTo(this.canvasSize.width - xPadding, this.canvasSize.height - yPadding);
+    c.lineTo(this.canvasSize.width, this.canvasSize.height - yPadding);
 
     c.stroke();
 
