@@ -77,6 +77,20 @@ Line.prototype.setData = function(labels, data) {
       xPadding = xLabelPadding;
     }
 
+    function getMaxX() {
+      var maxLength = 0;
+      
+      for(var i = 0; i < labels.length; i++) {
+        if(labels[i] === undefined) {
+          console.log("label[" + i + "] is undefined");
+        } else if(labels[i].length > maxLength) {
+          maxLength = labels[i].length;
+        }
+      }
+      
+      return maxLength;
+    }
+
     function getXPixel(val) {
         return ((self.canvasSize.width - xPadding) / data.length) * val + (xPadding * 1.0) + 2;
     }
@@ -128,11 +142,20 @@ Line.prototype.setData = function(labels, data) {
     c.stroke();
 
     // Draw the X value texts
-    for(var i = 0; i < data.length; i=i+this.options.showNthLabel) {                
-        c.fillText(labels[i], getXPixel(i), this.canvasSize.height - yPadding + yLabelPadding);
+    var charsAvailable = (this.canvasSize.width - xPadding) / 2;
+    var maxLabelsPossible = charsAvailable / (getMaxX() + 2);
+    var pointsPerMaxLabel = Math.round(data.length / (maxLabelsPossible));
+    var showNthLabel = this.options.showNthLabel;
+    if (showNthLabel < pointsPerMaxLabel) {
+      showNthLabel = pointsPerMaxLabel;
     }
 
+    for(var i = 0; i < data.length; i += showNthLabel) {                
+      if((getXPixel(i) + (labels[i].length * 2)) <= this.canvasSize.width) {
+        c.fillText(labels[i], getXPixel(i), this.canvasSize.height - yPadding + yLabelPadding);
+      }
+    }
 }
 
-
 module.exports = Line
+
