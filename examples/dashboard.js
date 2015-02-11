@@ -35,7 +35,7 @@ grid3.set(0, 0, contrib.bar,
   { label: 'Server Utilization (%)'
   , barWidth: 4
   , barSpacing: 6
-  , xOffset: 0
+  , xOffset: 2
   , maxHeight: 9})
 grid3.set(0, 1, contrib.table, 
   { keys: true

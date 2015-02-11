@@ -17,7 +17,7 @@ function Bar(options) {
     this.options.barSpacing = this.options.barWidth + 3;
   }
 
-  this.options.xOffset = this.options.xOffset || 5
+  this.options.xOffset = this.options.xOffset==null? 5 : this.options.xOffset
   if (this.options.showText === false)
     this.options.showText = false
   else
@@ -46,7 +46,7 @@ Bar.prototype.setData = function(bar) {
 
     if (bar.data[i] > 0) {
       c.strokeStyle = 'blue'
-      c.fillRect(x, barY - h + 2, this.options.barWidth, h);
+      c.fillRect(x, barY - h + 1, this.options.barWidth, h);
     } else {
       c.strokeStyle = 'normal'
     }
@@ -57,7 +57,7 @@ Bar.prototype.setData = function(bar) {
     c.strokeStyle = 'normal'
     c.fillStyle = 'white';
     if (this.options.showText)
-      c.fillText(bar.titles[i], x + 1, this.canvasSize.height - 2);
+      c.fillText(bar.titles[i], x + 1, this.canvasSize.height - 3);
 
     x += this.options.barSpacing;
   }
