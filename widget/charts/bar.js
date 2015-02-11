@@ -18,8 +18,7 @@ function Bar(options) {
   }
 
   this.options.xOffset = this.options.xOffset || 5
-  this.options.maxHeight = this.options.maxHeight || 7
-  if (this.options.showText===false)
+  if (this.options.showText === false)
     this.options.showText = false
   else
     this.options.showText = true
@@ -37,32 +36,31 @@ Bar.prototype.setData = function(bar) {
 
   this.clear()
 
-  var c = this.ctx
-    , max = Math.max.apply(Math, bar.data)
-    , x = this.options.xOffset
-    , y = this.options.maxHeight
+  var c = this.ctx;
+  var max = Math.max.apply(Math, bar.data);
+  var x = this.options.xOffset;
+  var barY = this.canvasSize.height - 5;
 
-  for (var i=0; i<bar.data.length; i++) {      
-      var h = Math.round(this.options.maxHeight * (bar.data[i] / max));
+  for (var i = 0; i < bar.data.length; i++) {
+    var h = Math.round(barY * (bar.data[i] / max));
 
-      if (bar.data[i]>0) {  
-        c.strokeStyle = 'blue'  
-        c.fillRect(x, y - h + 3, this.options.barWidth, h);
-      }
-      else {
-        c.strokeStyle = 'normal'
-      }
-
-      c.fillStyle = 'white'
-      if (this.options.showText)
-        c.fillText(bar.data[i] .toString(), x + 1, y + 2);
+    if (bar.data[i] > 0) {
+      c.strokeStyle = 'blue'
+      c.fillRect(x, barY - h + 2, this.options.barWidth, h);
+    } else {
       c.strokeStyle = 'normal'
-      c.fillStyle = 'white';
-      if (this.options.showText)
-        c.fillText(bar.titles[i] , x+1, y + 4);
-      
-      x += this.options.barSpacing;  
-  }  
+    }
+
+    c.fillStyle = 'white'
+    if (this.options.showText)
+      c.fillText(bar.data[i].toString(), x + 1, this.canvasSize.height - 4);
+    c.strokeStyle = 'normal'
+    c.fillStyle = 'white';
+    if (this.options.showText)
+      c.fillText(bar.titles[i], x + 1, this.canvasSize.height - 2);
+
+    x += this.options.barSpacing;
+  }
 }
 
 Bar.prototype.__proto__ = Canvas.prototype;
