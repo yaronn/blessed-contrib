@@ -11,8 +11,8 @@ function Grid(options) {
    }   
 }
 
-Grid.prototype.set = function(row, col, obj, opts) {
-   this.matrix[row][col] = {obj: obj, opts: opts || {}}
+Grid.prototype.set = function(row, col, sizeWidth, sizeHeight, obj, opts) {
+   this.matrix[row][col] = {obj: obj, sizeWidth: sizeWidth, sizeHeight: sizeHeight, opts: opts || {}}
 }
 
 Grid.prototype.get = function(row, col) {
@@ -24,9 +24,8 @@ Grid.prototype.get = function(row, col) {
 //margin need to apply only in the final positioning
 Grid.prototype.applyLayout = function(screen, offsetPct) {
 
-   var dashboardMargin = 2
+   var dashboardMargin = 0
    offsetPct = offsetPct || {x: dashboardMargin, y: dashboardMargin, width: 100-dashboardMargin, height: 100-dashboardMargin}
-
    
    var widgetSpacing = 0
    var width = (100 / this.options.cols - widgetSpacing)*(offsetPct.width/100)
@@ -34,20 +33,22 @@ Grid.prototype.applyLayout = function(screen, offsetPct) {
 
    for (var i=0; i<this.options.rows; i++) {
       for (var j=0; j<this.options.cols; j++) {
-         
+
+         if(this.matrix[i][j].obj == null)
+            break;
+
          var top = offsetPct.y + i * (height + widgetSpacing)
          var left = offsetPct.x + j * (width + widgetSpacing)
 
          if (this.matrix[i][j].obj instanceof Grid) {
             var grid = this.matrix[i][j].obj
-            grid.applyLayout(screen, {x: left, y: top, width: width, height: height})            
+            grid.applyLayout(screen, {x: left, y: top, width: (width * this.matrix[i][j].sizeWidth), height: (height * this.matrix[i][j].sizeHeight)})            
          }
          else {
-            
             this.matrix[i][j].opts.top = top + "%"
             this.matrix[i][j].opts.left = left + "%"
-            this.matrix[i][j].opts.width = width + "%"
-            this.matrix[i][j].opts.height = height + "%"
+            this.matrix[i][j].opts.width = (width * this.matrix[i][j].sizeWidth) + "%"
+            this.matrix[i][j].opts.height = (height * this.matrix[i][j].sizeHeight) + "%"
 
             this.matrix[i][j].opts.border = {type: "line", fg: "cyan"}
             this.matrix[i][j].instance = this.matrix[i][j].obj(this.matrix[i][j].opts)
