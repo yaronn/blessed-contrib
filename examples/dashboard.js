@@ -8,11 +8,11 @@ var screen = blessed.screen()
 var grid = new contrib.grid({rows: 1, cols: 2})
 
 var grid1 = new contrib.grid({rows: 1, cols: 3})
-grid1.set(0, 0, contrib.log, 
+grid1.set(0, 0, 1, 1, contrib.log, 
   { fg: "green"
   , selectedFg: "green"
   , label: 'Server Log'})
-grid1.set(0, 1, contrib.line, 
+grid1.set(0, 1, 1, 1, contrib.line, 
   { style: 
     { line: "yellow"
     , text: "green"
@@ -22,46 +22,46 @@ grid1.set(0, 1, contrib.line,
   , label: 'Network Latency (sec)'})
 
 var grid2 = new contrib.grid({rows: 2, cols: 1})
-grid2.set(0, 0, contrib.gauge, {label: 'Deployment Progress'})
-grid2.set(1, 0, contrib.sparkline, 
+grid2.set(0, 0, 1, 1, contrib.gauge, {label: 'Deployment Progress'})
+grid2.set(1, 0, 1, 1, contrib.sparkline, 
   { label: 'Throughput (bits/sec)'
   , tags: true
   , style: { fg: 'blue' }})
 
-grid1.set(0, 2, grid2)
+grid1.set(0, 2, 1, 1, grid2)
 
 var grid3 = new contrib.grid({rows: 1, cols: 2})
-grid3.set(0, 0, contrib.bar, 
+grid3.set(0, 0, 1, 1, contrib.bar, 
   { label: 'Server Utilization (%)'
   , barWidth: 4
   , barSpacing: 6
   , xOffset: 2
   , maxHeight: 9})
-grid3.set(0, 1, contrib.table, 
+grid3.set(0, 1, 1, 1, contrib.table, 
   { keys: true
   , fg: 'green'
   , label: 'Active Processes'
   , columnSpacing: [24, 10, 10]})
 
 var grid4 = new contrib.grid({rows: 3, cols: 1})
-grid4.set(0, 0, contrib.line, 
+grid4.set(0, 0, 1, 1, contrib.line, 
   { style: 
     { line: "red"
     , text: "white"
     , baseline: "black"}
   , label: 'Errors Rate'
   , maxY: 60})
-grid4.set(1, 0, grid3)
-grid4.set(2, 0, grid1)
+grid4.set(1, 0, 1, 1, grid3)
+grid4.set(2, 0, 1, 1, grid1)
 
 var grid5 = new contrib.grid({rows: 2, cols: 1})
-grid5.set(0, 0, contrib.line, 
+grid5.set(0, 0, 1, 1, contrib.line, 
   { showNthLabel: 5
   , maxY: 100
   , label: 'Total Transactions'})
-grid5.set(1, 0, contrib.map, {label: 'Servers Location'})
-grid.set(0, 0, grid5)
-grid.set(0, 1, grid4)
+grid5.set(1, 0, 1, 1, contrib.map, {label: 'Servers Location'})
+grid.set(0, 0, 1, 1, grid5)
+grid.set(0, 1, 1, 1, grid4)
 
 grid.applyLayout(screen)
 

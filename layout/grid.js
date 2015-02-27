@@ -35,7 +35,7 @@ Grid.prototype.applyLayout = function(screen, offsetPct) {
       for (var j=0; j<this.options.cols; j++) {
 
          if(this.matrix[i][j].obj == null)
-            break;
+            continue;
 
          var top = offsetPct.y + i * (height + widgetSpacing)
          var left = offsetPct.x + j * (width + widgetSpacing)
