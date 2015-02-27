@@ -27,4 +27,11 @@ function MergeRecursive(obj1, obj2) {
   return obj1;
 }
 
+
+function getTypeName(thing){
+    if(thing===null)return "[object Null]"; // special case
+    return Object.prototype.toString.call(thing);
+}
+
 exports.MergeRecursive = MergeRecursive
+exports.getTypeName = getTypeName

@@ -1,3 +1,4 @@
+var utils = require('../utils')
 
 function Grid(options) {
    this.options = options
@@ -11,8 +12,15 @@ function Grid(options) {
    }   
 }
 
-Grid.prototype.set = function(row, col, sizeWidth, sizeHeight, obj, opts) {
-   this.matrix[row][col] = {obj: obj, sizeWidth: sizeWidth, sizeHeight: sizeHeight, opts: opts || {}}
+Grid.prototype.set = function(row, col, rowSpan, colSpan, obj, opts) {
+   
+   //warn users about breaking changes in version 1.0
+   if (utils.getTypeName(rowSpan)!='[object Number]') {
+      throw 'Error: As of blessed-contrib 1.0, grid.set signature is function(row, col, rowSpan, colSpan, obj, opts). ' +
+            'Use rowSpan=1, colSpan=1 to imitiate the previous API.'
+   }
+
+   this.matrix[row][col] = {obj: obj, rowSpan: rowSpan, colSpan: colSpan, opts: opts || {}}
 }
 
 Grid.prototype.get = function(row, col) {
@@ -42,13 +50,13 @@ Grid.prototype.applyLayout = function(screen, offsetPct) {
 
          if (this.matrix[i][j].obj instanceof Grid) {
             var grid = this.matrix[i][j].obj
-            grid.applyLayout(screen, {x: left, y: top, width: (width * this.matrix[i][j].sizeWidth), height: (height * this.matrix[i][j].sizeHeight)})            
+            grid.applyLayout(screen, {x: left, y: top, width: (width * this.matrix[i][j].rowSpan), height: (height * this.matrix[i][j].colSpan)})            
          }
          else {
             this.matrix[i][j].opts.top = top + "%"
             this.matrix[i][j].opts.left = left + "%"
-            this.matrix[i][j].opts.width = (width * this.matrix[i][j].sizeWidth) + "%"
-            this.matrix[i][j].opts.height = (height * this.matrix[i][j].sizeHeight) + "%"
+            this.matrix[i][j].opts.width = (width * this.matrix[i][j].rowSpan) + "%"
+            this.matrix[i][j].opts.height = (height * this.matrix[i][j].colSpan) + "%"
 
             this.matrix[i][j].opts.border = {type: "line", fg: "cyan"}
             this.matrix[i][j].instance = this.matrix[i][j].obj(this.matrix[i][j].opts)

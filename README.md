@@ -202,8 +202,9 @@ When using a grid, you should not create the widgets, rather specify to the grid
 
    var grid = new contrib.grid({rows: 1, cols: 2})
 
-   grid.set(0, 1, contrib.map, {label: 'World Map'})
-   grid.set(0, 1, blessed.box, {content: 'My Box'})
+   //grid.set(row, col, rowSpan, colSpan, obj, opts)
+   grid.set(0, 1, 1, 1, contrib.map, {label: 'World Map'})
+   grid.set(0, 1, 1, 1, blessed.box, {content: 'My Box'})
 
    grid.applyLayout(screen)
 
@@ -216,11 +217,11 @@ Grids can be nested:
    var grid = new contrib.grid({rows: 1, cols: 2})
    var grid1 = new contrib.grid({rows: 1, cols: 2})
 
-   grid.set(0, 0, contrib.map, {label: 'World Map'})
-   grid1.set(0, 0, blessed.box, {content: 'My Box'})
-   grid1.set(0, 1, blessed.box, {content: 'My Box'})
+   grid.set(0, 0, 1, 1, contrib.map, {label: 'World Map'})
+   grid1.set(0, 0, 1, 1, blessed.box, {content: 'My Box'})
+   grid1.set(0, 1, 1, 1, blessed.box, {content: 'My Box'})
 
-   grid.set(0, 1, grid1)
+   grid.set(0, 1, 1, 1, grid1)
 `````
 
 
@@ -252,7 +253,7 @@ Grids can be nested:
      , screen = blessed.screen()
      , grid = new contrib.grid({rows: 1, cols: 2})
 
-   grid.set(0, 0, contrib.line, 
+   grid.set(0, 0, 1, 1, contrib.line, 
      { style: 
        { line: "yellow"
        , text: "green"
@@ -261,7 +262,7 @@ Grids can be nested:
      , xPadding: 5
      , label: 'Stocks'})
 
-   grid.set(0, 1, contrib.map, {label: 'Servers Location'})
+   grid.set(0, 1, 1, 1, contrib.map, {label: 'Servers Location'})
 
    grid.applyLayout(screen)
 
