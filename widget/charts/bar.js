@@ -1,6 +1,6 @@
 var blessed = require('blessed')
-, Node = blessed.Node   
-, Canvas = require('../canvas')   
+   , Node = blessed.Node   
+   , Canvas = require('../canvas')   
 
 function Bar(options) {  
 
@@ -25,46 +25,46 @@ function Bar(options) {
 }
 
 Bar.prototype.calcSize = function() {
-  this.canvasSize = {width: this.width-2, height: this.height}
+    this.canvasSize = {width: this.width-2, height: this.height}
 }
 
 Bar.prototype.setData = function(bar) {  
+  
+   if (!this.ctx) {
+      throw "error: canvas context does not exist. setData() for bar charts must be called after the chart has been added to the screen via screen.append()"
+   }
 
- if (!this.ctx) {
-  throw "error: canvas context does not exist. setData() for bar charts must be called after the chart has been added to the screen via screen.append()"
-}
+  this.clear()
 
-this.clear()
+  var c = this.ctx;
+  var max = Math.max.apply(Math, bar.data);
+  var x = this.options.xOffset;
+  var barY = this.canvasSize.height - 5;
 
-var c = this.ctx;
-var max = Math.max.apply(Math, bar.data);
-var x = this.options.xOffset;
-var barY = this.canvasSize.height - 5;
+  for (var i = 0; i < bar.data.length; i++) {
+    var h = Math.round(barY * (bar.data[i] / max));
 
-for (var i = 0; i < bar.data.length; i++) {
-  var h = Math.round(barY * (bar.data[i] / max));
+    if (bar.data[i] > 0) {
+      c.strokeStyle = 'blue'
+      if (this.options.barBgColor)
+        c.strokeStyle = this.options.barBgColor;
+      c.fillRect(x, barY - h + 1, this.options.barWidth, h);
+    } else {
+      c.strokeStyle = 'normal'
+    }
 
-  if (bar.data[i] > 0) {
-    c.strokeStyle = 'blue'
-    if (this.options.barBgColor)
-      c.strokeStyle = this.options.barBgColor;
-    c.fillRect(x, barY - h + 1, this.options.barWidth, h);
-  } else {
+    c.fillStyle = 'white'
+    if (this.options.barFgColor)
+      c.fillStyle = this.options.barFgColor;
+    if (this.options.showText)
+      c.fillText(bar.data[i].toString(), x + 1, this.canvasSize.height - 4);
     c.strokeStyle = 'normal'
+    c.fillStyle = 'white';
+    if (this.options.showText)
+      c.fillText(bar.titles[i], x + 1, this.canvasSize.height - 3);
+
+    x += this.options.barSpacing;
   }
-
-  c.fillStyle = 'white'
-  if (this.options.barFgColor)
-    c.fillStyle = this.options.barFgColor;
-  if (this.options.showText)
-    c.fillText(bar.data[i].toString(), x + 1, this.canvasSize.height - 4);
-  c.strokeStyle = 'normal'
-  c.fillStyle = 'white';
-  if (this.options.showText)
-    c.fillText(bar.titles[i], x + 1, this.canvasSize.height - 3);
-
-  x += this.options.barSpacing;
-}
 }
 
 Bar.prototype.__proto__ = Canvas.prototype;
