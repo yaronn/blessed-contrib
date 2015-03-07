@@ -9,6 +9,7 @@ exports.log = require('./widget/log.js')
 exports.picture = require('./widget/picture.js')
 exports.sparkline = require('./widget/sparkline.js')
 exports.table = require('./widget/table.js')
+exports.tree = require('./widget/tree.js')
 
 exports.bar = require('./widget/charts/bar.js')
 exports.line = require('./widget/charts/line-simple.js')

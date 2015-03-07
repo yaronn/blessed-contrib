@@ -189,6 +189,42 @@ note: only png images are supported
       , [3, 4] ]})
 `````
 
+### Tree
+
+<img src="./docs/images/tree.gif" alt="table" width="250">
+
+`````javascript
+   var tree = contrib.tree(
+     { keys: true
+     , fg: 'green'})
+
+   //allow control the table with the keyboard
+   tree.focus()
+
+   // you can specify a name property at root level to display root
+   tree.setData(
+   { extended: true
+   , children:
+     {
+       'Fruit':
+       { children:
+         { 'Banana': {}
+         , 'Apple': {}
+         , 'Cherry': {}
+         , 'Exotics': {
+             children: 
+             { 'Mango': {}
+             , 'Papaya': {}
+             , 'Kiwi': { name: 'Kiwi (not the bird!)' }
+             }}
+         , 'Pear': {}}}
+     , 'Vegetables':
+       { children:
+         { 'Peas': {}
+         , 'Lettuce': {}
+         , 'Pepper': {}}}}})
+`````
+
 ### Layouts
 
 
