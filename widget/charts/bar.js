@@ -46,12 +46,16 @@ Bar.prototype.setData = function(bar) {
 
     if (bar.data[i] > 0) {
       c.strokeStyle = 'blue'
+      if (this.options.barBgColor)
+        c.strokeStyle = this.options.barBgColor;
       c.fillRect(x, barY - h + 1, this.options.barWidth, h);
     } else {
       c.strokeStyle = 'normal'
     }
 
     c.fillStyle = 'white'
+    if (this.options.barFgColor)
+      c.fillStyle = this.options.barFgColor;
     if (this.options.showText)
       c.fillText(bar.data[i].toString(), x + 1, this.canvasSize.height - 4);
     c.strokeStyle = 'normal'
