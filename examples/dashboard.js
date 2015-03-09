@@ -75,29 +75,29 @@ var bar = grid3.get(0, 0)
 var servers = ['US1', 'US2', 'EU1', 'AU1', 'AS1', 'JP1']
 var commands = ['grep', 'node', 'java', 'timer', '~/ls -l', 'netns', 'watchdog', 'gulp', 'tar -xvf', 'awk', 'npm install']
 var processes = { extended: true
-  , name: 'Init'
+  , name: 'Init (0)'
   , children:
     {
       'pid823':
-      { name: 'sshd'
+      { name: 'sshd (823)'
       , children:
-        { 'pid25094': { name: 'bash' }
-        , 'pid987': { name: 'bash' }
-        , 'pid9283': { name: 'bash'}
+        { 'pid25094': { name: 'bash (25094)' }
+        , 'pid987': { name: 'bash (987)' }
+        , 'pid9283': { name: 'bash (9283)'}
         , 'pid9282': 
-          {  name: 'bash'
+          {  name: 'bash (9282)'
           ,  children: function(){
-              return { 'pid902': { name: 'htop' }
-              , 'pid1082': { name: 'vim' }
-              , 'pid509': { name: 'nodejs' }
+              return { 'pid902': { name: 'htop (902)' }
+              , 'pid1082': { name: 'vim (1082)' }
+              , 'pid509': { name: 'nodejs (509)' }
             }}}
-        , 'pid492': { name: 'git' }}}
-    , 'pid492':
-      { name: 'apache2'
+        , 'pid292': { name: 'git (292)' }}}
+    , 'pid292':
+      { name: 'apache2 (292)'
       , children:
-        { 'pid33820': { name: 'apache2'}
-        , 'pid34204': { name: 'apache2'}
-        , 'pid34095': { name: 'apache2'}}}}};
+        { 'pid33820': { name: 'apache2 (33820)'}
+        , 'pid34204': { name: 'apache2 (34204)'}
+        , 'pid34095': { name: 'apache2 (34095)'}}}}};
 
 //set dummy data on gauge
 var gauge_percent = 0
