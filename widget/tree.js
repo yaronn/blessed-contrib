@@ -53,10 +53,13 @@ Tree.prototype.walk = function (node,parentNode,depth) {
   }
 
   node.depth = depth;
-  
+
   if (node.children && node.extended) {
 
     var i = 0;
+    if (typeof node.children == 'function'){
+      node.children = node.children();
+    }
     
     for (var child in node.children) {
       
@@ -66,7 +69,12 @@ Tree.prototype.walk = function (node,parentNode,depth) {
       if(typeof node.children[child].extended == 'undefined')
         node.children[child].extended = this.options.extended;
       
-      var sign = node.children[child].extended ? '-' : '+';
+      if(!node.children[child].children || Object.keys(node.children[child].children).length == 0)
+        var sign = '-';
+      else if(node.children[child].extended)
+        var sign = '-';
+      else
+        var sign = '+'
       lines.push(Array(depth+1).join(' ') + sign + node.children[child].name);
 
       node.children[child].position = i++;
