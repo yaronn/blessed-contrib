@@ -32,7 +32,7 @@ Grid.prototype.get = function(row, col) {
 //margin need to apply only in the final positioning
 Grid.prototype.applyLayout = function(screen, offsetPct) {
 
-   var dashboardMargin = 0
+   var dashboardMargin = 2
    offsetPct = offsetPct || {x: dashboardMargin, y: dashboardMargin, width: 100-dashboardMargin, height: 100-dashboardMargin}
    
    var widgetSpacing = 0

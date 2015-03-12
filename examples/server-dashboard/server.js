@@ -21,7 +21,7 @@ http.createServer(function (req, res) {
   var query = url.parse(req.url, true).query
 
   var cols = query.cols || 165
-  var rows = query.rows || 49
+  var rows = query.rows || 50
 
   if (cols<=35 || cols>=500 || rows<=5 || rows>=300) {
     res.writeHead(500, {'Content-Type': 'text/plain'});
