@@ -3,6 +3,9 @@ var blessed = require('blessed')
   , Dashboard = require('./dashboard')
   , http = require('http')
   , url = require('url')
+  , fs = require('fs')
+
+var port = process.env.PORT || 1337
 
 function Buffer(options) {
    this.isTTY = true
@@ -16,7 +19,8 @@ function Buffer(options) {
 }
 
 http.createServer(function (req, res) {  
- 
+  
+  fs.appendFileSync("./log.txt", new Date() + " - " + req.url)
 
   var query = url.parse(req.url, true).query
 
@@ -57,6 +61,6 @@ http.createServer(function (req, res) {
      buff = null
   });
     
-}).listen(1337, '127.0.0.1');
+}).listen(port);
 
-console.log('Server running at http://127.0.0.1:1337/');
+console.log('Server running at http://127.0.0.1:'+port+'/');
