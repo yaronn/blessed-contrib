@@ -217,7 +217,7 @@ Dashboard.prototype.start = function() {
   this.setDisposableInterval(function() {
      setLineData(transactionsData, transactionsLine)
      //screen.render()
-  }, 1000)
+  }, 1500)
 
   this.setDisposableInterval(function() {   
      setLineData(errorsData, errorsLine)
@@ -246,7 +246,7 @@ Dashboard.prototype.start = function() {
 
   this.setDisposableInterval(function() {       
     screen.render()
-  }, 1000)
+  }, 1500)
 }
 
 module.exports = Dashboard
