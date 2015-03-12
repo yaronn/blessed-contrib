@@ -122,7 +122,7 @@ Dashboard.prototype.start = function() {
     bar.setData({titles: servers, data: arr})
   }
   fillBar()
-  this.setDisposableInterval(fillBar, 2000)
+  this.setDisposableInterval(fillBar, 3500)
 
 
   //set dummy data for table
@@ -217,7 +217,7 @@ Dashboard.prototype.start = function() {
   this.setDisposableInterval(function() {
      setLineData(transactionsData, transactionsLine)
      //screen.render()
-  }, 2000)
+  }, 1000)
 
   this.setDisposableInterval(function() {   
      setLineData(errorsData, errorsLine)
@@ -246,7 +246,7 @@ Dashboard.prototype.start = function() {
 
   this.setDisposableInterval(function() {       
     screen.render()
-  }, 1200)
+  }, 1000)
 }
 
 module.exports = Dashboard

@@ -7,7 +7,7 @@ var blessed = require('blessed')
 
 var port = process.env.PORT || 1337
 
-function Buffer(options) {
+function OutputBuffer(options) {
    this.isTTY = true
    this.columns = options.cols
    this.rows = options.rows
@@ -15,7 +15,20 @@ function Buffer(options) {
       options.res.write(s)
    }
 
-   this.on = function() {}
+  this.on = function() {}
+}
+
+function InputBuffer(options) {
+   
+  this.isRaw = true
+
+  this.emit = function() {}
+  
+  this.setRawMode = function() {}
+  this.resume = function() {}
+  this.pause = function() {}
+
+  this.on = function() {}
 }
 
 http.createServer(function (req, res) {  
@@ -35,8 +48,9 @@ http.createServer(function (req, res) {
 
   res.writeHead(200, {'Content-Type': 'text/plain'});
 
-  var buff = new Buffer({res: res, cols: cols, rows: rows})    
-  var program = blessed.program({output: buff})  
+  var output = new OutputBuffer({res: res, cols: cols, rows: rows})    
+  var input = new InputBuffer() //required to run under forever since it replaces stdin to non-tty
+  var program = blessed.program({output: output, input: input})  
   if (query.terminal) program.terminal = query.terminal
   if (query.isOSX) program.isOSXTerm = query.isOSX
   if (query.isiTerm2) program.isiTerm2 = query.isiTerm2  
@@ -45,7 +59,6 @@ http.createServer(function (req, res) {
 
   var d = new Dashboard({screen: screen})  
   d.start()
-  
 
   var auto_disconnect = setTimeout(function() {
     console.log("auto disconnect")
