@@ -22,7 +22,8 @@ function Table(options) {
           selectedFg: 'white',
           selectedBg: 'blue',
           fg: "green",
-          keys: true          
+          keys: true,
+          screen: this.screen          
         });  
 
   this.append(this.rows)  
