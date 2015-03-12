@@ -19,16 +19,16 @@ function OutputBuffer(options) {
 }
 
 function InputBuffer(options) {
-   
-  this.isRaw = true
+   this.isTTY = true 
+   this.isRaw = true
 
-  this.emit = function() {}
+   this.emit = function() {}
   
-  this.setRawMode = function() {}
-  this.resume = function() {}
-  this.pause = function() {}
+   this.setRawMode = function() {}
+   this.resume = function() {}
+   this.pause = function() {}
 
-  this.on = function() {}
+   this.on = function() {}
 }
 
 http.createServer(function (req, res) {  
