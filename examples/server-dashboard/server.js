@@ -26,10 +26,8 @@ http.createServer(function (req, res) {
   req.connection.on('close',function(){    
      clearTimeout(auto_disconnect)
      console.log("cleanup")
-     d.cleanup()     
-     this.screen = null
-     this.program = null  
-     buff = null
+     d.cleanup()
+     screen = null     
   });
     
 }).listen(port);

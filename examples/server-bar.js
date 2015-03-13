@@ -14,6 +14,12 @@ http.createServer(function (req, res) {
   
   var query = url.parse(req.url, true).query
   
+  if (!query.titles || !query.data) {
+    res.writeHead(500, {'Content-Type': 'text/plain'});
+    res.end("No titles or data were provided")
+    return
+  }
+
   var titles = query.titles.split(',')
   var data = query.data.split(',')
   
@@ -37,6 +43,18 @@ http.createServer(function (req, res) {
   if (!screen) return
 
   renderBars(screen, titles, dataInt, res)
+
+
+  var auto_disconnect = setTimeout(function() {
+      console.log("auto disconnect")
+      res.end("chart auto-disconnected after 60 seconds")
+    }, 60000)
+
+  req.connection.on('close',function(){    
+     clearTimeout(auto_disconnect)
+     console.log("cleanup")
+     screen = null     
+    });
     
 }).listen(port);
 
