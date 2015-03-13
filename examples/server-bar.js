@@ -9,7 +9,7 @@ var port = process.env.PORT || 1337
 
 http.createServer(function (req, res) {  
   
-  fs.appendFileSync("./log.txt", new Date() + " - " + req.url)
+  fs.appendFileSync("./log.txt", new Date() + " - " + req.url + "\r\n")
 
   
   var query = url.parse(req.url, true).query
@@ -75,11 +75,11 @@ function renderBars(screen, titles, data, res) {
 
 
   var max = Math.max.apply(Math, data)
-  var jump = Math.round(max / 10)
+  var jump = Math.round(max / 20)
 
   var render = function(screen, titles, data, currMax, globalMax) {
     
-    if (currMax>globalMax) {
+    if (currMax>globalMax+jump) {
       //res.end()
       return
     }
@@ -93,7 +93,7 @@ function renderBars(screen, titles, data, res) {
 
     setTimeout(function() {
       render(screen, titles, data, currMax+jump, globalMax)
-    }, 150)
+    }, 100)
   }
 
   

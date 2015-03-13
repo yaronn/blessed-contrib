@@ -10,7 +10,7 @@ var port = process.env.PORT || 1337
 
 http.createServer(function (req, res) {  
   
-  fs.appendFileSync("./log.txt", new Date() + " - " + req.url)
+  fs.appendFileSync("./log.txt", new Date() + " - " + req.url + "\r\n")
 
   var screen = contrib.createScreen(req, res)    
   if (!screen) return
