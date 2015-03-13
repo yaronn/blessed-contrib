@@ -38,6 +38,7 @@ Bar.prototype.setData = function(bar) {
 
   var c = this.ctx;
   var max = Math.max.apply(Math, bar.data);
+  max = Math.max(max, this.options.maxHeight)
   var x = this.options.xOffset;
   var barY = this.canvasSize.height - 5;
 

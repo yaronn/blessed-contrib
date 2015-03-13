@@ -12,3 +12,7 @@ exports.table = require('./widget/table.js')
 
 exports.bar = require('./widget/charts/bar.js')
 exports.line = require('./widget/charts/line-simple.js')
+
+exports.OutputBuffer = require('./lib/server').OutputBuffer
+exports.InputBuffer = require('./lib/server').InputBuffer
+exports.createScreen = require('./lib/server').createScreen
