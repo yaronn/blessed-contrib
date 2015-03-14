@@ -12,12 +12,14 @@ http.createServer(function (req, res) {
   
   fs.appendFileSync("./log.txt", new Date() + " - " + req.url + "\r\n")
   
-  var query = url.parse(req.url, true).query
-    
+  var query = url.parse(req.url, true).query  
+
+
   var screen = contrib.createScreen(req, res)
   if (!screen) return
 
-  var size = {height: query.rows || 232, width: query.cols || 380}
+  var size = {height: query.rows*4 || 232, width: query.cols*2 || 380}  
+
   canvas = new Canvas(size.width, size.height)
   var ctx = canvas.getContext()
   ctx.strokeStyle="green"
@@ -50,9 +52,9 @@ http.createServer(function (req, res) {
                      , "char": query["char"+i] || "X" } )
     }    
   }
-    
-
-  res.end(ctx._canvas.frame());
+  
+  res.write(ctx._canvas.frame());
+  res.end("created by Yaron Naveh (http://twitter.com/YaronNaveh)")
 
   var auto_disconnect = setTimeout(function() {
       console.log("auto disconnect")

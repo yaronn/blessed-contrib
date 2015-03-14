@@ -43,7 +43,7 @@ Map.prototype.type = 'map';
 
 Map.prototype.addMarker = function(options) {
    if (!this.innerMap) {
-     throw "error: canvas context does not exist. addMArker() for maps must be called after the map has been added to the screen via screen.append()"
+     throw "error: canvas context does not exist. addMarker() for maps must be called after the map has been added to the screen via screen.append()"
    }
 
    this.innerMap.addMarker(options)   
