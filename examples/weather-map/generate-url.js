@@ -16,8 +16,8 @@ function GenerateUrl(json) {
          cities[i].coord.lat *= -1      
       }
 
-      res += "&lon" + i +"=" + cities[i].coord.lat
-      res += "&lat" + i +"=" + cities[i].coord.lon
+      res += "&lon" + i +"=" + cities[i].coord.lon
+      res += "&lat" + i +"=" + cities[i].coord.lat
       res += "&char" + i +"=" + Math.round(cities[i].main.temp)
    }
 
