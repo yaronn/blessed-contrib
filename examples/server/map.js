@@ -1,24 +1,18 @@
-var http = require('http')
-  , url = require('url')
+var url = require('url')
   , fs = require('fs')
-  , contrib = require('../index')
+  , contrib = require('../../index')
   , Canvas = require('drawille-canvas-blessed-contrib').Canvas
   , Map = require('map-canvas')
 
 
-var port = process.env.PORT || 1337
+function handle(req, res) {  
 
-http.createServer(function (req, res) {  
-  
-  fs.appendFileSync("./log.txt", new Date() + " - " + req.url + "\r\n")
-  
   var query = url.parse(req.url, true).query  
-
 
   var screen = contrib.createScreen(req, res)
   if (!screen) return
 
-  var size = {height: query.rows*4 || 232, width: query.cols*2 || 380}  
+  var size = {height: query.rows*4 || 204, width: query.cols*2 || 328}
 
   canvas = new Canvas(size.width, size.height)
   var ctx = canvas.getContext()
@@ -33,6 +27,7 @@ http.createServer(function (req, res) {
                 , disableFill: true
                 , height: size.height
                 , width: size.width
+                , labelSpace: 10
                 , startLon: query.startLon || 50
                 , endLon: query.endLon || 110
                 , startLat: query.startLat || 115
@@ -54,7 +49,7 @@ http.createServer(function (req, res) {
   }
   
   res.write(ctx._canvas.frame());
-  res.end("created by Yaron Naveh (http://twitter.com/YaronNaveh)")
+  res.end("Created by Yaron Naveh (http://twitter.com/YaronNaveh)\r\n")
 
   var auto_disconnect = setTimeout(function() {
       console.log("auto disconnect")
@@ -66,6 +61,6 @@ http.createServer(function (req, res) {
      screen = null     
     });
     
-}).listen(port);
+}
 
-console.log('Server running at http://127.0.0.1:'+port+'/');
+exports.handle = handle

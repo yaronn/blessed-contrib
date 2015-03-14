@@ -1,16 +1,11 @@
 
-var blessed = require('blessed')
-  , http = require('http')
+var blessed = require('blessed')  
   , url = require('url')
   , fs = require('fs')
-  , contrib = require('../index')  
+  , contrib = require('../../index')  
 
-var port = process.env.PORT || 1337
 
-http.createServer(function (req, res) {  
-  
-  fs.appendFileSync("./log.txt", new Date() + " - " + req.url + "\r\n")
-
+function handle(req, res) {
   
   var query = url.parse(req.url, true).query
   
@@ -56,7 +51,7 @@ http.createServer(function (req, res) {
      screen = null     
     });
     
-}).listen(port);
+}
 
 function renderBars(screen, titles, data, res) {
 
@@ -101,5 +96,4 @@ function renderBars(screen, titles, data, res) {
   
 }
 
-
-console.log('Server running at http://127.0.0.1:'+port+'/');
+exports.handle = handle

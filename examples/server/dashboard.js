@@ -1,10 +1,16 @@
-var blessed = require('blessed')
-  , contrib = require('../../index')
+
+var blessed = require('blessed')  
+  , http = require('http')
+  , url = require('url')
+  , fs = require('fs')
+  , contrib = require('../../index')  
+
 
 function Dashboard(options) {
   this.options = options  
   this.intervals = new Array()
 }
+
 
 Dashboard.prototype.setDisposableInterval = function(cba, timeout) {
   var interval = setInterval(cba, timeout)
@@ -83,7 +89,19 @@ Dashboard.prototype.start = function() {
     , maxY: 100
     , label: 'Total Transactions'
     , screen: screen})
-  grid5.set(1, 0, 1, 1, contrib.map, {label: 'Servers Location', screen: screen})
+
+
+  var grid6 = new contrib.grid({rows: 8, cols: 1})
+  grid6.set(0, 0, 1, 7, contrib.map, 
+    {label: 'Servers Location', screen: screen}
+  )
+  grid6.set(7, 0, 1, 1, blessed.box, 
+    { content: 'Created by Yaron Naveh (http://twitter.com/YaronNaveh)'
+    , style: { fg: 'white' }
+    , screen: screen}
+  )
+
+  grid5.set(1, 0, 1, 1, grid6)
   grid.set(0, 0, 1, 1, grid5)
   grid.set(0, 1, 1, 1, grid4)
 
@@ -92,7 +110,7 @@ Dashboard.prototype.start = function() {
   var transactionsLine = grid5.get(0, 0)
   var errorsLine = grid4.get(0, 0)
   var latencyLine = grid1.get(0, 1)
-  var map = grid5.get(1, 0)
+  var map = grid6.get(0, 0)
   var log = grid1.get(0, 0)
   var table = grid3.get(0,1)
   var sparkline = grid2.get(1, 0)
@@ -249,4 +267,27 @@ Dashboard.prototype.start = function() {
   }, 1500)
 }
 
-module.exports = Dashboard
+
+function handle(req, res) {  
+  
+  var screen = contrib.createScreen(req, res)    
+  if (!screen) return
+  
+  var d = new Dashboard({screen: screen})  
+  d.start()
+
+  var auto_disconnect = setTimeout(function() {
+    console.log("auto disconnect")
+    res.end("dashboard auto-disconnected after 60 seconds")
+  }, 60000)
+
+  req.connection.on('close',function(){    
+     clearTimeout(auto_disconnect)
+     console.log("cleanup")
+     d.cleanup()
+     screen = null     
+  });
+    
+}
+
+exports.handle = handle
