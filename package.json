@@ -18,7 +18,7 @@
   "dependencies": {
     "ansi-term": ">=0.0.1",
     "drawille-canvas-blessed-contrib": ">=0.0.1",
-    "map-canvas": ">=0.0.5",
+    "map-canvas": ">=0.1.5",
     "memory-streams": "^0.1.0",
     "picture-tube": "0.0.4",
     "request": "^2.53.0",

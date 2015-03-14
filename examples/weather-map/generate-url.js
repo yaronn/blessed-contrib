@@ -1,7 +1,4 @@
-
 var fs = require('fs')
-
-
 
 function GenerateUrl(json) {
    var res = ""
