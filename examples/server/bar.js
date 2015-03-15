@@ -58,8 +58,8 @@ function renderBars(screen, titles, data, res) {
 
   var bar = contrib.bar(
     { label: ''
-    , barWidth: 4
-    , barSpacing: 6
+    , barWidth: 6
+    , barSpacing: 8
     , xOffset: 2
     , maxHeight: Math.max.apply(Math, data) + 15
     , height: screen.rows - 5
