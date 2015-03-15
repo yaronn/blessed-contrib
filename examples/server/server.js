@@ -7,7 +7,12 @@ var port = process.env.PORT || 1337
 
 http.createServer(function (req, res) {  
   
-  fs.appendFileSync("./log.txt", new Date() + " - " + req.url + "\r\n")
+  var ip = req.headers['x-forwarded-for'] || 
+     req.connection.remoteAddress || 
+     req.socket.remoteAddress ||
+     req.connection.socket.remoteAddress;
+
+  fs.appendFileSync("./log.txt", new Date() + " - " + req.url + + " - " + ip + "\r\n")
   var query = url.parse(req.url, true).query
   
   if (!query.type || (/[^a-zA-Z0-9\-]/.test(query.type))) {
