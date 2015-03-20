@@ -70,12 +70,14 @@ function renderBars(screen, titles, data, res) {
 
 
   var max = Math.max.apply(Math, data)
-  var jump = Math.round(max / 20)
+  var jump = Math.ceil(max / 20)
 
   var render = function(screen, titles, data, currMax, globalMax) {
     
-    if (currMax>globalMax+jump) {
-      //res.end()
+    if (currMax>=globalMax+jump) {
+      res.write('\r\n\r\n')
+      //restore cursor
+      res.end('\033[?25h')
       return
     }
     
