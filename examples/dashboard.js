@@ -26,7 +26,7 @@ grid2.set(0, 0, 1, 1, contrib.gauge, {label: 'Deployment Progress'})
 grid2.set(1, 0, 1, 1, contrib.sparkline, 
   { label: 'Throughput (bits/sec)'
   , tags: true
-  , style: { fg: 'blue' }})
+  , style: { fg: 'blue', titleFg: 'white' }})
 
 grid1.set(0, 2, 1, 1, grid2)
 
