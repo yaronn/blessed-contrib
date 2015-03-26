@@ -15,6 +15,9 @@
   "devDependencies": {
     "blessed": "^0.0.44"
   },
+  "peerDependencies": {
+    "blessed": "^0.0.44"
+  },
   "dependencies": {
     "ansi-term": ">=0.0.1",
     "drawille-canvas-blessed-contrib": ">=0.0.1",
