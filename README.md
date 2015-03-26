@@ -26,8 +26,7 @@ Tested on Linux and OS X. In order to use on windows need to install Braille fon
 
 ## Installation (to build custom projects)
 
-    npm install blessed
-    npm install blessed-contrib
+    npm install blessed blessed-contrib    
 
 ##Usage
 
