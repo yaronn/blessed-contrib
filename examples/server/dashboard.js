@@ -252,7 +252,7 @@ Dashboard.prototype.start = function() {
     mockData.y.shift()
     var num = Math.max(last + Math.round(Math.random()*10) - 5, 10)    
     mockData.y.push(num)     
-    line.setData(mockData.x, mockData.y)
+    line.setData([mockData])
   }
 
 

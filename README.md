@@ -78,13 +78,20 @@ You can also use a layout to position the widgets for you (details in the layout
            , baseline: "black"}
          , xLabelPadding: 3
          , xPadding: 5
+         , showLegend: true
          , label: 'Title'})
-   var data = {
+   var series1 = {
+         title: 'apples',
+         x: ['t1', 't2', 't3', 't4'],
+         y: [5, 1, 7, 5]
+      }
+   var series2 = {
+         title: 'oranges',
          x: ['t1', 't2', 't3', 't4'],
          y: [5, 1, 7, 5]
       }
    screen.append(line) //must append before setting data
-   line.setData(data.x, data.y)
+   line.setData([series1, series2])
 `````
 
 

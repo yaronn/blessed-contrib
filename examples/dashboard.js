@@ -50,7 +50,8 @@ grid4.set(0, 0, 1, 1, contrib.line,
     , text: "white"
     , baseline: "black"}
   , label: 'Errors Rate'
-  , maxY: 60})
+  , maxY: 60
+  , showLegend: true})
 grid4.set(1, 0, 1, 1, grid3)
 grid4.set(2, 0, 1, 1, grid1)
 
@@ -58,7 +59,8 @@ var grid5 = new contrib.grid({rows: 2, cols: 1})
 grid5.set(0, 0, 1, 1, contrib.line, 
   { showNthLabel: 5
   , maxY: 100
-  , label: 'Total Transactions'})
+  , label: 'Total Transactions'
+  , showLegend: true})
 grid5.set(1, 0, 1, 1, contrib.map, {label: 'Servers Location'})
 grid.set(0, 0, 1, 1, grid5)
 grid.set(0, 1, 1, 1, grid4)
@@ -171,11 +173,13 @@ setInterval(function() {
 //set line charts dummy data
 
 var transactionsData = {
+   title: 'server 1',
    x: ['00:00', '00:05', '00:10', '00:15', '00:20', '00:30', '00:40', '00:50', '01:00', '01:10', '01:20', '01:30', '01:40', '01:50', '02:00', '02:10', '02:20', '02:30', '02:40', '02:50', '03:00', '03:10', '03:20', '03:30', '03:40', '03:50', '04:00', '04:10', '04:20', '04:30'],
    y: [0, 10, 40, 45, 45, 50, 55, 70, 65, 58, 50, 55, 60, 65, 70, 80, 70, 50, 40, 50, 60, 70, 82, 88, 89, 89, 89, 80, 72, 70]
 }
 
 var errorsData = {
+   title: 'server 1',
    x: ['00:00', '00:05', '00:10', '00:15', '00:20', '00:25'],
    y: [30, 50, 70, 40, 50, 20]
 }
@@ -209,7 +213,7 @@ function setLineData(mockData, line) {
   mockData.y.shift()
   var num = Math.max(last + Math.round(Math.random()*10) - 5, 10)    
   mockData.y.push(num)     
-  line.setData(mockData.x, mockData.y)
+  line.setData([mockData])
 }
 
 
