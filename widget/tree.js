@@ -17,6 +17,7 @@ function Tree(options) {
   this.lineNbr = 0;
   Box.call(this, options);
   options.extended = options.extended || true;
+  options.keys = options.keys || ['+','space'];
 
   this.rows = blessed.list({
           height: 0,
@@ -29,7 +30,7 @@ function Tree(options) {
           keys: true          
         });
   
-  this.rows.key(['+','space'],function(){
+  this.rows.key(options.keys,function(){
     self.nodeLines[this.getItemIndex(this.selected)].extended = !self.nodeLines[this.getItemIndex(this.selected)].extended;
     self.setData(self.data);
     self.screen.render();
