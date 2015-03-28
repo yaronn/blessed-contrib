@@ -22,7 +22,7 @@ var blessed = require('blessed')
              y: [2, 4, 9, 8],
              style: {line: 'yellow'}
            }
-          , {title: 'eu-north', 
+          , {title: 'eu-north-with-some-long-string', 
              x: ['t1', 't2', 't3', 't4'],
              y: [22, 7, 12, 1],
              style: {line: 'blue'}
