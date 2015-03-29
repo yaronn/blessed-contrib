@@ -105,6 +105,6 @@ Tree.prototype.setData = function(data) {
 
 Tree.prototype.__proto__ = Box.prototype;
 
-Tree.prototype.type = 'table';
+Tree.prototype.type = 'tree';
 
 module.exports = Tree
