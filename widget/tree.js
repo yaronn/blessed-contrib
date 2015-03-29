@@ -47,13 +47,12 @@ Tree.prototype.walk = function (node,parentNode,depth) {
 
   var lines = [];
   
-  
   node.parent = parentNode;
 
   if (depth == 0 && node.name) {
     this.lineNbr = 0;
     this.nodeLines[this.lineNbr++] = node;
-    lines.push(Array(depth).join(' ')+node.name);
+    lines.push(node.name);
     depth++;
   }
 
