@@ -16,7 +16,7 @@ function Tree(options) {
   this.nodeLines = [];
   this.lineNbr = 0;
   Box.call(this, options);
-  options.extended = options.extended || true;
+  options.extended = options.extended || false;
   options.keys = options.keys || ['+','space'];
 
   this.rows = blessed.list({
@@ -31,9 +31,13 @@ function Tree(options) {
         });
   
   this.rows.key(options.keys,function(){
+    var signal = self.nodeLines[this.getItemIndex(this.selected)].extended ? 'extended' : 'collapsed';
+    
     self.nodeLines[this.getItemIndex(this.selected)].extended = !self.nodeLines[this.getItemIndex(this.selected)].extended;
     self.setData(self.data);
     self.screen.render();
+
+    self.emit(signal,self.nodeLines[this.getItemIndex(this.selected)])
   });
 
   this.append(this.rows)  
