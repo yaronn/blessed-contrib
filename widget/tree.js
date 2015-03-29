@@ -90,8 +90,14 @@ Tree.prototype.walk = function (node,parentNode,depth) {
   return lines;
 }
 
-Tree.prototype.render = function() {
+Tree.prototype.focus = function(){
   this.rows.focus();
+}
+
+Tree.prototype.render = function() {
+  if(this.screen.focused == this.rows)
+    this.rows.focus()
+  
   this.rows.width = this.width-3;
   this.rows.height = this.height-3;
   Box.prototype.render.call(this);
