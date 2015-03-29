@@ -52,11 +52,18 @@ var explorer = { extended: true
 tree.setData(explorer);
 
 //set default table
-table.setData({headers: ['Info'], data: [['test']]})
+table.setData({headers: ['Info'], data: [['test'],['test2']]})
 
 screen.key(['escape', 'q', 'C-c'], function(ch, key) {
   return process.exit(0);
 });
 
-screen.render()
+screen.key(['tab'], function(ch, key) {
+  if(screen.focused == tree.rows)
+    table.focus();
+  else
+    tree.focus();
+});
 
+tree.focus()
+screen.render()
