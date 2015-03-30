@@ -10,6 +10,7 @@ var grid = new contrib.grid({rows: 1, cols: 2})
 
 grid.set(0, 0, 1, 1, contrib.tree, 
   { style: { text: "red" }
+  , template: { lines: true }
   , label: 'Filesystem Tree'})
 
 grid.set(0, 1, 1, 1, contrib.table, 
