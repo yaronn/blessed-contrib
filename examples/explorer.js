@@ -23,33 +23,48 @@ grid.applyLayout(screen);
 var tree = grid.get(0, 0);
 var table = grid.get(0, 1);
 
-var explorer = { extended: true
-  , name: 'Init (0)'
-  , children:
-    {
-      'pid823':
-      { name: 'sshd (823)'
-      , children:
-        { 'pid25094': { name: 'bash (25094)' }
-        , 'pid987': { name: 'bash (987)' }
-        , 'pid9283': { name: 'bash (9283)'}
-        , 'pid9282':
-          {  name: 'bash (9282)'
-          ,  children: function(){
-              return { 'pid902': { name: 'htop (902)' }
-              , 'pid1082': { name: 'vim (1082)' }
-              , 'pid509': { name: 'nodejs (509)' }
-            }}}
-        , 'pid292': { name: 'git (292)' }}}
-    , 'pid292':
-      { name: 'apache2 (292)'
-      , children:
-        { 'pid33820': { name: 'apache2 (33820)'}
-        , 'pid34204': { name: 'apache2 (34204)'}
-        , 'pid34095': { name: 'apache2 (34095)'}}}}};
+//file explorer
+var explorer = { name: '/'
+  , extended: true
+  , getPath: function(self){
+      if(! self.parent)
+        return '';
+      return self.parent.getPath(self.parent)+'/'+self.name;
+    }
+  , children: function(self){
+      var result = {};
+      var selfPath = self.getPath(self);
+      var children = fs.readdirSync(selfPath+'/');
+      if (!self.childrenContent) {
+        for(var child in children){
+          child = children[child];
+          var completePath = selfPath+'/'+child;
+          if( fs.lstatSync(completePath).isDirectory() ){
+            result[child] = { name: child, children: self.children, getPath: self.getPath, extended: false };
+          }else{
+            result[child] = { name: child,getPath: self.getPath, extended: false };
+          }
+        }
+      }else{
+        result = self.childrenContent;
+      }
+      return result;
+    }
+}
 
 //set tree
 tree.setData(explorer);
+tree.on('select',function(node){
+  var path = node.getPath(node);
+  var data = [];
+  
+  data.push([path]);
+  data.push(['']);
+  data=data.concat(JSON.stringify(fs.statSync(path),null,2).split("\n").map(function(e){return [e]}));
+  
+  table.setData({headers: ['Info'], data: data});
+  screen.render();
+});
 
 //set default table
 table.setData({headers: ['Info'], data: [['test'],['test2']]})

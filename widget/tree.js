@@ -10,14 +10,20 @@ function Tree(options) {
 
   options = options || {};
   options.bold = true;
-  self = this;
+  var self = this;
   this.options = options;
   this.data = {};
   this.nodeLines = [];
   this.lineNbr = 0;
   Box.call(this, options);
+
   options.extended = options.extended || false;
   options.keys = options.keys || ['+','space'];
+
+  options.template = options.template || {};
+  options.template.extend = options.template.extend || ' [+]';
+  options.template.retract = options.template.retract || ' [-]';
+  options.template.lines = options.template.lines || false;
 
   this.rows = blessed.list({
           height: 0,
@@ -31,23 +37,22 @@ function Tree(options) {
         });
   
   this.rows.key(options.keys,function(){
-    var signal = self.nodeLines[this.getItemIndex(this.selected)].extended ? 'extended' : 'collapsed';
-    
     self.nodeLines[this.getItemIndex(this.selected)].extended = !self.nodeLines[this.getItemIndex(this.selected)].extended;
     self.setData(self.data);
     self.screen.render();
 
-    self.emit(signal,self.nodeLines[this.getItemIndex(this.selected)])
+    self.emit('select',self.nodeLines[this.getItemIndex(this.selected)]);
   });
 
   this.append(this.rows)  
 }
 
-Tree.prototype.walk = function (node,parentNode,depth) {
+Tree.prototype.walk = function (node,depth) {
 
   var lines = [];
-  
-  node.parent = parentNode;
+
+  if (!node.parent)
+    node.parent = null;
 
   if (depth == 0 && node.name) {
     this.lineNbr = 0;
@@ -61,30 +66,48 @@ Tree.prototype.walk = function (node,parentNode,depth) {
   if (node.children && node.extended) {
 
     var i = 0;
-    if (typeof node.children == 'function'){
-      node.children = node.children();
-    }
     
-    for (var child in node.children) {
+    if (typeof node.children == 'function')
+      node.childrenContent = node.children(node);
+    
+    if(!node.childrenContent)
+      node.childrenContent = node.children;
+
+    for (var child in node.childrenContent) {
       
-      if(!node.children[child].name)
-        node.children[child].name = child;
+      if(!node.childrenContent[child].name)
+        node.childrenContent[child].name = child;
+
+      var childIndex = child;
+      child = node.childrenContent[child];
+      child.parent = node;
       
-      if(typeof node.children[child].extended == 'undefined')
-        node.children[child].extended = this.options.extended;
+      if(typeof child.extended == 'undefined')
+        child.extended = this.options.extended;
       
-      if(!node.children[child].children || Object.keys(node.children[child].children).length == 0)
-        var sign = '-';
-      else if(node.children[child].extended)
-        var sign = '-';
+      if (typeof child.children == 'function')
+        child.childrenContent = child.children(child);
       else
-        var sign = '+'
-      lines.push(Array(depth+1).join(' ') + sign + node.children[child].name);
+        child.childrenContent = child.children;
+      
+      var tree = '';
+      var suffix = '';
+      if(!child.childrenContent || Object.keys(child.childrenContent).length == 0){
+        tree = '├─';
+      } else if(child.extended) {
+        tree = '├┐';
+        suffix = this.options.template.retract;
+      } else {
+        tree = '├─';
+        suffix = this.options.template.extend;
+      }
 
-      node.children[child].position = i++;
+      lines.push(' '+Array(depth).join('│') + tree + child.name+suffix);
 
-      this.nodeLines[this.lineNbr++] = node.children[child];
-      lines = lines.concat(this.walk(node.children[child], node, depth+1));
+      child.position = i++;
+
+      this.nodeLines[this.lineNbr++] = child;
+      lines = lines.concat(this.walk(child, depth+1));
     }
   }
   return lines;
@@ -106,7 +129,7 @@ Tree.prototype.render = function() {
 Tree.prototype.setData = function(data) {
 
   var formatted = [];
-  formatted = this.walk(data,null,0)
+  formatted = this.walk(data,0);
 
   this.data = data;
   this.rows.setItems(formatted)
