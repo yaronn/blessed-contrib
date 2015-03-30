@@ -1,6 +1,6 @@
 {
   "name": "blessed-contrib",
-  "version": "1.0.9",
+  "version": "1.0.14",
   "description": "",
   "main": "index.js",
   "scripts": {
@@ -13,14 +13,18 @@
   "author": "Yaron Naveh (yaronn01@gmail.com)",
   "license": "",
   "devDependencies": {
-    "blessed": "^0.0.44"
+    "blessed": ">=0.0.44"
+  },
+  "peerDependencies": {
+    "blessed": ">=0.0.44"
   },
   "dependencies": {
     "ansi-term": ">=0.0.1",
-    "map-canvas": ">=0.0.4",
     "drawille-canvas-blessed-contrib": ">=0.0.1",
+    "map-canvas": ">=0.1.5",
     "memory-streams": "^0.1.0",
     "picture-tube": "0.0.4",
+    "request": "^2.53.0",
     "sparkline": "^0.1.1",
     "term-canvas": "0.0.5"
   }

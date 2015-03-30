@@ -26,8 +26,7 @@ Tested on Linux and OS X. In order to use on windows need to install Braille fon
 
 ## Installation (to build custom projects)
 
-    npm install blessed
-    npm install blessed-contrib
+    npm install blessed blessed-contrib    
 
 ##Usage
 
@@ -113,7 +112,7 @@ You can also use a layout to position the widgets for you (details in the layout
 
 `````javascript
    var map = contrib.map({label: 'World Map'})
-   map.addMarker({"lon" : "37.5000", "lat" : "-79.0000", color: "red", char: "X" })
+   map.addMarker({"lon" : "-79.0000", "lat" : "37.5000", color: "red", char: "X" })
 `````
 
 

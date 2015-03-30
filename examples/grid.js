@@ -1,5 +1,5 @@
 var blessed = require('blessed');
-var contrib = require('../../index');
+var contrib = require('../index');
 
 var screen = blessed.screen();
 

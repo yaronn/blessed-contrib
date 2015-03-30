@@ -1,0 +1,1478 @@
+{
+  "cnt": 37,
+  "list": [
+    {
+      "coord": {
+        "lon": -122.33,
+        "lat": 47.61
+      },
+      "sys": {
+        "message": 0.4962,
+        "country": "US",
+        "sunrise": 1426256702,
+        "sunset": 1426299136
+      },
+      "weather": [
+        {
+          "id": 803,
+          "main": "Clouds",
+          "description": "broken clouds",
+          "icon": "04d"
+        }
+      ],
+      "main": {
+        "temp": 60.76,
+        "temp_min": 60.76,
+        "temp_max": 60.76,
+        "pressure": 1017.29,
+        "sea_level": 1029.1,
+        "grnd_level": 1017.29,
+        "humidity": 71
+      },
+      "wind": {
+        "speed": 0.97,
+        "deg": 331.002
+      },
+      "clouds": {
+        "all": 68
+      },
+      "dt": 1426289042,
+      "id": 5809844,
+      "name": "Seattle"
+    },
+    {
+      "coord": {
+        "lon": -119.77,
+        "lat": 36.75
+      },
+      "sys": {
+        "message": 0.2975,
+        "country": "US",
+        "sunrise": 1426255917,
+        "sunset": 1426298692
+      },
+      "weather": [
+        {
+          "id": 801,
+          "main": "Clouds",
+          "description": "few clouds",
+          "icon": "02d"
+        }
+      ],
+      "main": {
+        "temp": 77.72,
+        "temp_min": 77.72,
+        "temp_max": 77.72,
+        "pressure": 1021.35,
+        "sea_level": 1031.81,
+        "grnd_level": 1021.35,
+        "humidity": 57
+      },
+      "wind": {
+        "speed": 1.82,
+        "deg": 141.002
+      },
+      "clouds": {
+        "all": 20
+      },
+      "dt": 1426289042,
+      "id": 5350937,
+      "name": "Fresno"
+    },
+    {
+      "coord": {
+        "lon": -115.14,
+        "lat": 36.17
+      },
+      "sys": {
+        "message": 0.5544,
+        "country": "US",
+        "sunrise": 1426254798,
+        "sunset": 1426297586
+      },
+      "weather": [
+        {
+          "id": 800,
+          "main": "Clear",
+          "description": "Sky is Clear",
+          "icon": "01d"
+        }
+      ],
+      "main": {
+        "temp": 70.75,
+        "temp_min": 70.75,
+        "temp_max": 70.75,
+        "pressure": 923.43,
+        "sea_level": 1031.2,
+        "grnd_level": 923.43,
+        "humidity": 23
+      },
+      "wind": {
+        "speed": 4.47,
+        "deg": 32.5021
+      },
+      "clouds": {
+        "all": 0
+      },
+      "dt": 1426289003,
+      "id": 5506956,
+      "name": "Las Vegas"
+    },
+    {
+      "coord": {
+        "lon": -116.2,
+        "lat": 43.61
+      },
+      "sys": {
+        "message": 0.9407,
+        "country": "US",
+        "sunrise": 1426255164,
+        "sunset": 1426297732
+      },
+      "weather": [
+        {
+          "id": 802,
+          "main": "Clouds",
+          "description": "scattered clouds",
+          "icon": "03d"
+        }
+      ],
+      "main": {
+        "temp": 61.07,
+        "temp_min": 61.07,
+        "temp_max": 61.07,
+        "pressure": 922.29,
+        "sea_level": 1035.14,
+        "grnd_level": 922.29,
+        "humidity": 54
+      },
+      "wind": {
+        "speed": 4.47,
+        "deg": 144.502
+      },
+      "clouds": {
+        "all": 36
+      },
+      "dt": 1426289043,
+      "id": 5586437,
+      "name": "Boise"
+    },
+    {
+      "coord": {
+        "lon": -111.89,
+        "lat": 40.76
+      },
+      "sys": {
+        "message": 0.4355,
+        "country": "US",
+        "sunrise": 1426254086,
+        "sunset": 1426296741
+      },
+      "weather": [
+        {
+          "id": 800,
+          "main": "Clear",
+          "description": "Sky is Clear",
+          "icon": "01d"
+        }
+      ],
+      "main": {
+        "temp": 55.36,
+        "temp_min": 55.36,
+        "temp_max": 55.36,
+        "pressure": 819.18,
+        "sea_level": 1034.85,
+        "grnd_level": 819.18,
+        "humidity": 31
+      },
+      "wind": {
+        "speed": 1.17,
+        "deg": 311.002
+      },
+      "clouds": {
+        "all": 0
+      },
+      "dt": 1426289044,
+      "id": 5780993,
+      "name": "Salt Lake City"
+    },
+    {
+      "coord": {
+        "lon": -112.07,
+        "lat": 33.45
+      },
+      "sys": {
+        "message": 0.1417,
+        "country": "US",
+        "sunrise": 1426254028,
+        "sunset": 1426296887
+      },
+      "weather": [
+        {
+          "id": 800,
+          "main": "Clear",
+          "description": "Sky is Clear",
+          "icon": "01d"
+        }
+      ],
+      "main": {
+        "temp": 81.37,
+        "temp_min": 81.37,
+        "temp_max": 81.37,
+        "pressure": 972.87,
+        "sea_level": 1026.62,
+        "grnd_level": 972.87,
+        "humidity": 23
+      },
+      "wind": {
+        "speed": 1.72,
+        "deg": 73.0021
+      },
+      "clouds": {
+        "all": 0
+      },
+      "dt": 1426289045,
+      "id": 5308655,
+      "name": "Phoenix"
+    },
+    {
+      "coord": {
+        "lon": -108.5,
+        "lat": 45.78
+      },
+      "sys": {
+        "message": 0.2187,
+        "country": "US",
+        "sunrise": 1426253354,
+        "sunset": 1426295846
+      },
+      "weather": [
+        {
+          "id": 800,
+          "main": "Clear",
+          "description": "Sky is Clear",
+          "icon": "01d"
+        }
+      ],
+      "main": {
+        "temp": 60.53,
+        "temp_min": 60.53,
+        "temp_max": 60.53,
+        "pressure": 899.43,
+        "sea_level": 1036.43,
+        "grnd_level": 899.43,
+        "humidity": 33
+      },
+      "wind": {
+        "speed": 4.27,
+        "deg": 189.502
+      },
+      "clouds": {
+        "all": 0
+      },
+      "dt": 1426289049,
+      "id": 5640350,
+      "name": "Billings"
+    },
+    {
+      "coord": {
+        "lon": -104.82,
+        "lat": 41.14
+      },
+      "sys": {
+        "message": 0.1275,
+        "country": "US",
+        "sunrise": 1426252396,
+        "sunset": 1426295037
+      },
+      "weather": [
+        {
+          "id": 802,
+          "main": "Clouds",
+          "description": "scattered clouds",
+          "icon": "03d"
+        }
+      ],
+      "main": {
+        "temp": 50.09,
+        "temp_min": 50.09,
+        "temp_max": 50.09,
+        "pressure": 821.61,
+        "sea_level": 1038.3,
+        "grnd_level": 821.61,
+        "humidity": 35
+      },
+      "wind": {
+        "speed": 2.52,
+        "deg": 30.0021
+      },
+      "clouds": {
+        "all": 32
+      },
+      "dt": 1426288944,
+      "id": 5821086,
+      "name": "Cheyenne"
+    },
+    {
+      "coord": {
+        "lon": -104.98,
+        "lat": 39.74
+      },
+      "sys": {
+        "message": 0.1445,
+        "country": "US",
+        "sunrise": 1426252415,
+        "sunset": 1426295098
+      },
+      "weather": [
+        {
+          "id": 802,
+          "main": "Clouds",
+          "description": "scattered clouds",
+          "icon": "03d"
+        }
+      ],
+      "main": {
+        "temp": 48.02,
+        "temp_min": 48.02,
+        "temp_max": 48.02,
+        "pressure": 823.24,
+        "sea_level": 1038.05,
+        "grnd_level": 823.24,
+        "humidity": 50
+      },
+      "wind": {
+        "speed": 2.32,
+        "deg": 13.0021
+      },
+      "clouds": {
+        "all": 48
+      },
+      "dt": 1426289050,
+      "id": 5419384,
+      "name": "Denver"
+    },
+    {
+      "coord": {
+        "lon": -106.65,
+        "lat": 35.08
+      },
+      "sys": {
+        "message": 0.1852,
+        "country": "US",
+        "sunrise": 1426252749,
+        "sunset": 1426295563
+      },
+      "weather": [
+        {
+          "id": 803,
+          "main": "Clouds",
+          "description": "broken clouds",
+          "icon": "04d"
+        }
+      ],
+      "main": {
+        "temp": 52.07,
+        "temp_min": 52.07,
+        "temp_max": 52.07,
+        "pressure": 831.5,
+        "sea_level": 1032.83,
+        "grnd_level": 831.5,
+        "humidity": 48
+      },
+      "wind": {
+        "speed": 5.37,
+        "deg": 72.0021
+      },
+      "clouds": {
+        "all": 56
+      },
+      "dt": 1426289052,
+      "id": 5454711,
+      "name": "Albuquerque"
+    },
+    {
+      "coord": {
+        "lon": -100.78,
+        "lat": 46.81
+      },
+      "sys": {
+        "message": 0.5602,
+        "country": "US",
+        "sunrise": 1426251523,
+        "sunset": 1426293974
+      },
+      "weather": [
+        {
+          "id": 800,
+          "main": "Clear",
+          "description": "Sky is Clear",
+          "icon": "01d"
+        }
+      ],
+      "main": {
+        "temp": 55.58,
+        "temp_min": 55.58,
+        "temp_max": 55.58,
+        "pressure": 971.33,
+        "sea_level": 1039.84,
+        "grnd_level": 971.33,
+        "humidity": 51
+      },
+      "wind": {
+        "speed": 2.97,
+        "deg": 310.002
+      },
+      "clouds": {
+        "all": 0
+      },
+      "dt": 1426289054,
+      "id": 5688025,
+      "name": "Bismarck"
+    },
+    {
+      "coord": {
+        "lon": -103.23,
+        "lat": 44.08
+      },
+      "sys": {
+        "message": 0.1741,
+        "country": "US",
+        "sunrise": 1426252062,
+        "sunset": 1426294609
+      },
+      "weather": [
+        {
+          "id": 800,
+          "main": "Clear",
+          "description": "Sky is Clear",
+          "icon": "01d"
+        }
+      ],
+      "main": {
+        "temp": 59.36,
+        "temp_min": 59.36,
+        "temp_max": 59.36,
+        "pressure": 927.48,
+        "sea_level": 1039.72,
+        "grnd_level": 927.48,
+        "humidity": 30
+      },
+      "wind": {
+        "speed": 2.82,
+        "deg": 343.502
+      },
+      "clouds": {
+        "all": 0
+      },
+      "dt": 1426289055,
+      "id": 5768233,
+      "name": "Rapid City"
+    },
+    {
+      "coord": {
+        "lon": -95.94,
+        "lat": 41.26
+      },
+      "sys": {
+        "message": 0.0789,
+        "country": "US",
+        "sunrise": 1426250269,
+        "sunset": 1426292902
+      },
+      "weather": [
+        {
+          "id": 801,
+          "main": "Clouds",
+          "description": "few clouds",
+          "icon": "02d"
+        }
+      ],
+      "main": {
+        "temp": 66.97,
+        "temp_min": 66.97,
+        "temp_max": 66.97,
+        "pressure": 992.49,
+        "sea_level": 1034.16,
+        "grnd_level": 992.49,
+        "humidity": 34
+      },
+      "wind": {
+        "speed": 6.47,
+        "deg": 356.002
+      },
+      "clouds": {
+        "all": 24
+      },
+      "dt": 1426289290,
+      "id": 5074472,
+      "name": "Omaha"
+    },
+    {
+      "coord": {
+        "lon": -94.58,
+        "lat": 39.1
+      },
+      "sys": {
+        "message": 0.0164,
+        "country": "US",
+        "sunrise": 1426249911,
+        "sunset": 1426292608
+      },
+      "weather": [
+        {
+          "id": 803,
+          "main": "Clouds",
+          "description": "broken clouds",
+          "icon": "04d"
+        }
+      ],
+      "main": {
+        "temp": 69.17,
+        "temp_min": 69.17,
+        "temp_max": 69.17,
+        "pressure": 996.78,
+        "sea_level": 1030.96,
+        "grnd_level": 996.78,
+        "humidity": 33
+      },
+      "wind": {
+        "speed": 3.42,
+        "deg": 22.5021
+      },
+      "clouds": {
+        "all": 76
+      },
+      "dt": 1426288921,
+      "id": 4393217,
+      "name": "Kansas City"
+    },
+    {
+      "coord": {
+        "lon": -97.52,
+        "lat": 35.47
+      },
+      "sys": {
+        "message": 0.5986,
+        "country": "US",
+        "sunrise": 1426250564,
+        "sunset": 1426293364
+      },
+      "weather": [
+        {
+          "id": 804,
+          "main": "Clouds",
+          "description": "overcast clouds",
+          "icon": "04d"
+        }
+      ],
+      "main": {
+        "temp": 64.09,
+        "temp_min": 64.09,
+        "temp_max": 64.09,
+        "pressure": 984.54,
+        "sea_level": 1030.48,
+        "grnd_level": 984.54,
+        "humidity": 54
+      },
+      "wind": {
+        "speed": 7.97,
+        "deg": 29.0021
+      },
+      "clouds": {
+        "all": 92
+      },
+      "dt": 1426289328,
+      "id": 4544349,
+      "name": "Oklahoma City"
+    },
+    {
+      "coord": {
+        "lon": -96.81,
+        "lat": 32.78
+      },
+      "sys": {
+        "message": 0.6733,
+        "country": "US",
+        "sunrise": 1426250358,
+        "sunset": 1426293229
+      },
+      "weather": [
+        {
+          "id": 803,
+          "main": "Clouds",
+          "description": "broken clouds",
+          "icon": "04d"
+        }
+      ],
+      "main": {
+        "temp": 59.81,
+        "temp_min": 59.81,
+        "temp_max": 59.81,
+        "pressure": 1012.02,
+        "sea_level": 1028.73,
+        "grnd_level": 1012.02,
+        "humidity": 89
+      },
+      "wind": {
+        "speed": 5.47,
+        "deg": 337.502
+      },
+      "clouds": {
+        "all": 64
+      },
+      "dt": 1426289329,
+      "id": 4684888,
+      "name": "Dallas"
+    },
+    {
+      "coord": {
+        "lon": -95.36,
+        "lat": 29.76
+      },
+      "sys": {
+        "message": 0.0354,
+        "country": "US",
+        "sunrise": 1426249974,
+        "sunset": 1426292921
+      },
+      "weather": [
+        {
+          "id": 801,
+          "main": "Clouds",
+          "description": "few clouds",
+          "icon": "02d"
+        }
+      ],
+      "main": {
+        "temp": 66.52,
+        "temp_min": 66.52,
+        "temp_max": 66.52,
+        "pressure": 1027.43,
+        "sea_level": 1028.85,
+        "grnd_level": 1027.43,
+        "humidity": 88
+      },
+      "wind": {
+        "speed": 2.32,
+        "deg": 305.502
+      },
+      "clouds": {
+        "all": 24
+      },
+      "dt": 1426288703,
+      "id": 4699066,
+      "name": "Houston"
+    },
+    {
+      "coord": {
+        "lon": -93.26,
+        "lat": 44.98
+      },
+      "sys": {
+        "message": 0.0938,
+        "country": "US",
+        "sunrise": 1426249688,
+        "sunset": 1426292199
+      },
+      "weather": [
+        {
+          "id": 800,
+          "main": "Clear",
+          "description": "Sky is Clear",
+          "icon": "01d"
+        }
+      ],
+      "main": {
+        "temp": 54.64,
+        "temp_min": 54.64,
+        "temp_max": 54.64,
+        "pressure": 996.3,
+        "sea_level": 1034.24,
+        "grnd_level": 996.3,
+        "humidity": 48
+      },
+      "wind": {
+        "speed": 8.37,
+        "deg": 323.002
+      },
+      "clouds": {
+        "all": 0
+      },
+      "dt": 1426288808,
+      "id": 5037649,
+      "name": "Minneapolis"
+    },
+    {
+      "coord": {
+        "lon": -93.61,
+        "lat": 41.6
+      },
+      "sys": {
+        "message": 0.0783,
+        "country": "US",
+        "sunrise": 1426249716,
+        "sunset": 1426292337
+      },
+      "weather": [
+        {
+          "id": 800,
+          "main": "Clear",
+          "description": "Sky is Clear",
+          "icon": "01d"
+        }
+      ],
+      "main": {
+        "temp": 66.29,
+        "temp_min": 66.29,
+        "temp_max": 66.29,
+        "pressure": 998.81,
+        "sea_level": 1032.66,
+        "grnd_level": 998.81,
+        "humidity": 38
+      },
+      "wind": {
+        "speed": 4.52,
+        "deg": 355.502
+      },
+      "clouds": {
+        "all": 0
+      },
+      "dt": 1426289292,
+      "id": 4853828,
+      "name": "Des Moines"
+    },
+    {
+      "coord": {
+        "lon": -92.29,
+        "lat": 34.75
+      },
+      "sys": {
+        "message": 1.4103,
+        "country": "US",
+        "sunrise": 1426249301,
+        "sunset": 1426292119
+      },
+      "weather": [
+        {
+          "id": 500,
+          "main": "Rain",
+          "description": "light rain",
+          "icon": "10d"
+        }
+      ],
+      "main": {
+        "temp": 63.14,
+        "temp_min": 63.14,
+        "temp_max": 63.14,
+        "pressure": 1012.27,
+        "sea_level": 1026.18,
+        "grnd_level": 1012.27,
+        "humidity": 99
+      },
+      "wind": {
+        "speed": 1.52,
+        "deg": 207.502
+      },
+      "clouds": {
+        "all": 80
+      },
+      "rain": {
+        "3h": 0.535
+      },
+      "dt": 1426289331,
+      "id": 4119403,
+      "name": "Little Rock"
+    },
+    {
+      "coord": {
+        "lon": -90.23,
+        "lat": 39.73
+      },
+      "sys": {
+        "message": 0.04,
+        "country": "US",
+        "sunrise": 1426248877,
+        "sunset": 1426291554
+      },
+      "weather": [
+        {
+          "id": 500,
+          "main": "Rain",
+          "description": "light rain",
+          "icon": "10d"
+        }
+      ],
+      "main": {
+        "temp": 57.34,
+        "temp_min": 57.34,
+        "temp_max": 57.34,
+        "pressure": 1010.08,
+        "sea_level": 1031.69,
+        "grnd_level": 1010.08,
+        "humidity": 91
+      },
+      "wind": {
+        "speed": 2.12,
+        "deg": 62.0021
+      },
+      "clouds": {
+        "all": 92
+      },
+      "rain": {
+        "3h": 0.175
+      },
+      "dt": 1426289293,
+      "id": 4241704,
+      "name": "Jacksonville"
+    },
+    {
+      "coord": {
+        "lon": -90.08,
+        "lat": 29.95
+      },
+      "sys": {
+        "message": 0.0467,
+        "country": "US",
+        "sunrise": 1426248708,
+        "sunset": 1426291649
+      },
+      "weather": [
+        {
+          "id": 800,
+          "main": "Clear",
+          "description": "Sky is Clear",
+          "icon": "01d"
+        }
+      ],
+      "main": {
+        "temp": 64.45,
+        "temp_min": 64.45,
+        "temp_max": 64.45,
+        "pressure": 1029.86,
+        "sea_level": 1029.95,
+        "grnd_level": 1029.86,
+        "humidity": 94
+      },
+      "wind": {
+        "speed": 3.02,
+        "deg": 224.002
+      },
+      "clouds": {
+        "all": 0
+      },
+      "dt": 1426289293,
+      "id": 4335045,
+      "name": "New Orleans"
+    },
+    {
+      "coord": {
+        "lon": -87.91,
+        "lat": 43.04
+      },
+      "sys": {
+        "message": 0.0065,
+        "country": "US",
+        "sunrise": 1426248372,
+        "sunset": 1426290945
+      },
+      "weather": [
+        {
+          "id": 800,
+          "main": "Clear",
+          "description": "sky is clear",
+          "icon": "02d"
+        }
+      ],
+      "main": {
+        "temp": 43.3,
+        "temp_min": 43.3,
+        "temp_max": 43.3,
+        "pressure": 1007.16,
+        "sea_level": 1030.19,
+        "grnd_level": 1007.16,
+        "humidity": 74
+      },
+      "wind": {
+        "speed": 7.92,
+        "deg": 197.502
+      },
+      "clouds": {
+        "all": 8
+      },
+      "dt": 1426289331,
+      "id": 5263045,
+      "name": "Milwaukee"
+    },
+    {
+      "coord": {
+        "lon": -87.64,
+        "lat": 41.51
+      },
+      "sys": {
+        "message": 0.2649,
+        "country": "US",
+        "sunrise": 1426248282,
+        "sunset": 1426290904
+      },
+      "weather": [
+        {
+          "id": 802,
+          "main": "Clouds",
+          "description": "scattered clouds",
+          "icon": "03d"
+        }
+      ],
+      "main": {
+        "temp": 51.89,
+        "temp_min": 51.89,
+        "temp_max": 51.89,
+        "pressure": 1007.4,
+        "sea_level": 1032.22,
+        "grnd_level": 1007.4,
+        "humidity": 86
+      },
+      "wind": {
+        "speed": 2.87,
+        "deg": 182.002
+      },
+      "clouds": {
+        "all": 32
+      },
+      "dt": 1426289331,
+      "id": 4887442,
+      "name": "Chicago Heights"
+    },
+    {
+      "coord": {
+        "lon": -83.05,
+        "lat": 42.33
+      },
+      "sys": {
+        "message": 0.0162,
+        "country": "US",
+        "sunrise": 1426247195,
+        "sunset": 1426289788
+      },
+      "weather": [
+        {
+          "id": 804,
+          "main": "Clouds",
+          "description": "overcast clouds",
+          "icon": "04d"
+        }
+      ],
+      "main": {
+        "temp": 39.7,
+        "temp_min": 39.7,
+        "temp_max": 39.7,
+        "pressure": 1001.49,
+        "sea_level": 1033.84,
+        "grnd_level": 1001.49,
+        "humidity": 91
+      },
+      "wind": {
+        "speed": 3.42,
+        "deg": 194.002
+      },
+      "clouds": {
+        "all": 88
+      },
+      "dt": 1426289331,
+      "id": 4990729,
+      "name": "Detroit"
+    },
+    {
+      "coord": {
+        "lon": -86.16,
+        "lat": 39.77
+      },
+      "sys": {
+        "message": 0.0636,
+        "country": "US",
+        "sunrise": 1426247901,
+        "sunset": 1426290575
+      },
+      "weather": [
+        {
+          "id": 501,
+          "main": "Rain",
+          "description": "moderate rain",
+          "icon": "10d"
+        }
+      ],
+      "main": {
+        "temp": 54.01,
+        "temp_min": 54.01,
+        "temp_max": 54.01,
+        "pressure": 1003.27,
+        "sea_level": 1032.38,
+        "grnd_level": 1003.27,
+        "humidity": 97
+      },
+      "wind": {
+        "speed": 2.92,
+        "deg": 161.502
+      },
+      "clouds": {
+        "all": 100
+      },
+      "rain": {
+        "3h": 3.715
+      },
+      "dt": 1426289165,
+      "id": 4260977,
+      "name": "Marion County"
+    },
+    {
+      "coord": {
+        "lon": -85.76,
+        "lat": 38.25
+      },
+      "sys": {
+        "message": 0.0371,
+        "country": "US",
+        "sunrise": 1426247784,
+        "sunset": 1426290502
+      },
+      "weather": [
+        {
+          "id": 501,
+          "main": "Rain",
+          "description": "moderate rain",
+          "icon": "10d"
+        }
+      ],
+      "main": {
+        "temp": 56.03,
+        "temp_min": 56.03,
+        "temp_max": 56.03,
+        "pressure": 1008.86,
+        "sea_level": 1033.39,
+        "grnd_level": 1008.86,
+        "humidity": 98
+      },
+      "wind": {
+        "speed": 4.47,
+        "deg": 172.002
+      },
+      "clouds": {
+        "all": 92
+      },
+      "rain": {
+        "3h": 6.35
+      },
+      "dt": 1426289331,
+      "id": 4299276,
+      "name": "Louisville"
+    },
+    {
+      "coord": {
+        "lon": -86.78,
+        "lat": 36.17
+      },
+      "sys": {
+        "message": 0.0094,
+        "country": "US",
+        "sunrise": 1426248000,
+        "sunset": 1426290778
+      },
+      "weather": [
+        {
+          "id": 500,
+          "main": "Rain",
+          "description": "light rain",
+          "icon": "10d"
+        }
+      ],
+      "main": {
+        "temp": 56.89,
+        "temp_min": 56.89,
+        "temp_max": 56.89,
+        "pressure": 1007.73,
+        "sea_level": 1032.74,
+        "grnd_level": 1007.73,
+        "humidity": 97
+      },
+      "wind": {
+        "speed": 4.12,
+        "deg": 148.002
+      },
+      "clouds": {
+        "all": 92
+      },
+      "rain": {
+        "3h": 1.435
+      },
+      "dt": 1426288977,
+      "id": 4644585,
+      "name": "Nashville"
+    },
+    {
+      "coord": {
+        "lon": -90.05,
+        "lat": 35.15
+      },
+      "sys": {
+        "message": 0.0688,
+        "country": "US",
+        "sunrise": 1426248769,
+        "sunset": 1426291575
+      },
+      "weather": [
+        {
+          "id": 501,
+          "main": "Rain",
+          "description": "moderate rain",
+          "icon": "10d"
+        }
+      ],
+      "main": {
+        "temp": 63.86,
+        "temp_min": 63.86,
+        "temp_max": 63.86,
+        "pressure": 1018.18,
+        "sea_level": 1026.58,
+        "grnd_level": 1018.18,
+        "humidity": 98
+      },
+      "wind": {
+        "speed": 5.57,
+        "deg": 146.002
+      },
+      "clouds": {
+        "all": 92
+      },
+      "rain": {
+        "3h": 11.165
+      },
+      "dt": 1426289332,
+      "id": 4641239,
+      "name": "Memphis"
+    },
+    {
+      "coord": {
+        "lon": -84.39,
+        "lat": 33.75
+      },
+      "sys": {
+        "message": 0.0097,
+        "country": "US",
+        "sunrise": 1426247393,
+        "sunset": 1426290235
+      },
+      "weather": [
+        {
+          "id": 500,
+          "main": "Rain",
+          "description": "light rain",
+          "icon": "10d"
+        }
+      ],
+      "main": {
+        "temp": 51.85,
+        "temp_min": 51.85,
+        "temp_max": 51.85,
+        "pressure": 1003.35,
+        "sea_level": 1036.8,
+        "grnd_level": 1003.35,
+        "humidity": 98
+      },
+      "wind": {
+        "speed": 5.22,
+        "deg": 89.5021
+      },
+      "clouds": {
+        "all": 92
+      },
+      "rain": {
+        "3h": 0.255
+      },
+      "dt": 1426289332,
+      "id": 4180439,
+      "name": "Atlanta"
+    },
+    {
+      "coord": {
+        "lon": -81.38,
+        "lat": 28.54
+      },
+      "sys": {
+        "message": 0.0038,
+        "country": "US",
+        "sunrise": 1426246606,
+        "sunset": 1426289578
+      },
+      "weather": [
+        {
+          "id": 801,
+          "main": "Clouds",
+          "description": "few clouds",
+          "icon": "02d"
+        }
+      ],
+      "main": {
+        "temp": 77.86,
+        "temp_min": 77.86,
+        "temp_max": 77.86,
+        "pressure": 1031.4,
+        "sea_level": 1034.08,
+        "grnd_level": 1031.4,
+        "humidity": 50
+      },
+      "wind": {
+        "speed": 6.42,
+        "deg": 121.502
+      },
+      "clouds": {
+        "all": 12
+      },
+      "dt": 1426289332,
+      "id": 4167147,
+      "name": "Orlando"
+    },
+    {
+      "coord": {
+        "lon": -80.19,
+        "lat": 25.77
+      },
+      "sys": {
+        "message": 0.0442,
+        "country": "US",
+        "sunrise": 1426246288,
+        "sunset": 1426289327
+      },
+      "weather": [
+        {
+          "id": 500,
+          "main": "Rain",
+          "description": "light rain",
+          "icon": "10n"
+        }
+      ],
+      "main": {
+        "temp": 75.25,
+        "temp_min": 75.25,
+        "temp_max": 75.25,
+        "pressure": 1033.18,
+        "sea_level": 1033.23,
+        "grnd_level": 1033.18,
+        "humidity": 83
+      },
+      "wind": {
+        "speed": 5.97,
+        "deg": 117.002
+      },
+      "clouds": {
+        "all": 48
+      },
+      "rain": {
+        "3h": 0.23
+      },
+      "dt": 1426289332,
+      "id": 4164138,
+      "name": "Miami"
+    },
+    {
+      "coord": {
+        "lon": -94.7,
+        "lat": 37.41
+      },
+      "sys": {
+        "message": 0.0072,
+        "country": "US",
+        "sunrise": 1426249917,
+        "sunset": 1426292662
+      },
+      "weather": [
+        {
+          "id": 500,
+          "main": "Rain",
+          "description": "light rain",
+          "icon": "10d"
+        }
+      ],
+      "main": {
+        "temp": 56.57,
+        "temp_min": 56.57,
+        "temp_max": 56.57,
+        "pressure": 997.68,
+        "sea_level": 1030.39,
+        "grnd_level": 997.68,
+        "humidity": 98
+      },
+      "wind": {
+        "speed": 6.42,
+        "deg": 29.0021
+      },
+      "clouds": {
+        "all": 92
+      },
+      "rain": {
+        "3h": 1.52
+      },
+      "dt": 1426289332,
+      "id": 4277241,
+      "name": "Pittsburg"
+    },
+    {
+      "coord": {
+        "lon": -84.29,
+        "lat": 37.75
+      },
+      "sys": {
+        "message": 0.0066,
+        "country": "US",
+        "sunrise": 1426247426,
+        "sunset": 1426290157
+      },
+      "weather": [
+        {
+          "id": 501,
+          "main": "Rain",
+          "description": "moderate rain",
+          "icon": "10d"
+        }
+      ],
+      "main": {
+        "temp": 54.1,
+        "temp_min": 54.1,
+        "temp_max": 54.1,
+        "pressure": 1002.13,
+        "sea_level": 1035.18,
+        "grnd_level": 1002.13,
+        "humidity": 97
+      },
+      "wind": {
+        "speed": 4.12,
+        "deg": 167.502
+      },
+      "clouds": {
+        "all": 92
+      },
+      "rain": {
+        "3h": 6.655
+      },
+      "dt": 1426289332,
+      "id": 4305974,
+      "name": "Richmond"
+    },
+    {
+      "coord": {
+        "lon": -77.04,
+        "lat": 38.9
+      },
+      "sys": {
+        "message": 0.0573,
+        "country": "US",
+        "sunrise": 1426245702,
+        "sunset": 1426288398
+      },
+      "weather": [
+        {
+          "id": 804,
+          "main": "Clouds",
+          "description": "overcast clouds",
+          "icon": "04n"
+        }
+      ],
+      "main": {
+        "temp": 49.6,
+        "temp_min": 49.6,
+        "temp_max": 49.6,
+        "pressure": 1037.23,
+        "sea_level": 1044.38,
+        "grnd_level": 1037.23,
+        "humidity": 43
+      },
+      "wind": {
+        "speed": 2.57,
+        "deg": 161.502
+      },
+      "clouds": {
+        "all": 92
+      },
+      "dt": 1426289245,
+      "id": 4140963,
+      "name": "Washington, D. C."
+    },
+    {
+      "coord": {
+        "lon": -75.5,
+        "lat": 43
+      },
+      "sys": {
+        "message": 0.5002,
+        "country": "US",
+        "sunrise": 1426245397,
+        "sunset": 1426287965
+      },
+      "weather": [
+        {
+          "id": 802,
+          "main": "Clouds",
+          "description": "scattered clouds",
+          "icon": "03n"
+        }
+      ],
+      "main": {
+        "temp": 38.39,
+        "temp_min": 38.39,
+        "temp_max": 38.39,
+        "pressure": 1007.97,
+        "sea_level": 1040.61,
+        "grnd_level": 1007.97,
+        "humidity": 53
+      },
+      "wind": {
+        "speed": 2.97,
+        "deg": 179.502
+      },
+      "clouds": {
+        "all": 48
+      },
+      "dt": 1426289164,
+      "id": 5128638,
+      "name": "New York"
+    },
+    {
+      "coord": {
+        "lon": -71.06,
+        "lat": 42.36
+      },
+      "sys": {
+        "message": 0.0053,
+        "country": "US",
+        "sunrise": 1426244322,
+        "sunset": 1426286909
+      },
+      "weather": [
+        {
+          "id": 803,
+          "main": "Clouds",
+          "description": "broken clouds",
+          "icon": "04n"
+        }
+      ],
+      "main": {
+        "temp": 32.09,
+        "temp_min": 32.09,
+        "temp_max": 32.09,
+        "pressure": 1033.18,
+        "sea_level": 1044.62,
+        "grnd_level": 1033.18,
+        "humidity": 57
+      },
+      "wind": {
+        "speed": 2.37,
+        "deg": 217.502
+      },
+      "clouds": {
+        "all": 76
+      },
+      "dt": 1426289332,
+      "id": 4930956,
+      "name": "Boston"
+    }
+  ]
+}
