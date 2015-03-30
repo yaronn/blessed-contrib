@@ -47,21 +47,21 @@ function Tree(options) {
   this.append(this.rows)  
 }
 
-Tree.prototype.walk = function (node,depth) {
+Tree.prototype.walk = function (node,treeDepth) {
 
   var lines = [];
 
   if (!node.parent)
     node.parent = null;
 
-  if (depth == 0 && node.name) {
+  if (treeDepth == '' && node.name) {
     this.lineNbr = 0;
     this.nodeLines[this.lineNbr++] = node;
     lines.push(node.name);
-    depth++;
+    treeDepth = ' ';
   }
 
-  node.depth = depth;
+  node.depth = treeDepth.length-1;
 
   if (node.children && node.extended) {
 
@@ -81,6 +81,7 @@ Tree.prototype.walk = function (node,depth) {
       var childIndex = child;
       child = node.childrenContent[child];
       child.parent = node;
+      child.position = i++;
       
       if(typeof child.extended == 'undefined')
         child.extended = this.options.extended;
@@ -90,24 +91,39 @@ Tree.prototype.walk = function (node,depth) {
       else
         child.childrenContent = child.children;
       
-      var tree = '';
+      var isLastChild = child.position == Object.keys(child.parent.childrenContent).length - 1;
+      var tree;
       var suffix = '';
-      if(!child.childrenContent || Object.keys(child.childrenContent).length == 0){
-        tree = '├─';
+      if (isLastChild) {
+        tree = '└';
+      } else {
+        tree = '├';
+      }
+      if (!child.childrenContent || Object.keys(child.childrenContent).length == 0){
+        tree += '─';
       } else if(child.extended) {
-        tree = '├┐';
+        tree += '┬';
         suffix = this.options.template.retract;
       } else {
-        tree = '├─';
+        tree += '─';
         suffix = this.options.template.extend;
       }
 
-      lines.push(' '+Array(depth).join('│') + tree + child.name+suffix);
+      if (!this.options.template.lines){
+        tree = '|-';
+      }
 
-      child.position = i++;
+      lines.push(treeDepth + tree + child.name + suffix);
 
       this.nodeLines[this.lineNbr++] = child;
-      lines = lines.concat(this.walk(child, depth+1));
+
+      var parentTree;
+      if (isLastChild || !this.options.template.lines){
+        parentTree = treeDepth+" ";
+      } else {
+        parentTree = treeDepth+"│";
+      }
+      lines = lines.concat(this.walk(child, parentTree));
     }
   }
   return lines;
@@ -129,7 +145,7 @@ Tree.prototype.render = function() {
 Tree.prototype.setData = function(data) {
 
   var formatted = [];
-  formatted = this.walk(data,0);
+  formatted = this.walk(data,'');
 
   this.data = data;
   this.rows.setItems(formatted)
