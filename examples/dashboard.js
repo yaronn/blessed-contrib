@@ -12,9 +12,14 @@ grid1.set(0, 0, 1, 1, contrib.log,
   { fg: "green"
   , selectedFg: "green"
   , label: 'Server Log'})
-grid1.set(0, 1, 1, 1, contrib.tree, 
-  { style: { text: "red" }
-  , label: 'Process Tree'})
+grid1.set(0, 1, 1, 1, contrib.line, 
+  { style: 
+    { line: "yellow"
+    , text: "green"
+    , baseline: "black"}
+  , xLabelPadding: 3
+  , xPadding: 5
+  , label: 'Network Latency (sec)'})
 
 var grid2 = new contrib.grid({rows: 2, cols: 1})
 grid2.set(0, 0, 1, 1, contrib.gauge, {label: 'Deployment Progress'})
@@ -62,7 +67,7 @@ grid.applyLayout(screen)
 
 var transactionsLine = grid5.get(0, 0)
 var errorsLine = grid4.get(0, 0)
-var tree = grid1.get(0, 1)
+var latencyLine = grid1.get(0, 1)
 var map = grid5.get(1, 0)
 var log = grid1.get(0, 0)
 var table = grid3.get(0,1)
@@ -74,30 +79,7 @@ var bar = grid3.get(0, 0)
 //dummy data
 var servers = ['US1', 'US2', 'EU1', 'AU1', 'AS1', 'JP1']
 var commands = ['grep', 'node', 'java', 'timer', '~/ls -l', 'netns', 'watchdog', 'gulp', 'tar -xvf', 'awk', 'npm install']
-var processes = { extended: true
-  , name: 'Init (0)'
-  , children:
-    {
-      'pid823':
-      { name: 'sshd (823)'
-      , children:
-        { 'pid25094': { name: 'bash (25094)' }
-        , 'pid987': { name: 'bash (987)' }
-        , 'pid9283': { name: 'bash (9283)'}
-        , 'pid9282': 
-          {  name: 'bash (9282)'
-          ,  children: function(){
-              return { 'pid902': { name: 'htop (902)' }
-              , 'pid1082': { name: 'vim (1082)' }
-              , 'pid509': { name: 'nodejs (509)' }
-            }}}
-        , 'pid292': { name: 'git (292)' }}}
-    , 'pid292':
-      { name: 'apache2 (292)'
-      , children:
-        { 'pid33820': { name: 'apache2 (33820)'}
-        , 'pid34204': { name: 'apache2 (34204)'}
-        , 'pid34095': { name: 'apache2 (34095)'}}}}};
+
 
 //set dummy data on gauge
 var gauge_percent = 0
@@ -165,14 +147,6 @@ function refreshSpark() {
   sparkline.setData(['Server1', 'Server2'], [spark1, spark2])  
 }
 
-//set tree dummy data
-tree.setData(processes)
-setInterval(function() {   
-   tree.setData(processes)
-   screen.render()
-}, 1000)
-
-
 
 
 //set map dummy markers
@@ -206,8 +180,14 @@ var errorsData = {
    y: [30, 50, 70, 40, 50, 20]
 }
 
+var latencyData = {
+   x: ['t1', 't2', 't3', 't4'],
+   y: [5, 1, 7, 5]
+}
+
 setLineData(transactionsData, transactionsLine)
 setLineData(errorsData, errorsLine)
+setLineData(latencyData, latencyLine)
 
 setInterval(function() {
    setLineData(transactionsData, transactionsLine)
@@ -218,6 +198,11 @@ setInterval(function() {
    setLineData(errorsData, errorsLine)
    screen.render()
 }, 1500)
+
+setInterval(function() {   
+   setLineData(latencyData, latencyLine)
+   screen.render()
+}, 5000)
 
 function setLineData(mockData, line) {
   var last = mockData.y[mockData.y.length-1]
