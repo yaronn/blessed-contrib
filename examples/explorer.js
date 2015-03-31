@@ -35,20 +35,22 @@ var explorer = { name: '/'
   , children: function(self){
       var result = {};
       var selfPath = self.getPath(self);
-      var children = fs.readdirSync(selfPath+'/');
-      if (!self.childrenContent) {
-        for(var child in children){
-          child = children[child];
-          var completePath = selfPath+'/'+child;
-          if( fs.lstatSync(completePath).isDirectory() ){
-            result[child] = { name: child, children: self.children, getPath: self.getPath, extended: false };
-          }else{
-            result[child] = { name: child,getPath: self.getPath, extended: false };
+      try {
+        var children = fs.readdirSync(selfPath+'/');
+        if (!self.childrenContent) {
+          for(var child in children){
+            child = children[child];
+            var completePath = selfPath+'/'+child;
+            if( fs.lstatSync(completePath).isDirectory() ){
+              result[child] = { name: child, children: self.children, getPath: self.getPath, extended: false };
+            }else{
+              result[child] = { name: child,getPath: self.getPath, extended: false };
+            }
           }
+        }else{
+          result = self.childrenContent;
         }
-      }else{
-        result = self.childrenContent;
-      }
+      } catch (e){}
       return result;
     }
 }
