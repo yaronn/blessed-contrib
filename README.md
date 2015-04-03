@@ -244,8 +244,8 @@ Every node is a hash and it can have custom properties that can be used in "sele
   * The function must return a hash that could have been used as children property
   * If you use a function, the result will be stored in `node.childrenContent` and `children`
   * *Example* : 
-   * Hash : <code>{'Fruit':{ name: 'Fruit', children:{ 'Banana': {}, 'Cherry': {}}}}</code>
-   * Function : see `examples/explorer.js`
+    * Hash : <code>{'Fruit':{ name: 'Fruit', children:{ 'Banana': {}, 'Cherry': {}}}}</code>
+    * Function : see `examples/explorer.js`
  *  childrenContent
   * *Type* : `hash`
   * *Desc* : Children content for internal usage *DO NOT MODIFY*
