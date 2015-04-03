@@ -251,7 +251,7 @@ Every node is a hash and it can have custom properties that can be used in "sele
   * *Desc* : Children content for internal usage *DO NOT MODIFY*
   * If `node.children` is a hash, `node.children===node.childrenContent`
   * If `node.children` is a function, it's used to store the `node.children()` result
-  * You can read this property, but you should nerver write it.
+  * You can read this property, but you should never write it.
   * Usually this will be used to check `if(node.childrenContent)` in your `node.children` function to generate children only once
  * extended
   * *Type* : `boolean`
