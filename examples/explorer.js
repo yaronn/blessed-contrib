@@ -58,17 +58,24 @@ tree.setData(explorer);
 tree.on('select',function(node){
   var path = node.getPath(node);
   var data = [];
+
+  if ( path == '')
+    path = '/';
   
   data.push([path]);
   data.push(['']);
-  data=data.concat(JSON.stringify(fs.statSync(path),null,2).split("\n").map(function(e){return [e]}));
+  try {
+    data = data.concat(JSON.stringify(fs.lstatSync(path),null,2).split("\n").map(function(e){return [e]}));
+    table.setData({headers: ['Info'], data: data});
+  }catch(e){
+    table.setData({headers: ['Info'], data: data});
+  }
   
-  table.setData({headers: ['Info'], data: data});
   screen.render();
 });
 
 //set default table
-table.setData({headers: ['Info'], data: [['test'],['test2']]})
+table.setData({headers: ['Info'], data: [[]]})
 
 screen.key(['escape', 'q', 'C-c'], function(ch, key) {
   return process.exit(0);
