@@ -5,14 +5,9 @@ var screen = blessed.screen()
 
 //create layout and widgets
 
-var grid = new contrib.grid({rows: 1, cols: 2})
+var grid = new contrib.grid({rows: 12, cols: 12})
 
-var grid1 = new contrib.grid({rows: 1, cols: 3})
-grid1.set(0, 0, 1, 1, contrib.log, 
-  { fg: "green"
-  , selectedFg: "green"
-  , label: 'Server Log'})
-grid1.set(0, 1, 1, 1, contrib.line, 
+grid.set(8, 8, 4, 2, contrib.line, 
   { style: 
     { line: "yellow"
     , text: "green"
@@ -21,31 +16,28 @@ grid1.set(0, 1, 1, 1, contrib.line,
   , xPadding: 5
   , label: 'Network Latency (sec)'})
 
-var grid2 = new contrib.grid({rows: 2, cols: 1})
-grid2.set(0, 0, 1, 1, contrib.gauge, {label: 'Deployment Progress'})
-grid2.set(1, 0, 1, 1, contrib.sparkline, 
+grid.set(8, 10, 2, 2, contrib.gauge, {label: 'Deployment Progress'})
+
+grid.set(10, 10, 2, 2, contrib.sparkline, 
   { label: 'Throughput (bits/sec)'
   , tags: true
   , style: { fg: 'blue', titleFg: 'white' }})
 
-grid1.set(0, 2, 1, 1, grid2)
-
-var grid3 = new contrib.grid({rows: 1, cols: 2})
-grid3.set(0, 0, 1, 1, contrib.bar, 
+grid.set(4, 6, 4, 3, contrib.bar, 
   { label: 'Server Utilization (%)'
   , barWidth: 4
   , barSpacing: 6
   , xOffset: 2
   , maxHeight: 9})
-grid3.set(0, 1, 1, 1, contrib.table, 
+
+grid.set(4, 9, 4, 3, contrib.table, 
   { keys: true
   , fg: 'green'
   , label: 'Active Processes'
   , columnSpacing: 1
   , columnWidth: [24, 10, 10]})
 
-var grid4 = new contrib.grid({rows: 3, cols: 1})
-grid4.set(0, 0, 1, 1, contrib.line, 
+grid.set(0, 6, 4, 6, contrib.line, 
   { style: 
     { line: "red"
     , text: "white"
@@ -53,30 +45,31 @@ grid4.set(0, 0, 1, 1, contrib.line,
   , label: 'Errors Rate'
   , maxY: 60
   , showLegend: true})
-grid4.set(1, 0, 1, 1, grid3)
-grid4.set(2, 0, 1, 1, grid1)
 
-var grid5 = new contrib.grid({rows: 2, cols: 1})
-grid5.set(0, 0, 1, 1, contrib.line, 
+grid.set(0, 0, 6, 6, contrib.line, 
   { showNthLabel: 5
   , maxY: 100
   , label: 'Total Transactions'
   , showLegend: true})
-grid5.set(1, 0, 1, 1, contrib.map, {label: 'Servers Location'})
-grid.set(0, 0, 1, 1, grid5)
-grid.set(0, 1, 1, 1, grid4)
+
+grid.set(6, 0, 6, 6, contrib.map, {label: 'Servers Location'})
+
+grid.set(8, 6, 4, 2, contrib.log, 
+  { fg: "green"
+  , selectedFg: "green"
+  , label: 'Server Log'})
 
 grid.applyLayout(screen)
 
-var transactionsLine = grid5.get(0, 0)
-var errorsLine = grid4.get(0, 0)
-var latencyLine = grid1.get(0, 1)
-var map = grid5.get(1, 0)
-var log = grid1.get(0, 0)
-var table = grid3.get(0,1)
-var sparkline = grid2.get(1, 0)
-var gauge = grid2.get(0, 0)
-var bar = grid3.get(0, 0)
+var transactionsLine = grid.get(0, 0)
+var errorsLine = grid.get(0, 6)
+var latencyLine = grid.get(8, 8)
+var map = grid.get(6, 0)
+var log = grid.get(8, 6)
+var table = grid.get(4, 9)
+var sparkline = grid.get(10, 10)
+var gauge = grid.get(8, 10)
+var bar = grid.get(4, 6)
 
 
 //dummy data
