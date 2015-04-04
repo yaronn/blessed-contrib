@@ -9,9 +9,10 @@ var blessed = require('blessed')
    , xPadding: 5
    , label: 'Title'
    })
+
 , data = [ { title: 'us-east',
              x: ['t1', 't2', 't3', 't4'],
-             y: [0, 0.0695652173913043, 0.11304347826087, 0.0608695652173913],
+             y: [0, 0.0695652173913043, 0.11304347826087, 2],
              style: {
               line: 'red'
              }
