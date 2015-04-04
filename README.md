@@ -63,6 +63,21 @@ See bellow for a complete list of widgets.
 
 ## Widgets
 
+[Line Chart](#line-chart)
+
+[Bar Chart](#bar-chart)
+
+[Map](#map)
+
+[Gauge](#gauge)
+
+[Rolling Log](#rolling-log)
+
+[Picture](#picture)
+
+[Sparkline](#sparkline)
+
+[Table](#table)
 
 ### Line Chart
 
@@ -196,6 +211,7 @@ note: only png images are supported
 
 ### Layouts
 
+[Grid](#grid)
 
 ### Grid
 
