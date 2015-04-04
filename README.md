@@ -93,7 +93,7 @@ You can also use a layout to position the widgets for you (details in the layout
    screen.append(line) //must append before setting data
    line.setData([series1, series2])
 `````
-[simple line chart](./examples/line-friction.js), [multiple lines](./examples/multi-line-chart.js)
+**Examples:** [simple line chart](./examples/line-friction.js), [multiple lines](./examples/multi-line-chart.js)
 
 ### Bar Chart
 
