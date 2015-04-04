@@ -60,8 +60,6 @@ You can use any of the default widgets of [blessed](https://github.com/chjj/bles
 
 See bellow for a complete list of widgets.
 
-You can also use a layout to position the widgets for you (details in the layouts section).
-
 
 ## Widgets
 
