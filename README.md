@@ -93,7 +93,7 @@ You can also use a layout to position the widgets for you (details in the layout
    screen.append(line) //must append before setting data
    line.setData([series1, series2])
 `````
-
+[simple line chart](./examples/line-friction.js), [multiple lines](./examples/multi-line-chart.js)
 
 ### Bar Chart
 
@@ -203,32 +203,18 @@ note: only png images are supported
 
 A grid layout can auto position your elements in a grid layout.
 When using a grid, you should not create the widgets, rather specify to the grid which widget to create and with which params.
+Each widget can span multiple rows and columns.
 
 `````javascript
    var screen = blessed.screen()
 
-   var grid = new contrib.grid({rows: 1, cols: 2})
+   var grid = new contrib.grid({rows: 12, cols: 12, screen: screen})
 
    //grid.set(row, col, rowSpan, colSpan, obj, opts)
-   grid.set(0, 1, 1, 1, contrib.map, {label: 'World Map'})
-   grid.set(0, 1, 1, 1, blessed.box, {content: 'My Box'})
+   var map = grid.set(0, 0, 2, 2, contrib.map, {label: 'World Map'})
+   vat box = grid.set(0, 6, 2, 2, blessed.box, {content: 'My Box'})
 
-   grid.applyLayout(screen)
-
-   screen.render
-`````
-
-Grids can be nested:
-
-`````javascript
-   var grid = new contrib.grid({rows: 1, cols: 2})
-   var grid1 = new contrib.grid({rows: 1, cols: 2})
-
-   grid.set(0, 0, 1, 1, contrib.map, {label: 'World Map'})
-   grid1.set(0, 0, 1, 1, blessed.box, {content: 'My Box'})
-   grid1.set(0, 1, 1, 1, blessed.box, {content: 'My Box'})
-
-   grid.set(0, 1, 1, 1, grid1)
+   screen.render()
 `````
 
 
@@ -258,9 +244,9 @@ Grids can be nested:
    var blessed = require('blessed')
      , contrib = require('blessed-contrib')
      , screen = blessed.screen()
-     , grid = new contrib.grid({rows: 1, cols: 2})
+     , grid = new contrib.grid({rows: 1, cols: 2, screen: screen})
 
-   grid.set(0, 0, 1, 1, contrib.line, 
+   var line = grid.set(0, 0, 1, 1, contrib.line, 
      { style: 
        { line: "yellow"
        , text: "green"
@@ -269,19 +255,14 @@ Grids can be nested:
      , xPadding: 5
      , label: 'Stocks'})
 
-   grid.set(0, 1, 1, 1, contrib.map, {label: 'Servers Location'})
-
-   grid.applyLayout(screen)
-
-   var line = grid.get(0, 0)
-   var map = grid.get(0, 1)
+   var map = grid.set(0, 1, 1, 1, contrib.map, {label: 'Servers Location'})
 
    var lineData = {
       x: ['t1', 't2', 't3', 't4'],
       y: [5, 1, 7, 5]
    }
 
-   line.setData(lineData.x, lineData.y)
+   line.setData([lineData])
 
    screen.key(['escape', 'q', 'C-c'], function(ch, key) {
      return process.exit(0);
