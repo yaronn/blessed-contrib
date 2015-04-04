@@ -5,9 +5,9 @@ var screen = blessed.screen()
 
 //create layout and widgets
 
-var grid = new contrib.grid({rows: 12, cols: 12})
+var grid = new contrib.grid({rows: 12, cols: 12, screen: screen})
 
-grid.set(8, 8, 4, 2, contrib.line, 
+var latencyLine = grid.set(8, 8, 4, 2, contrib.line, 
   { style: 
     { line: "yellow"
     , text: "green"
@@ -16,28 +16,28 @@ grid.set(8, 8, 4, 2, contrib.line,
   , xPadding: 5
   , label: 'Network Latency (sec)'})
 
-grid.set(8, 10, 2, 2, contrib.gauge, {label: 'Deployment Progress'})
+var gauge = grid.set(8, 10, 2, 2, contrib.gauge, {label: 'Deployment Progress'})
 
-grid.set(10, 10, 2, 2, contrib.sparkline, 
+var sparkline = grid.set(10, 10, 2, 2, contrib.sparkline, 
   { label: 'Throughput (bits/sec)'
   , tags: true
   , style: { fg: 'blue', titleFg: 'white' }})
 
-grid.set(4, 6, 4, 3, contrib.bar, 
+var bar = grid.set(4, 6, 4, 3, contrib.bar, 
   { label: 'Server Utilization (%)'
   , barWidth: 4
   , barSpacing: 6
   , xOffset: 2
   , maxHeight: 9})
 
-grid.set(4, 9, 4, 3, contrib.table, 
+var table =  grid.set(4, 9, 4, 3, contrib.table, 
   { keys: true
   , fg: 'green'
   , label: 'Active Processes'
   , columnSpacing: 1
   , columnWidth: [24, 10, 10]})
 
-grid.set(0, 6, 4, 6, contrib.line, 
+var errorsLine = grid.set(0, 6, 4, 6, contrib.line, 
   { style: 
     { line: "red"
     , text: "white"
@@ -46,30 +46,18 @@ grid.set(0, 6, 4, 6, contrib.line,
   , maxY: 60
   , showLegend: true})
 
-grid.set(0, 0, 6, 6, contrib.line, 
-  { showNthLabel: 5
-  , maxY: 100
-  , label: 'Total Transactions'
-  , showLegend: true})
+var transactionsLine = grid.set(0, 0, 6, 6, contrib.line, 
+          { showNthLabel: 5
+          , maxY: 100
+          , label: 'Total Transactions'
+          , showLegend: true})
 
-grid.set(6, 0, 6, 6, contrib.map, {label: 'Servers Location'})
+var map = grid.set(6, 0, 6, 6, contrib.map, {label: 'Servers Location'})
 
-grid.set(8, 6, 4, 2, contrib.log, 
+var log = grid.set(8, 6, 4, 2, contrib.log, 
   { fg: "green"
   , selectedFg: "green"
   , label: 'Server Log'})
-
-grid.applyLayout(screen)
-
-var transactionsLine = grid.get(0, 0)
-var errorsLine = grid.get(0, 6)
-var latencyLine = grid.get(8, 8)
-var map = grid.get(6, 0)
-var log = grid.get(8, 6)
-var table = grid.get(4, 9)
-var sparkline = grid.get(10, 10)
-var gauge = grid.get(8, 10)
-var bar = grid.get(4, 6)
 
 
 //dummy data
