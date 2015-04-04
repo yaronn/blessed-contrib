@@ -49,7 +49,7 @@ You can use any of the default widgets of [blessed](https://github.com/chjj/bles
          y: [5, 1, 7, 5]
       }
    screen.append(line) //must append before setting data
-   line.setData(data.x, data.y)
+   line.setData([data])
    
    screen.key(['escape', 'q', 'C-c'], function(ch, key) {
      return process.exit(0);
