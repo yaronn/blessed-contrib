@@ -19,6 +19,7 @@ var blessed = require('blessed')
            }
         ]
 
+
 screen.append(line) //must append before setting data
 line.setData(data)
 
