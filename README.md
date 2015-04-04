@@ -212,7 +212,7 @@ Each widget can span multiple rows and columns.
 
    //grid.set(row, col, rowSpan, colSpan, obj, opts)
    var map = grid.set(0, 0, 2, 2, contrib.map, {label: 'World Map'})
-   vat box = grid.set(0, 6, 2, 2, blessed.box, {content: 'My Box'})
+   var box = grid.set(0, 6, 2, 2, blessed.box, {content: 'My Box'})
 
    screen.render()
 `````
