@@ -44,13 +44,14 @@ var errorsLine = grid.set(0, 6, 4, 6, contrib.line,
     , baseline: "black"}
   , label: 'Errors Rate'
   , maxY: 60
-  , showLegend: true})
+  , showLegend: true })
 
 var transactionsLine = grid.set(0, 0, 6, 6, contrib.line, 
           { showNthLabel: 5
           , maxY: 100
           , label: 'Total Transactions'
-          , showLegend: true})
+          , showLegend: true
+          , legend: {width: 10}})
 
 var map = grid.set(6, 0, 6, 6, contrib.map, {label: 'Servers Location'})
 
@@ -149,13 +150,10 @@ setInterval(function() {
    screen.render()
 }, 1000)
 
-
-
-
 //set line charts dummy data
 
 var transactionsData = {
-   title: 'US',
+   title: 'USA',
    style: {line: 'red'},
    x: ['00:00', '00:05', '00:10', '00:15', '00:20', '00:30', '00:40', '00:50', '01:00', '01:10', '01:20', '01:30', '01:40', '01:50', '02:00', '02:10', '02:20', '02:30', '02:40', '02:50', '03:00', '03:10', '03:20', '03:30', '03:40', '03:50', '04:00', '04:10', '04:20', '04:30'],
    y: [0, 20, 40, 45, 45, 50, 55, 70, 65, 58, 50, 55, 60, 65, 70, 80, 70, 50, 40, 50, 60, 70, 82, 88, 89, 89, 89, 80, 72, 70]
