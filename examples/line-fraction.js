@@ -8,6 +8,7 @@ var blessed = require('blessed')
    , top: 12  
    , xPadding: 5
    , label: 'Title'
+   //, wholeNumbersOnly: true
    })
 
 , data = [ { title: 'us-east',

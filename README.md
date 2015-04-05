@@ -92,6 +92,7 @@ See bellow for a complete list of widgets.
          , xLabelPadding: 3
          , xPadding: 5
          , showLegend: true
+         , wholeNumbersOnly: false //true=do not show fraction in y axis
          , label: 'Title'})
    var series1 = {
          title: 'apples',
@@ -196,17 +197,17 @@ note: only png images are supported
      { keys: true
      , fg: 'green'
      , label: 'Active Processes'
-     , columnSpacing: 10
-     , columnWidth: [16, 12, 12]})
+     , columnSpacing: 10 //in chars
+     , columnWidth: [16, 12, 12] /*in chars*/ })
 
    //allow control the table with the keyboard
    table.focus()
 
    table.setData(
-   { headers: ['col1', 'col2']
+   { headers: ['col1', 'col2', 'col3']
    , data: 
-      [ [1, 2] 
-      , [3, 4] ]})
+      [ [1, 2, 3] 
+      , [4, 5, 6] ]})
 `````
 
 ### Layouts
