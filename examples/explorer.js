@@ -6,23 +6,18 @@ var blessed = require('blessed')
 var screen = blessed.screen()
 
 //create layout and widgets
-var grid = new contrib.grid({rows: 1, cols: 2})
+var grid = new contrib.grid({rows: 1, cols: 2, screen: screen})
 
-grid.set(0, 0, 1, 1, contrib.tree, 
+var tree =  grid.set(0, 0, 1, 1, contrib.tree, 
   { style: { text: "red" }
   , template: { lines: true }
   , label: 'Filesystem Tree'})
 
-grid.set(0, 1, 1, 1, contrib.table, 
+var table =  grid.set(0, 1, 1, 1, contrib.table, 
   { keys: true
   , fg: 'green'
   , label: 'Informations'
-  , columnSpacing: [24, 10, 10]})
-
-grid.applyLayout(screen);
-
-var tree = grid.get(0, 0);
-var table = grid.get(0, 1);
+  , columnWidth: [24, 10, 10]})
 
 //file explorer
 var explorer = { name: '/'
