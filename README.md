@@ -79,6 +79,8 @@ See bellow for a complete list of widgets.
 
 [Table](#table)
 
+[Tree](#tree)
+
 ### Line Chart
 
 <img src="./docs/images/line.gif" alt="line" width="400">
