@@ -13,7 +13,7 @@
   "author": "Yaron Naveh (yaronn01@gmail.com)",
   "license": "",
   "devDependencies": {
-    "blessed": ">=0.0.44"
+    "blessed": "^0.0.51"
   },  
   "dependencies": {
     "ansi-term": ">=0.0.1",
