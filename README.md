@@ -266,7 +266,7 @@ note: only png images are supported
 
 #### Nodes
 
-Every node is a hash and it can have custom properties that can be used in "select" event callback. However, there is sevral special keys :
+Every node is a hash and it can have custom properties that can be used in "select" event callback. However, there are several special keys :
 
  * name 
   * *Type* : `string`
