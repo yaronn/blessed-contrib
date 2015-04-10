@@ -3,7 +3,7 @@ var blessed = require('blessed')
   , screen = blessed.screen()
   , log = contrib.log(
       { fg: "green"
-      , label: 'Server Log'
+      , label: 'Server Log'      
       , height: "20%"
       , tags: true      
       , border: {type: "line", fg: "cyan"} })
