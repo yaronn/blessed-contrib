@@ -1,11 +1,13 @@
-
 var blessed = require('blessed')
   , contrib = require('../')
   , screen = blessed.screen()
 
 var table = contrib.table(
    { keys: true
-   , fg: 'green'
+   , fg: 'white'
+   , selectedFg: 'white'
+   , selectedBg: 'blue'
+   , interactive: true
    , label: 'Active Processes'
    , width: '30%'
    , height: '30%'
@@ -27,9 +29,3 @@ screen.key(['escape', 'q', 'C-c'], function(ch, key) {
 });
 
 screen.render()
-
-
-
-
-   
-

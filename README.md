@@ -199,8 +199,14 @@ note: only png images are supported
 `````javascript
    var table = contrib.table(
      { keys: true
-     , fg: 'green'
+     , fg: 'white'
+     , selectedFg: 'white'
+     , selectedBg: 'blue'
+     , interactive: true
      , label: 'Active Processes'
+     , width: '30%'
+     , height: '30%'
+     , border: {type: "line", fg: "cyan"}
      , columnSpacing: 10 //in chars
      , columnWidth: [16, 12, 12] /*in chars*/ })
 
