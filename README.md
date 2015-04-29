@@ -111,7 +111,7 @@ See bellow for a complete list of widgets.
    screen.append(line) //must append before setting data
    line.setData([series1, series2])
 `````
-**Examples:** [simple line chart](./examples/line-friction.js), [multiple lines](./examples/multi-line-chart.js)
+**Examples:** [simple line chart](./examples/line-fraction.js), [multiple lines](./examples/multi-line-chart.js)
 
 ### Bar Chart
 
