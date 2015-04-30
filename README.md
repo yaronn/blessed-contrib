@@ -24,7 +24,7 @@ Yaron Naveh ([@YaronNaveh](http://twitter.com/YaronNaveh))
     npm install
     node ./examples/dashboard.js
 
-Tested on Linux and OS X. In order to use on windows need to install Braille fonts (not tested).
+Works on Linux, OS X and Windows. For Windows follow the [pre requisites](http://webservices20.blogspot.co.il/2015/04/running-terminal-dashboards-on-windows.html).
 
 ## Installation (to build custom projects)
 
