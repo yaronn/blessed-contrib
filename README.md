@@ -11,7 +11,7 @@ Yaron Naveh ([@YaronNaveh](http://twitter.com/YaronNaveh))
 
 **Demo ([full size](https://raw.githubusercontent.com/yaronn/blessed-contrib/master/docs/images/term3.gif)):**
 
-<img src="./docs/images/dashboard.png" alt="term" width="800">
+<img src="./docs/images/truload.png" alt="term" width="800">
 
 <img src="./docs/images/term3.gif" alt="term" width="800">
 
