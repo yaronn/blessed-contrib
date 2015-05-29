@@ -60,7 +60,7 @@ You can use any of the default widgets of [blessed](https://github.com/chjj/bles
    screen.render()
 `````
 
-See bellow for a complete list of widgets.
+See below for a complete list of widgets.
 
 
 ## Widgets
@@ -326,8 +326,8 @@ Each widget can span multiple rows and columns.
 `````
 
 ### Carousel
-A carousel layout switchs between differen views based on time or keyboard activity.
-One use case is office dashboard with rotating views
+A carousel layout switches between different views based on time or keyboard activity.
+One use case is an office dashboard with rotating views:
 
 `````javascript
     var blessed = require('blessed')
