@@ -305,6 +305,7 @@ Every node is a hash and it can have custom properties that can be used in "sele
 ### Layouts
 
 [Grid](#grid)
+
 [Carousel](#carousel)
 
 ### Grid
