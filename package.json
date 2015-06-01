@@ -14,12 +14,13 @@
   "license": "",
   "devDependencies": {
     "blessed": "0.1.54"
-  },  
+  },
   "dependencies": {
-    "ansi-term": ">=0.0.1",
+    "ansi-term": ">=0.0.1",    
     "drawille-canvas-blessed-contrib": ">=0.0.1",
     "map-canvas": ">=0.1.5",
     "memory-streams": "^0.1.0",
+    "memorystream": "^0.3.1",
     "picture-tube": "0.0.4",
     "request": "^2.53.0",
     "sparkline": "^0.1.1",

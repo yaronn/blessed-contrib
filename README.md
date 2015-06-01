@@ -320,8 +320,8 @@ Each widget can span multiple rows and columns.
    var grid = new contrib.grid({rows: 12, cols: 12, screen: screen})
 
    //grid.set(row, col, rowSpan, colSpan, obj, opts)
-   var map = grid.set(0, 0, 2, 2, contrib.map, {label: 'World Map'})
-   var box = grid.set(0, 6, 2, 2, blessed.box, {content: 'My Box'})
+   var map = grid.set(0, 0, 4, 4, contrib.map, {label: 'World Map'})
+   var box = grid.set(4, 4, 4, 4, blessed.box, {content: 'My Box'})
 
    screen.render()
 `````
