@@ -146,7 +146,7 @@ See below for a complete list of widgets.
 <img src="./docs/images/gauge.gif" alt="gauge" width="170">
 
 `````javascript
-   var gauge = contrib.gauge({label: 'Progress'})
+   var gauge = contrib.gauge({label: 'Progress', stroke: 'green', fill: 'white'})
    gauge.setPercent(25)
 `````
 
