@@ -73,6 +73,8 @@ See below for a complete list of widgets.
 
 [Gauge](#gauge)
 
+[StackedGauge](#stackedgauge)
+
 [Rolling Log](#rolling-log)
 
 [Picture](#picture)
@@ -152,7 +154,7 @@ See below for a complete list of widgets.
 
 ### Stacked Gauge
 
-<img src="./docs/images/stackgauge.gif" alt="stackgauge" width="170">
+<img src="./docs/images/stackgauge.gif" alt="stackedgauge" width="170">
 
 Either specify each stacked portion with a `percent` and `stroke`...
 
