@@ -150,6 +150,24 @@ See below for a complete list of widgets.
    gauge.setPercent(25)
 `````
 
+### Stacked Gauge
+
+<img src="./docs/images/stackgauge.gif" alt="stackgauge" width="170">
+
+Either specify each stacked portion with a `percent` and `stroke`...
+
+`````javascript
+   var gauge = contrib.gauge({label: 'Stacked '})
+   gauge.setStack([{percent: 30, stroke: 'green'}, {percent: 30, stroke: 'magenta'}, {percent: 40, stroke: 'cyan'}])
+`````
+
+Or, you can just supply an array of numbers and random colors will be chosen.
+
+`````javascript
+   var gauge = contrib.gauge({label: 'Stacked Progress'})
+   gauge.setStack([30,30,40])
+`````
+
 ### Rolling Log
 
 <img src="./docs/images/log.gif" alt="log" width="180">
