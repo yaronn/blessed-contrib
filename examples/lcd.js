@@ -18,8 +18,6 @@ var blessed = require('blessed')
   options.color = options.color || "white";
 */
 
-var colors = ['green','magenta','cyan','red','blue'];
-var text = ['A','B','C','D','E','F','G','H','I','J','K','L'];
 
 var lcd = contrib.lcd({
 	label: 'Test',
@@ -29,6 +27,9 @@ var lcd = contrib.lcd({
 screen.append(lcd);
 
 setInterval(function(){
+	var colors = ['green','magenta','cyan','red','blue'];
+	var text = ['A','B','C','D','E','F','G','H','I','J','K','L'];
+
 	var value = Math.round(Math.random() * 1000);
 	lcd.setDisplay(value + text[value%12]);
 	lcd.setOptions({
