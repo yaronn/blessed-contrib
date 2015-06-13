@@ -73,9 +73,9 @@ See below for a complete list of widgets.
 
 [Gauge](#gauge)
 
-[Stacked Gauge](#stackgauge)
+[Stacked Gauge](#stacked-gauge)
 
-[LCD Display](#lcd)
+[LCD Display](#lcd-display)
 
 [Rolling Log](#rolling-log)
 
@@ -156,7 +156,7 @@ See below for a complete list of widgets.
 
 ### Stacked Gauge
 
-<img src="./docs/images/stackgauge.gif" alt="stackgauge">
+<img src="./docs/images/stackgauge.gif" alt="stackedgauge">
 
 Either specify each stacked portion with a `percent` and `stroke`...
 
@@ -379,7 +379,7 @@ Each widget can span multiple rows and columns.
 A carousel layout switches between different views based on time or keyboard activity.
 One use case is an office dashboard with rotating views:
 
-`````javascript
+`````javascriptl
     var blessed = require('blessed')
       , contrib = require('./')
       , screen = blessed.screen()
