@@ -37,14 +37,42 @@ var table =  grid.set(4, 9, 4, 3, contrib.table,
   , columnSpacing: 1
   , columnWidth: [24, 10, 10]})
 
-var errorsLine = grid.set(0, 6, 4, 6, contrib.line, 
-  { style: 
-    { line: "red"
-    , text: "white"
-    , baseline: "black"}
-  , label: 'Errors Rate'
-  , maxY: 60
-  , showLegend: true })
+/*
+ *
+ * LCD Options
+//these options need to be modified epending on the resulting positioning/size
+  options.segmentWidth = options.segmentWidth || 0.06; // how wide are the segments in % so 50% = 0.5
+  options.segmentInterval = options.segmentInterval || 0.11; // spacing between the segments in % so 50% = 0.5
+  options.strokeWidth = options.strokeWidth || 0.11; // spacing between the segments in % so 50% = 0.5
+//default display settings
+  options.elements = options.elements || 3; // how many elements in the display. or how many characters can be displayed.
+  options.display = options.display || 321; // what should be displayed before anything is set
+  options.elementSpacing = options.spacing || 4; // spacing between each element
+  options.elementPadding = options.padding || 2; // how far away from the edges to put the elements
+//coloring
+  options.color = options.color || "white";
+*/
+var lcdLineOne = grid.set(0,6,4,6, contrib.lcd,
+  {
+    label: "LCD Test",
+    segmentWidth: 0.06,
+    segmentInterval: 0.11,
+    strokeWidth: 0.1,
+    elements: 5,
+    display: 3210,
+    elementSpacing: 4,
+    elementPadding: 2
+  }
+);
+
+// var errorsLine = grid.set(0, 6, 4, 6, contrib.line, 
+//   { style: 
+//     { line: "red"
+//     , text: "white"
+//     , baseline: "black"}
+//   , label: 'Errors Rate'
+//   , maxY: 60
+//   , showLegend: true })
 
 var transactionsLine = grid.set(0, 0, 6, 6, contrib.line, 
           { showNthLabel: 5
@@ -69,8 +97,9 @@ var commands = ['grep', 'node', 'java', 'timer', '~/ls -l', 'netns', 'watchdog',
 //set dummy data on gauge
 var gauge_percent = 0
 setInterval(function() {
-  gauge.setPercent(gauge_percent++)  
-  if (gauge_percent>100) gauge_percent = 0  
+  gauge.setStack([gauge_percent, 100-gauge_percent]);
+  gauge_percent++;
+  if (gauge_percent>=100) gauge_percent = 0  
 }, 200)
 
 
@@ -166,11 +195,11 @@ var transactionsData1 = {
    y: [0, 5, 5, 10, 10, 15, 20, 30, 25, 30, 30, 20, 20, 30, 30, 20, 15, 15, 19, 25, 30, 25, 25, 20, 25, 30, 35, 35, 30, 30]
 }
 
-var errorsData = {
-   title: 'server 1',
-   x: ['00:00', '00:05', '00:10', '00:15', '00:20', '00:25'],
-   y: [30, 50, 70, 40, 50, 20]
-}
+// var errorsData = {
+//    title: 'server 1',
+//    x: ['00:00', '00:05', '00:10', '00:15', '00:20', '00:25'],
+//    y: [30, 50, 70, 40, 50, 20]
+// }
 
 var latencyData = {
    x: ['t1', 't2', 't3', 't4'],
@@ -178,7 +207,7 @@ var latencyData = {
 }
 
 setLineData([transactionsData, transactionsData1], transactionsLine)
-setLineData([errorsData], errorsLine)
+// setLineData([errorsData], errorsLine)
 setLineData([latencyData], latencyLine)
 
 setInterval(function() {
@@ -187,8 +216,17 @@ setInterval(function() {
 }, 500)
 
 setInterval(function() {   
-   setLineData([errorsData], errorsLine)
-   screen.render()
+   // setLineData([errorsData], errorsLine)
+    var colors = ['green','magenta','cyan','red','blue'];
+    var text = ['A','B','C','D','E','F','G','H','I','J','K','L'];
+
+    var value = Math.round(Math.random() * 100);
+    lcdLineOne.setDisplay(value + text[value%12]);
+    lcdLineOne.setOptions({
+      color: colors[value%5],
+      elementPadding: 4
+    });
+    screen.render()
 }, 1500)
 
 setInterval(function() {   
