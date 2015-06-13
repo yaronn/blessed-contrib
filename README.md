@@ -156,11 +156,7 @@ See below for a complete list of widgets.
 
 ### Stacked Gauge
 
-<<<<<<< HEAD
-<img src="./docs/images/stackgauge.gif" alt="stackedgauge" width="170">
-=======
 <img src="./docs/images/stackgauge.gif" alt="stackedgauge">
->>>>>>> lcd-display
 
 Either specify each stacked portion with a `percent` and `stroke`...
 
