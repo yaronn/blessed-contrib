@@ -19,7 +19,8 @@ var donut = grid.set(8, 8, 4, 2, contrib.donut,
   radius: 16,
   arcWidth: 4,
   spacing: 2,
-  yPadding: 2
+  yPadding: 2,
+  data: [{label: 'Storage', percent: 87}]
 })
 
 // var latencyLine = grid.set(8, 8, 4, 2, contrib.line, 
@@ -31,7 +32,8 @@ var donut = grid.set(8, 8, 4, 2, contrib.donut,
 //   , xPadding: 5
 //   , label: 'Network Latency (sec)'})
 
-var gauge = grid.set(8, 10, 2, 2, contrib.gauge, {label: 'Deployment Progress'})
+var gauge = grid.set(8, 10, 2, 2, contrib.gauge, {label: 'Storage', percent: [80,20]})
+var gauge_two = grid.set(2, 9, 2, 3, contrib.gauge, {label: 'Deployment Progress', percent: 80})
 
 var sparkline = grid.set(10, 10, 2, 2, contrib.sparkline, 
   { label: 'Throughput (bits/sec)'
@@ -67,7 +69,7 @@ var table =  grid.set(4, 9, 4, 3, contrib.table,
 //coloring
   options.color = options.color || "white";
 */
-var lcdLineOne = grid.set(0,6,4,6, contrib.lcd,
+var lcdLineOne = grid.set(0,9,2,3, contrib.lcd,
   {
     label: "LCD Test",
     segmentWidth: 0.06,
@@ -80,14 +82,14 @@ var lcdLineOne = grid.set(0,6,4,6, contrib.lcd,
   }
 );
 
-// var errorsLine = grid.set(0, 6, 4, 6, contrib.line, 
-//   { style: 
-//     { line: "red"
-//     , text: "white"
-//     , baseline: "black"}
-//   , label: 'Errors Rate'
-//   , maxY: 60
-//   , showLegend: true })
+var errorsLine = grid.set(0, 6, 4, 3, contrib.line, 
+  { style: 
+    { line: "red"
+    , text: "white"
+    , baseline: "black"}
+  , label: 'Errors Rate'
+  , maxY: 60
+  , showLegend: true })
 
 var transactionsLine = grid.set(0, 0, 6, 6, contrib.line, 
           { showNthLabel: 5
@@ -112,10 +114,17 @@ var commands = ['grep', 'node', 'java', 'timer', '~/ls -l', 'netns', 'watchdog',
 //set dummy data on gauge
 var gauge_percent = 0
 setInterval(function() {
-  gauge.setStack([gauge_percent, 100-gauge_percent]);
+  gauge.setData([gauge_percent, 100-gauge_percent]);
   gauge_percent++;
   if (gauge_percent>=100) gauge_percent = 0  
 }, 200)
+
+var gauge_percent_two = 0
+setInterval(function() {
+  gauge_two.setData(gauge_percent_two);
+  gauge_percent_two++;
+  if (gauge_percent_two>=100) gauge_percent_two = 0  
+}, 200);
 
 
 //set dummy data on bar chart
@@ -210,11 +219,11 @@ var transactionsData1 = {
    y: [0, 5, 5, 10, 10, 15, 20, 30, 25, 30, 30, 20, 20, 30, 30, 20, 15, 15, 19, 25, 30, 25, 25, 20, 25, 30, 35, 35, 30, 30]
 }
 
-// var errorsData = {
-//    title: 'server 1',
-//    x: ['00:00', '00:05', '00:10', '00:15', '00:20', '00:25'],
-//    y: [30, 50, 70, 40, 50, 20]
-// }
+var errorsData = {
+   title: 'server 1',
+   x: ['00:00', '00:05', '00:10', '00:15', '00:20', '00:25'],
+   y: [30, 50, 70, 40, 50, 20]
+}
 
 var latencyData = {
    x: ['t1', 't2', 't3', 't4'],
@@ -222,7 +231,7 @@ var latencyData = {
 }
 
 setLineData([transactionsData, transactionsData1], transactionsLine)
-// setLineData([errorsData], errorsLine)
+setLineData([errorsData], errorsLine)
 // setLineData([latencyData], latencyLine)
 
 setInterval(function() {
@@ -231,18 +240,21 @@ setInterval(function() {
 }, 500)
 
 setInterval(function() {   
-   // setLineData([errorsData], errorsLine)
-    var colors = ['green','magenta','cyan','red','blue'];
-    var text = ['A','B','C','D','E','F','G','H','I','J','K','L'];
-
-    var value = Math.round(Math.random() * 100);
-    lcdLineOne.setDisplay(value + text[value%12]);
-    lcdLineOne.setOptions({
-      color: colors[value%5],
-      elementPadding: 4
-    });
-    screen.render()
+    setLineData([errorsData], errorsLine)
 }, 1500)
+
+setInterval(function(){
+  var colors = ['green','magenta','cyan','red','blue'];
+  var text = ['A','B','C','D','E','F','G','H','I','J','K','L'];
+
+  var value = Math.round(Math.random() * 100);
+  lcdLineOne.setDisplay(value + text[value%12]);
+  lcdLineOne.setOptions({
+    color: colors[value%5],
+    elementPadding: 4
+  });
+  screen.render()
+}, 1500);
 
 var pct = 0.00;
 
@@ -252,7 +264,7 @@ function updateDonut(){
   if (pct >= 0.25) color = "cyan";
   if (pct >= 0.5) color = "yellow";
   if (pct >= 0.75) color = "red";  
-  donut.update([
+  donut.setData([
     {percent: parseFloat((pct+0.00) % 1).toFixed(2), label: 'storage', 'color': color}
   ]);
   pct += 0.01;
