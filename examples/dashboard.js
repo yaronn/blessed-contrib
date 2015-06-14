@@ -7,14 +7,29 @@ var screen = blessed.screen()
 
 var grid = new contrib.grid({rows: 12, cols: 12, screen: screen})
 
-var latencyLine = grid.set(8, 8, 4, 2, contrib.line, 
-  { style: 
-    { line: "yellow"
-    , text: "green"
-    , baseline: "black"}
-  , xLabelPadding: 3
-  , xPadding: 5
-  , label: 'Network Latency (sec)'})
+/**
+ * Donut Options
+  self.options.radius = options.radius || 14; // how wide is it? over 5 is best
+  self.options.arcWidth = options.arcWidth || 4; //width of the donut
+  self.options.yPadding = options.yPadding || 2; //padding from the top
+ */
+var donut = grid.set(8, 8, 4, 2, contrib.donut, 
+  {
+  label: 'Percent Donut',
+  radius: 16,
+  arcWidth: 4,
+  spacing: 2,
+  yPadding: 2
+})
+
+// var latencyLine = grid.set(8, 8, 4, 2, contrib.line, 
+//   { style: 
+//     { line: "yellow"
+//     , text: "green"
+//     , baseline: "black"}
+//   , xLabelPadding: 3
+//   , xPadding: 5
+//   , label: 'Network Latency (sec)'})
 
 var gauge = grid.set(8, 10, 2, 2, contrib.gauge, {label: 'Deployment Progress'})
 
@@ -208,7 +223,7 @@ var latencyData = {
 
 setLineData([transactionsData, transactionsData1], transactionsLine)
 // setLineData([errorsData], errorsLine)
-setLineData([latencyData], latencyLine)
+// setLineData([latencyData], latencyLine)
 
 setInterval(function() {
    setLineData([transactionsData, transactionsData1], transactionsLine)
@@ -229,10 +244,24 @@ setInterval(function() {
     screen.render()
 }, 1500)
 
+var pct = 0.00;
+
+function updateDonut(){
+  if (pct > 0.99) pct = 0.00;
+  var color = "green";
+  if (pct >= 0.25) color = "cyan";
+  if (pct >= 0.5) color = "yellow";
+  if (pct >= 0.75) color = "red";  
+  donut.update([
+    {percent: parseFloat((pct+0.00) % 1).toFixed(2), label: 'storage', 'color': color}
+  ]);
+  pct += 0.01;
+}
+
 setInterval(function() {   
-   setLineData([latencyData], latencyLine)
+   updateDonut();
    screen.render()
-}, 5000)
+}, 500)
 
 function setLineData(mockData, line) {
   for (var i=0; i<mockData.length; i++) {
