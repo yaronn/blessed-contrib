@@ -16,12 +16,15 @@ var donut = contrib.donut({
   	radius: 8,
   	arcWidth: 3,
   	spacing: 2,
-  	yPadding: 2
+  	yPadding: 2,
+    data: [
+      {perent: 80, label: 'web1', color: 'green'}
+    ]
   });
     
 screen.append(donut)
 
-setInterval(updateSpinners, 5);
+setInterval(updateDonuts, 5);
 
 var pct = 0.00;
 

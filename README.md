@@ -75,6 +75,8 @@ See below for a complete list of widgets.
 
 [Stacked Gauge](#stacked-gauge)
 
+[Donut](#donut)
+
 [LCD Display](#lcd-display)
 
 [Rolling Log](#rolling-log)
@@ -171,6 +173,36 @@ Or, you can just supply an array of numbers and random colors will be chosen.
    var gauge = contrib.gauge({label: 'Stacked Progress'})
    gauge.setStack([30,30,40])
 `````
+
+### Donut
+
+<img src="./docs/images/donut.gif" alt="donut">
+
+
+`````javascript
+   var donut = contrib.donut({
+	label: 'Test',
+	radius: 8,
+	arcWidth: 3,
+	spacing: 2,
+	yPadding: 2,
+	data: [
+	  {perent: 80, label: 'web1', color: 'green'}
+	]
+  });
+`````
+
+Data passed in uses `percent` and `label` to draw the donut graph. Color is optional and defaults to green. 
+
+`````javascript
+   donut.setData([
+   	{percent: 87, label: 'rcp','color': 'green'},
+	{percent: 43, label: 'rcp','color': 'cyan'},
+   ]);
+`````
+
+Updating the donut is as easy as passing in an array to `setData` using the same array format as in the constructor. Pass in as many objects to the array of data as you want, they will automatically resize and try to fit. However, please note that you will still be restricted to actual screen space.
+
 
 ### LCD Display
 
