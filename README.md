@@ -8,6 +8,7 @@ Friendly to terminals, ssh and developers. Extends [blessed](https://github.com/
 **Contributors:**
 
 Yaron Naveh ([@YaronNaveh](http://twitter.com/YaronNaveh))
+Chris ([@xcezzz](https://twitter.com/xcezzz))
 
 **Demo ([full size](https://raw.githubusercontent.com/yaronn/blessed-contrib/master/docs/images/term3.gif)):**
 
