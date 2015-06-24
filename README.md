@@ -73,6 +73,12 @@ See below for a complete list of widgets.
 
 [Gauge](#gauge)
 
+[Stacked Gauge](#stacked-gauge)
+
+[Donut](#donut)
+
+[LCD Display](#lcd-display)
+
 [Rolling Log](#rolling-log)
 
 [Picture](#picture)
@@ -146,9 +152,84 @@ See below for a complete list of widgets.
 <img src="./docs/images/gauge.gif" alt="gauge" width="170">
 
 `````javascript
-   var gauge = contrib.gauge({label: 'Progress'})
+   var gauge = contrib.gauge({label: 'Progress', stroke: 'green', fill: 'white'})
    gauge.setPercent(25)
 `````
+
+### Stacked Gauge
+
+<img src="./docs/images/stackgauge.gif" alt="stackedgauge">
+
+Either specify each stacked portion with a `percent` and `stroke`...
+
+`````javascript
+   var gauge = contrib.gauge({label: 'Stacked '})
+   gauge.setStack([{percent: 30, stroke: 'green'}, {percent: 30, stroke: 'magenta'}, {percent: 40, stroke: 'cyan'}])
+`````
+
+Or, you can just supply an array of numbers and random colors will be chosen.
+
+`````javascript
+   var gauge = contrib.gauge({label: 'Stacked Progress'})
+   gauge.setStack([30,30,40])
+`````
+
+### Donut
+
+<img src="./docs/images/donut.gif" alt="donut">
+
+
+`````javascript
+   var donut = contrib.donut({
+	label: 'Test',
+	radius: 8,
+	arcWidth: 3,
+	spacing: 2,
+	yPadding: 2,
+	data: [
+	  {perent: 80, label: 'web1', color: 'green'}
+	]
+  });
+`````
+
+Data passed in uses `percent` and `label` to draw the donut graph. Color is optional and defaults to green. 
+
+`````javascript
+   donut.setData([
+   	{percent: 87, label: 'rcp','color': 'green'},
+	{percent: 43, label: 'rcp','color': 'cyan'},
+   ]);
+`````
+
+Updating the donut is as easy as passing in an array to `setData` using the same array format as in the constructor. Pass in as many objects to the array of data as you want, they will automatically resize and try to fit. However, please note that you will still be restricted to actual screen space.
+
+
+### LCD Display
+
+<img src="./docs/images/lcd.gif" alt="lcd">
+
+`````javascript
+   var lcd = contrib.lcd(
+     { segmentWidth: 0.06 // how wide are the segments in % so 50% = 0.5
+     , segmentInterval: 0.11 // spacing between the segments in % so 50% = 0.550% = 0.5
+     , strokeWidth: 0.11 // spacing between the segments in % so 50% = 0.5
+     , elements: 4 // how many elements in the display. or how many characters can be displayed.
+     , display: 321 // what should be displayed before first call to setDisplay
+     , elementSpacing: 4 // spacing between each element
+     , elementPadding: 2 // how far away from the edges to put the elements
+     , color: 'white' // color for the segments
+     , label: 'Storage Remaining'})                    
+`````
+
+`````javascript
+
+	lcd.setDisplay(23 + 'G'); // will display "23G"
+	lcd.setOptions({}) // adjust options at runtime
+   
+`````
+
+Please see the **examples/lcd.js** for an example. The example provides keybindings to adjust the `segmentWidth` and `segmentInterval` and `strokeWidth` in real-time so that you can see how they manipulate the look and feel.
+
 
 ### Rolling Log
 

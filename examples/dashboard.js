@@ -7,16 +7,33 @@ var screen = blessed.screen()
 
 var grid = new contrib.grid({rows: 12, cols: 12, screen: screen})
 
-var latencyLine = grid.set(8, 8, 4, 2, contrib.line, 
-  { style: 
-    { line: "yellow"
-    , text: "green"
-    , baseline: "black"}
-  , xLabelPadding: 3
-  , xPadding: 5
-  , label: 'Network Latency (sec)'})
+/**
+ * Donut Options
+  self.options.radius = options.radius || 14; // how wide is it? over 5 is best
+  self.options.arcWidth = options.arcWidth || 4; //width of the donut
+  self.options.yPadding = options.yPadding || 2; //padding from the top
+ */
+var donut = grid.set(8, 8, 4, 2, contrib.donut, 
+  {
+  label: 'Percent Donut',
+  radius: 16,
+  arcWidth: 4,
+  spacing: 2,
+  yPadding: 2,
+  data: [{label: 'Storage', percent: 87}]
+})
 
-var gauge = grid.set(8, 10, 2, 2, contrib.gauge, {label: 'Deployment Progress'})
+// var latencyLine = grid.set(8, 8, 4, 2, contrib.line, 
+//   { style: 
+//     { line: "yellow"
+//     , text: "green"
+//     , baseline: "black"}
+//   , xLabelPadding: 3
+//   , xPadding: 5
+//   , label: 'Network Latency (sec)'})
+
+var gauge = grid.set(8, 10, 2, 2, contrib.gauge, {label: 'Storage', percent: [80,20]})
+var gauge_two = grid.set(2, 9, 2, 3, contrib.gauge, {label: 'Deployment Progress', percent: 80})
 
 var sparkline = grid.set(10, 10, 2, 2, contrib.sparkline, 
   { label: 'Throughput (bits/sec)'
@@ -37,7 +54,35 @@ var table =  grid.set(4, 9, 4, 3, contrib.table,
   , columnSpacing: 1
   , columnWidth: [24, 10, 10]})
 
-var errorsLine = grid.set(0, 6, 4, 6, contrib.line, 
+/*
+ *
+ * LCD Options
+//these options need to be modified epending on the resulting positioning/size
+  options.segmentWidth = options.segmentWidth || 0.06; // how wide are the segments in % so 50% = 0.5
+  options.segmentInterval = options.segmentInterval || 0.11; // spacing between the segments in % so 50% = 0.5
+  options.strokeWidth = options.strokeWidth || 0.11; // spacing between the segments in % so 50% = 0.5
+//default display settings
+  options.elements = options.elements || 3; // how many elements in the display. or how many characters can be displayed.
+  options.display = options.display || 321; // what should be displayed before anything is set
+  options.elementSpacing = options.spacing || 4; // spacing between each element
+  options.elementPadding = options.padding || 2; // how far away from the edges to put the elements
+//coloring
+  options.color = options.color || "white";
+*/
+var lcdLineOne = grid.set(0,9,2,3, contrib.lcd,
+  {
+    label: "LCD Test",
+    segmentWidth: 0.06,
+    segmentInterval: 0.11,
+    strokeWidth: 0.1,
+    elements: 5,
+    display: 3210,
+    elementSpacing: 4,
+    elementPadding: 2
+  }
+);
+
+var errorsLine = grid.set(0, 6, 4, 3, contrib.line, 
   { style: 
     { line: "red"
     , text: "white"
@@ -69,9 +114,17 @@ var commands = ['grep', 'node', 'java', 'timer', '~/ls -l', 'netns', 'watchdog',
 //set dummy data on gauge
 var gauge_percent = 0
 setInterval(function() {
-  gauge.setPercent(gauge_percent++)  
-  if (gauge_percent>100) gauge_percent = 0  
+  gauge.setData([gauge_percent, 100-gauge_percent]);
+  gauge_percent++;
+  if (gauge_percent>=100) gauge_percent = 0  
 }, 200)
+
+var gauge_percent_two = 0
+setInterval(function() {
+  gauge_two.setData(gauge_percent_two);
+  gauge_percent_two++;
+  if (gauge_percent_two>=100) gauge_percent_two = 0  
+}, 200);
 
 
 //set dummy data on bar chart
@@ -179,7 +232,7 @@ var latencyData = {
 
 setLineData([transactionsData, transactionsData1], transactionsLine)
 setLineData([errorsData], errorsLine)
-setLineData([latencyData], latencyLine)
+// setLineData([latencyData], latencyLine)
 
 setInterval(function() {
    setLineData([transactionsData, transactionsData1], transactionsLine)
@@ -187,14 +240,40 @@ setInterval(function() {
 }, 500)
 
 setInterval(function() {   
-   setLineData([errorsData], errorsLine)
-   screen.render()
+    setLineData([errorsData], errorsLine)
 }, 1500)
 
+setInterval(function(){
+  var colors = ['green','magenta','cyan','red','blue'];
+  var text = ['A','B','C','D','E','F','G','H','I','J','K','L'];
+
+  var value = Math.round(Math.random() * 100);
+  lcdLineOne.setDisplay(value + text[value%12]);
+  lcdLineOne.setOptions({
+    color: colors[value%5],
+    elementPadding: 4
+  });
+  screen.render()
+}, 1500);
+
+var pct = 0.00;
+
+function updateDonut(){
+  if (pct > 0.99) pct = 0.00;
+  var color = "green";
+  if (pct >= 0.25) color = "cyan";
+  if (pct >= 0.5) color = "yellow";
+  if (pct >= 0.75) color = "red";  
+  donut.setData([
+    {percent: parseFloat((pct+0.00) % 1).toFixed(2), label: 'storage', 'color': color}
+  ]);
+  pct += 0.01;
+}
+
 setInterval(function() {   
-   setLineData([latencyData], latencyLine)
+   updateDonut();
    screen.render()
-}, 5000)
+}, 500)
 
 function setLineData(mockData, line) {
   for (var i=0; i<mockData.length; i++) {
