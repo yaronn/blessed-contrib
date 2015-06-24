@@ -1,5 +1,5 @@
 var blessed = require('blessed')
-  , contrib = require('blessed-contrib')
+  , contrib = require('../index')
   , screen = blessed.screen();
 
 /**
