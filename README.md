@@ -247,6 +247,8 @@ Please see the **examples/lcd.js** for an example. The example provides keybindi
 
 ### Picture
 
+(Also check the new blessed [png implementation](https://github.com/chjj/blessed#png-from-box) which has several benefits over this one)
+
 `````javascript
     var pic = contrib.picture(
        { file: './flower.png'
