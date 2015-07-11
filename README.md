@@ -188,7 +188,7 @@ Or, you can just supply an array of numbers and random colors will be chosen.
 	spacing: 2,
 	yPadding: 2,
 	data: [
-	  {perent: 80, label: 'web1', color: 'green'}
+	  {percent: 80, label: 'web1', color: 'green'}
 	]
   });
 `````
