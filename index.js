@@ -14,6 +14,7 @@ exports.picture = require('./lib/widget/picture.js')
 exports.sparkline = require('./lib/widget/sparkline.js')
 exports.table = require('./lib/widget/table.js')
 exports.tree = require('./lib/widget/tree.js')
+exports.markdown = require('./lib/widget/markdown.js')
 
 exports.bar = require('./lib/widget/charts/bar')
 exports.line = require('./lib/widget/charts/line')

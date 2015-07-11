@@ -29,7 +29,7 @@ Works on Linux, OS X and Windows. For Windows follow the [pre requisites](http:/
 
 ## Installation (to build custom projects)
 
-    npm install blessed blessed-contrib    
+    npm install blessed blessed-contrib
 
 ##Usage
 
@@ -40,7 +40,7 @@ You can use any of the default widgets of [blessed](https://github.com/chjj/bles
      , contrib = require('blessed-contrib')
      , screen = blessed.screen()
      , line = contrib.line(
-         { style: 
+         { style:
            { line: "yellow"
            , text: "green"
            , baseline: "black"}
@@ -90,13 +90,15 @@ See below for a complete list of widgets.
 
 [Tree](#tree)
 
+[Markdown](#markdown)
+
 ### Line Chart
 
 <img src="./docs/images/line.gif" alt="line" width="400">
 
 `````javascript
    var line = contrib.line(
-         { style: 
+         { style:
            { line: "yellow"
            , text: "green"
            , baseline: "black"}
@@ -131,7 +133,7 @@ See below for a complete list of widgets.
        , barSpacing: 6
        , xOffset: 0
        , maxHeight: 9})
-    screen.append(bar) //must append before setting data   
+    screen.append(bar) //must append before setting data
     bar.setData(
        { titles: ['bar1', 'bar2']
        , data: [5, 10]})
@@ -193,7 +195,7 @@ Or, you can just supply an array of numbers and random colors will be chosen.
   });
 `````
 
-Data passed in uses `percent` and `label` to draw the donut graph. Color is optional and defaults to green. 
+Data passed in uses `percent` and `label` to draw the donut graph. Color is optional and defaults to green.
 
 `````javascript
    donut.setData([
@@ -219,7 +221,7 @@ Updating the donut is as easy as passing in an array to `setData` using the same
      , elementSpacing: 4 // spacing between each element
      , elementPadding: 2 // how far away from the edges to put the elements
      , color: 'white' // color for the segments
-     , label: 'Storage Remaining'})                    
+     , label: 'Storage Remaining'})
 `````
 
 `````javascript
@@ -249,6 +251,8 @@ Please see the **examples/lcd.js** for an example. The example provides keybindi
 
 (Also check the new blessed [png implementation](https://github.com/chjj/blessed#png-from-box) which has several benefits over this one)
 
+<img src="./docs/images/picture.png" alt="log" width="180">
+
 `````javascript
     var pic = contrib.picture(
        { file: './flower.png'
@@ -271,7 +275,7 @@ note: only png images are supported
      , style: { fg: 'blue' }})
 
    sparkline.setData(
-   [ 'Sparkline1', 'Sparkline2'], 
+   [ 'Sparkline1', 'Sparkline2'],
    [ [10, 20, 30, 20]
    , [40, 10, 40, 50]])
 `````
@@ -299,8 +303,8 @@ note: only png images are supported
 
    table.setData(
    { headers: ['col1', 'col2', 'col3']
-   , data: 
-      [ [1, 2, 3] 
+   , data:
+      [ [1, 2, 3]
       , [4, 5, 6] ]})
 `````
 
@@ -332,7 +336,7 @@ note: only png images are supported
          , 'Apple': {}
          , 'Cherry': {}
          , 'Exotics': {
-             children: 
+             children:
              { 'Mango': {}
              , 'Papaya': {}
              , 'Kiwi': { name: 'Kiwi (not the bird!)', myCustomProperty: "hairy fruit" }
@@ -358,17 +362,17 @@ note: only png images are supported
 
 Every node is a hash and it can have custom properties that can be used in "select" event callback. However, there are several special keys :
 
- * name 
+ * name
   * *Type* : `string`
   * *Desc* : Node name
-  * If the node isn't the root and you don't specify the name, will be set to hash key 
+  * If the node isn't the root and you don't specify the name, will be set to hash key
   * *Example* : <code>{ name: 'Fruit'}</code>
  * children
   * *Type* : `hash` or `function(node){ return children }`
   * *Desc* : Node children.
   * The function must return a hash that could have been used as children property
   * If you use a function, the result will be stored in `node.childrenContent` and `children`
-  * *Example* : 
+  * *Example* :
     * Hash : <code>{'Fruit':{ name: 'Fruit', children:{ 'Banana': {}, 'Cherry': {}}}}</code>
     * Function : see `examples/explorer.js`
  *  childrenContent
@@ -385,6 +389,15 @@ Every node is a hash and it can have custom properties that can be used in "sele
   * Default value for each node will be `treeInstance.options.extended` if the node `extended` option is not set
   * *Example* : <code>{'Fruit':{ name: 'Fruit', extended: true, children:{ 'Banana': {}, 'Cherry': {}}}}</code>
      
+### Markdown
+
+<img src="./docs/images/markdown.png" alt="table">
+
+`````javascript
+   var markdown = contrib.markdown()
+   markdown.setMarkdown('# Hello \n blessed-contrib renders markdown using `marked-terminal`')
+`````
+
 
 ### Layouts
 
@@ -419,17 +432,17 @@ One use case is an office dashboard with rotating views:
       , contrib = require('./')
       , screen = blessed.screen()
 
-    function page1(screen) {     
-       var map = contrib.map()   
-       screen.append(map) 
+    function page1(screen) {
+       var map = contrib.map()
+       screen.append(map)
     }
 
-    function page2(screen) {  
+    function page2(screen) {
       var line = contrib.line(
        { width: 80
        , height: 30
        , left: 15
-       , top: 12  
+       , top: 12
        , xPadding: 5
        , label: 'Title'
        })
@@ -444,7 +457,7 @@ One use case is an office dashboard with rotating views:
             ]
 
       screen.append(line)
-      line.setData(data)  
+      line.setData(data)
     }
 
     screen.key(['escape', 'q', 'C-c'], function(ch, key) {
@@ -488,8 +501,8 @@ One use case is an office dashboard with rotating views:
      , screen = blessed.screen()
      , grid = new contrib.grid({rows: 1, cols: 2, screen: screen})
 
-   var line = grid.set(0, 0, 1, 1, contrib.line, 
-     { style: 
+   var line = grid.set(0, 0, 1, 1, contrib.line,
+     { style:
        { line: "yellow"
        , text: "green"
        , baseline: "black"}
