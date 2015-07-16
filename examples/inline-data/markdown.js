@@ -4,7 +4,7 @@ var blessed = require('blessed')
   , screen = blessed.screen()
   , chalk = require('chalk')
   , markdown = contrib.markdown({markdown: '# Hello \n blessed-contrib renders markdown using `marked-terminal` '
-                                , style: { firstHeading: chalk.green.italic }})
+                                , style: { firstHeading: 'chalk.green.italic' }})
 
 screen.append(markdown)
 
