@@ -4,6 +4,8 @@ Build dashboards (or any other application) using ascii/ansi art and javascript.
 
 Friendly to terminals, ssh and developers. Extends [blessed](https://github.com/chjj/blessed) with custom  [drawille](https://github.com/madbence/node-drawille) and other widgets.
 
+You should also [check WOPR](https://github.com/yaronn/wopr): a simple markup for creating rich terminal reports, presentations and infographics.
+
 
 **Contributors:**
 
