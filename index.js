@@ -6,6 +6,7 @@ exports.map = require('./lib/widget/map')
 exports.canvas = require('./lib/widget/canvas')
 
 exports.gauge = require('./lib/widget/gauge.js')
+exports.gaugeList = require('./lib/widget/gauge-list.js')
 
 exports.lcd = require('./lib/widget/lcd.js')
 exports.donut = require('./lib/widget/donut.js')
