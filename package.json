@@ -1,6 +1,6 @@
 {
   "name": "blessed-contrib",
-  "version": "2.4.1",
+  "version": "2.5.1",
   "description": "",
   "main": "index.js",
   "scripts": {
@@ -13,7 +13,8 @@
   "author": "Yaron Naveh (yaronn01@gmail.com)",
   "license": "MIT",
   "devDependencies": {
-    "blessed": "0.1.54"
+    "blessed": "0.1.54",
+    "colors": "^1.1.2"
   },
   "dependencies": {
     "ansi-term": ">=0.0.1",
@@ -28,6 +29,7 @@
     "picture-tube": "0.0.4",
     "request": "^2.53.0",
     "sparkline": "^0.1.1",
+    "strip-ansi": "^3.0.0",
     "term-canvas": "0.0.5"
   }
 }
