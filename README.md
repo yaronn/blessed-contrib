@@ -489,7 +489,7 @@ One use case is an office dashboard with rotating views:
     npm install
     node ./examples/dashboard.js
 
-**Installation (for a custom dashbaord)**
+**Installation (for a custom dashboard)**
 
     npm install blessed
     npm install blessed-contrib
