@@ -5,9 +5,10 @@ var blessed = require('blessed')
    { width: 80
    , height: 30
    , left: 15
-   , top: 12  
+   , top: 12
    , xPadding: 5
    , label: 'Title'
+   , numYLabels: 7
    //, wholeNumbersOnly: true
    })
 
