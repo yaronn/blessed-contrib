@@ -189,7 +189,7 @@ Or, you can just supply an array of numbers and random colors will be chosen.
 	label: 'Test',
 	radius: 8,
 	arcWidth: 3,
-	spacing: 2,
+	remainColor: 'black',
 	yPadding: 2,
 	data: [
 	  {percent: 80, label: 'web1', color: 'green'}
