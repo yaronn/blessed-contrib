@@ -15,7 +15,6 @@ var donut = contrib.donut({
   	label: 'Test',
   	radius: 8,
   	arcWidth: 3,
-  	spacing: 2,
   	yPadding: 2,
     data: [
       {perent: 80, label: 'web1', color: 'green'}
