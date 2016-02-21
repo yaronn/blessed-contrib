@@ -18,7 +18,6 @@ var donut = grid.set(8, 8, 4, 2, contrib.donut,
   label: 'Percent Donut',
   radius: 16,
   arcWidth: 4,
-  spacing: 2,
   yPadding: 2,
   data: [{label: 'Storage', percent: 87}]
 })
