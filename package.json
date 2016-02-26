@@ -17,7 +17,6 @@
     "colors": "^1.1.2"
   },
   "dependencies": {
-    "ansi-term": ">=0.0.1",
     "chalk": "^1.1.0",
     "drawille-canvas-blessed-contrib": ">=0.0.1",
     "lodash": ">=3.0.0",
@@ -29,7 +28,6 @@
     "picture-tube": "0.0.4",
     "request": "^2.53.0",
     "sparkline": "^0.1.1",
-    "strip-ansi": "^3.0.0",
-    "term-canvas": "0.0.5"
+    "strip-ansi": "^3.0.0"
   }
 }
