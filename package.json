@@ -18,6 +18,7 @@
   },
   "dependencies": {
     "ansi-term": ">=0.0.1",
+    "x256": ">=0.0.1",
     "chalk": "^1.1.0",
     "drawille-canvas-blessed-contrib": ">=0.0.1",
     "lodash": ">=3.0.0",
