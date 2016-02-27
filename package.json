@@ -1,6 +1,6 @@
 {
   "name": "blessed-contrib",
-  "version": "3.5.3",
+  "version": "3.5.4",
   "description": "",
   "main": "index.js",
   "scripts": {
@@ -17,10 +17,10 @@
     "colors": "^1.1.2"
   },
   "dependencies": {
-    "ansi-term": ">=0.0.1",
+    "ansi-term": ">=0.0.2",
     "x256": ">=0.0.1",
     "chalk": "^1.1.0",
-    "drawille-canvas-blessed-contrib": ">=0.0.1",
+    "drawille-canvas-blessed-contrib": ">=0.1.3",
     "lodash": ">=3.0.0",
     "map-canvas": ">=0.1.5",
     "marked": "^0.3.3",
