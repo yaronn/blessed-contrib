@@ -11,6 +11,7 @@ You should also [check WOPR](https://github.com/yaronn/wopr): a markup for creat
 
 Yaron Naveh ([@YaronNaveh](http://twitter.com/YaronNaveh))
 Chris ([@xcezzz](https://twitter.com/xcezzz))
+Miguel Valadas ([@mvaladas](https://github.com/mvaladas))
 
 **Demo ([full size](https://raw.githubusercontent.com/yaronn/blessed-contrib/master/docs/images/term3.gif)):**
 
