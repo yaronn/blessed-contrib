@@ -5,6 +5,11 @@ var screen = blessed.screen()
 
 //create layout and widgets
 
+  // Create a random color
+  function randomColor() {
+    return [Math.random() * 255,Math.random()*255, Math.random()*255]
+}
+
 var grid = new contrib.grid({rows: 12, cols: 12, screen: screen})
 
 /**
@@ -84,9 +89,9 @@ var lcdLineOne = grid.set(0,9,2,3, contrib.lcd,
 
 var errorsLine = grid.set(0, 6, 4, 3, contrib.line, 
   { style: 
-    { line: "red"
-    , text: "white"
-    , baseline: "black"}
+    { line: randomColor()
+    , text: randomColor()
+    , baseline: randomColor()}
   , label: 'Errors Rate'
   , maxY: 60
   , showLegend: true })
@@ -101,8 +106,8 @@ var transactionsLine = grid.set(0, 0, 6, 6, contrib.line,
 var map = grid.set(6, 0, 6, 6, contrib.map, {label: 'Servers Location'})
 
 var log = grid.set(8, 6, 4, 2, contrib.log, 
-  { fg: "green"
-  , selectedFg: "green"
+  { fg: randomColor()
+  , selectedFg: randomColor()
   , label: 'Server Log'})
 
 
@@ -191,7 +196,7 @@ function refreshSpark() {
 var marker = true
 setInterval(function() {
    if (marker) {
-    map.addMarker({"lon" : "-79.0000", "lat" : "37.5000", color: 'yellow', char: 'X' })
+    map.addMarker({"lon" : "-79.0000", "lat" : "37.5000", color: randomColor(), char: 'X' })
     map.addMarker({"lon" : "-122.6819", "lat" : "45.5200" })
     map.addMarker({"lon" : "-6.2597", "lat" : "53.3478" })
     map.addMarker({"lon" : "103.8000", "lat" : "1.3000" })
@@ -207,14 +212,14 @@ setInterval(function() {
 
 var transactionsData = {
    title: 'USA',
-   style: {line: 'red'},
+   style: {line:randomColor()},
    x: ['00:00', '00:05', '00:10', '00:15', '00:20', '00:30', '00:40', '00:50', '01:00', '01:10', '01:20', '01:30', '01:40', '01:50', '02:00', '02:10', '02:20', '02:30', '02:40', '02:50', '03:00', '03:10', '03:20', '03:30', '03:40', '03:50', '04:00', '04:10', '04:20', '04:30'],
    y: [0, 20, 40, 45, 45, 50, 55, 70, 65, 58, 50, 55, 60, 65, 70, 80, 70, 50, 40, 50, 60, 70, 82, 88, 89, 89, 89, 80, 72, 70]
 }
 
 var transactionsData1 = {
    title: 'Europe',
-   style: {line: 'yellow'},
+   style: {line:randomColor()},
    x: ['00:00', '00:05', '00:10', '00:15', '00:20', '00:30', '00:40', '00:50', '01:00', '01:10', '01:20', '01:30', '01:40', '01:50', '02:00', '02:10', '02:20', '02:30', '02:40', '02:50', '03:00', '03:10', '03:20', '03:30', '03:40', '03:50', '04:00', '04:10', '04:20', '04:30'],
    y: [0, 5, 5, 10, 10, 15, 20, 30, 25, 30, 30, 20, 20, 30, 30, 20, 15, 15, 19, 25, 30, 25, 25, 20, 25, 30, 35, 35, 30, 30]
 }
@@ -244,7 +249,7 @@ setInterval(function() {
 }, 1500)
 
 setInterval(function(){
-  var colors = ['green','magenta','cyan','red','blue'];
+  var colors = [randomColor(),randomColor(),randomColor(),randomColor(),randomColor()];
   var text = ['A','B','C','D','E','F','G','H','I','J','K','L'];
 
   var value = Math.round(Math.random() * 100);
