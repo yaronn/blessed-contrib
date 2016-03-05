@@ -123,7 +123,7 @@ See below for a complete list of widgets.
    screen.append(line) //must append before setting data
    line.setData([series1, series2])
 `````
-**Examples:** [simple line chart](./examples/line-fraction.js), [multiple lines](./examples/multi-line-chart.js)
+**Examples:** [simple line chart](./examples/line-fraction.js), [multiple lines](./examples/multi-line-chart.js), [256 colors](./examples/line-random-colors.js)
 
 ### Bar Chart
 
@@ -401,7 +401,21 @@ Every node is a hash and it can have custom properties that can be used in "sele
    markdown.setMarkdown('# Hello \n blessed-contrib renders markdown using `marked-terminal`')
 `````
 
+### Colors
+You can use 256 colors ([source](./examples/line-random-colors.js)):
 
+`````javascript
+  function randomColor() {
+    return [Math.random() * 255,Math.random()*255, Math.random()*255]
+  }
+
+  line = contrib.line(
+  {
+    ...
+    , style: { line: randomColor(), text: randomColor(), baseline: randomColor() }
+  })
+`````
+   
 ### Layouts
 
 [Grid](#grid)
