@@ -547,6 +547,12 @@ One use case is an office dashboard with rotating views:
 
 See [source code](./examples/dashboard.js)
 
+## Troubleshooting
+If you see questions marks or some (or all) missign characters try running with these env vars to fix encoding / terminal: 
+`````
+    $> LANG=en_US.utf8 TERM=xterm-256color node your-code.js 
+`````
+
 ## License
 This library is under the [MIT License](http://opensource.org/licenses/MIT)
 
