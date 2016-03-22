@@ -56,7 +56,7 @@ You can use any of the default widgets of [blessed](https://github.com/chjj/bles
       }
    screen.append(line) //must append before setting data
    line.setData([data])
-   
+
    screen.key(['escape', 'q', 'C-c'], function(ch, key) {
      return process.exit(0);
    });
@@ -72,6 +72,8 @@ See below for a complete list of widgets.
 [Line Chart](#line-chart)
 
 [Bar Chart](#bar-chart)
+
+[Stacked Bar Chart](#stacked-bar-chart)
 
 [Map](#map)
 
@@ -142,6 +144,31 @@ See below for a complete list of widgets.
        , data: [5, 10]})
 `````
 
+### Stacked Bar Chart
+
+<img src="./docs/images/stacked-bar.png" alt="stacked-bar" width="250">
+
+`````javascript
+    bar = contrib.stackedBar(
+       { label: 'Server Utilization (%)'
+       , barWidth: 4
+       , barSpacing: 6
+       , xOffset: 0
+       //, maxValue: 15
+       , height: "40%"
+       , width: "50%"
+       , barBgColor: [ 'red', 'blue', 'green' ]})
+    screen.append(bar)
+    bar.setData(
+       { barCategory: ['Q1', 'Q2', 'Q3', 'Q4']
+       , stackedCategory: ['US', 'EU', 'AP']
+       , data:
+          [ [ 7, 7, 5]
+          , [8, 2, 0]
+          , [0, 0, 0]
+          , [2, 3, 2] ]
+       })
+`````
 
 ### Map
 
@@ -231,7 +258,7 @@ Updating the donut is as easy as passing in an array to `setData` using the same
 
 	lcd.setDisplay(23 + 'G'); // will display "23G"
 	lcd.setOptions({}) // adjust options at runtime
-   
+
 `````
 
 Please see the **examples/lcd.js** for an example. The example provides keybindings to adjust the `segmentWidth` and `segmentInterval` and `strokeWidth` in real-time so that you can see how they manipulate the look and feel.
@@ -391,7 +418,7 @@ Every node is a hash and it can have custom properties that can be used in "sele
   * No effect when the node have no child
   * Default value for each node will be `treeInstance.options.extended` if the node `extended` option is not set
   * *Example* : <code>{'Fruit':{ name: 'Fruit', extended: true, children:{ 'Banana': {}, 'Cherry': {}}}}</code>
-     
+
 ### Markdown
 
 <img src="./docs/images/markdown.png" alt="table">
