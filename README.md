@@ -120,7 +120,7 @@ See below for a complete list of widgets.
    var series2 = {
          title: 'oranges',
          x: ['t1', 't2', 't3', 't4'],
-         y: [5, 1, 7, 5]
+         y: [2, 1, 4, 8]
       }
    screen.append(line) //must append before setting data
    line.setData([series1, series2])
