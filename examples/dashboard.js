@@ -290,4 +290,19 @@ screen.key(['escape', 'q', 'C-c'], function(ch, key) {
   return process.exit(0);
 });
 
+// fixes https://github.com/yaronn/blessed-contrib/issues/10
+screen.on('resize', function() {
+  donut.emit('attach');
+  gauge.emit('attach');
+  gauge_two.emit('attach');
+  sparkline.emit('attach');
+  bar.emit('attach');
+  table.emit('attach');
+  lcdLineOne.emit('attach');
+  errorsLine.emit('attach');
+  transactionsLine.emit('attach');
+  map.emit('attach');
+  log.emit('attach');
+});
+
 screen.render()
