@@ -17,7 +17,7 @@ var donut = contrib.donut({
   	arcWidth: 3,
   	yPadding: 2,
     data: [
-      {perent: 80, label: 'web1', color: 'green'}
+      {percent: 80, label: 'web1', color: 'green'}
     ]
   });
     
