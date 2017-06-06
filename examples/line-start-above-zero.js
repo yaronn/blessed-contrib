@@ -8,7 +8,6 @@ var blessed = require('blessed')
    , top: 12
    , xPadding: 5
    , minY: 30
-   , maxY: 90
    , label: 'Title'
    , style: { baseline: 'white' }
    })
