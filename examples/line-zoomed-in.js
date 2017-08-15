@@ -7,14 +7,15 @@ var blessed = require('blessed')
    , left: 15
    , top: 12
    , xPadding: 5
-   , minY: 30
+   , minY: 1000
+   , maxY: 1050
    , label: 'Title'
    , style: { baseline: 'white' }
    })
 
 , data = [ { title: 'us-east',
              x: ['t1', 't2', 't3', 't4'],
-             y: [50, 88, 72, 91],
+             y: [1010, 1040, 1020, 1030],
              style: {
               line: 'red'
              }
