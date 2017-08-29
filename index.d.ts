@@ -1,2 +1,2 @@
-declare var contrib
+declare var contrib: any
 export = contrib
