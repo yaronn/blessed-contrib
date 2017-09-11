@@ -392,12 +392,12 @@ note: only png images are supported
 
 Every node is a hash and it can have custom properties that can be used in "select" event callback. However, there are several special keys :
 
- * name
+* name
   * *Type* : `string`
   * *Desc* : Node name
   * If the node isn't the root and you don't specify the name, will be set to hash key
   * *Example* : <code>{ name: 'Fruit'}</code>
- * children
+* children
   * *Type* : `hash` or `function(node){ return children }`
   * *Desc* : Node children.
   * The function must return a hash that could have been used as children property
@@ -405,14 +405,14 @@ Every node is a hash and it can have custom properties that can be used in "sele
   * *Example* :
     * Hash : <code>{'Fruit':{ name: 'Fruit', children:{ 'Banana': {}, 'Cherry': {}}}}</code>
     * Function : see `examples/explorer.js`
- *  childrenContent
+* childrenContent
   * *Type* : `hash`
   * *Desc* : Children content for internal usage *DO NOT MODIFY*
   * If `node.children` is a hash, `node.children===node.childrenContent`
   * If `node.children` is a function, it's used to store the `node.children()` result
   * You can read this property, but you should never write it.
   * Usually this will be used to check `if(node.childrenContent)` in your `node.children` function to generate children only once
- * extended
+* extended
   * *Type* : `boolean`
   * *Desc* : Determine if this node is extended
   * No effect when the node have no child
