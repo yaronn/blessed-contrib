@@ -3,6 +3,7 @@
   "version": "4.8.5",
   "description": "",
   "main": "index.js",
+  "types": "index.d.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -13,6 +14,7 @@
   "author": "Yaron Naveh (yaronn01@gmail.com)",
   "license": "MIT",
   "devDependencies": {
+    "@types/blessed": "^0.1.6",
     "blessed": "0.1.54",
     "colors": "^1.1.2"
   },
