@@ -36,7 +36,7 @@ Works on Linux, OS X and Windows. For Windows follow the [pre requisites](http:/
 
 ## Usage
 
-You can use any of the default widgets of [blessed](https://github.com/chjj/blessed) (texts, lists and etc) or the widgets added in blessed-contrib (described below). A [layout](#layouts) is optional but usefull for dashboards. The widgets in blessed-contrib follow the same usage pattern:
+You can use any of the default widgets of [blessed](https://github.com/chjj/blessed) (texts, lists and etc) or the widgets added in blessed-contrib (described below). A [layout](#layouts) is optional but useful for dashboards. The widgets in blessed-contrib follow the same usage pattern:
 
 `````javascript
    var blessed = require('blessed')
