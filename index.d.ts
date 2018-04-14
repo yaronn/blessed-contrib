@@ -139,7 +139,11 @@ declare namespace BlessedContrib {
             title?: string
             x?: string[]
             y?: number[]
-            style?: Picker<LineOptions, 'style'>
+            style?: {
+                line?: string
+                text?: string
+                baseline?: string
+            }
         }
 
         export interface LineOptions extends CanvasOptions<LineData[]> {
