@@ -123,6 +123,8 @@ declare namespace BlessedContrib {
             xOffset?: number
             maxHeight?: number
             showText?: boolean
+            barBgColor?: string
+            barFgColor?: string
         }
 
 
@@ -212,6 +214,8 @@ declare namespace BlessedContrib {
             calcSize(): void;
 
             setData(data: D): void;
+
+            canvasSize: { width: number, height: number }
         }
 
         export interface DonutData {
