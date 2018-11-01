@@ -3,7 +3,7 @@ export = BlessedContrib
 declare namespace BlessedContrib {
 
     export type Optionals<T, K extends keyof T> = {
-        [P in keyof K]?: T[P]
+        [P in keyof K]?: T[K]
         }
     export type Picker<T, K extends keyof T> = {
         [P in K]: T[P];
@@ -27,14 +27,9 @@ declare namespace BlessedContrib {
             bottom?: Types.TPosition;
             rows?: number
             cols?: number
-            screen: BlessedWidgets.Screen
-            border?: Border
+            screen: Blessed.Widgets.Screen
+            border?: Blessed.Widgets.Border
             hideBorder?: boolean
-        }
-
-        export interface Border extends Blessed.Widgets.Border {
-            fg?: string | number
-            bg?: string | number
         }
 
         export type WidgetOptions =
@@ -128,13 +123,15 @@ declare namespace BlessedContrib {
             xOffset?: number
             maxHeight?: number
             showText?: boolean
+            barBgColor?: string
+            barFgColor?: string
         }
 
 
         export class BarElement extends CanvasElement<BarData> implements IHasOptions<BarOptions> {
             constructor(opts: BarOptions);
 
-            setData(data: BarData)
+            setData(data: BarData): void;
 
             options: BarOptions;
         }
@@ -144,7 +141,11 @@ declare namespace BlessedContrib {
             title?: string
             x?: string[]
             y?: number[]
-            style?: Picker<LineOptions, 'style'>
+            style?: {
+                line?: string
+                text?: string
+                baseline?: string
+            }
         }
 
         export interface LineOptions extends CanvasOptions<LineData[]> {
@@ -188,12 +189,12 @@ declare namespace BlessedContrib {
             showText?: boolean
         }
 
-        export class StackedBarElement extends CanvasElement<StackedBarData> implements IHasOptions<StackedBarOptions> {
+        export class StackedBarElement extends CanvasElement<StackedBarData[]> implements IHasOptions<StackedBarOptions> {
             constructor(opts: StackedBarOptions)
 
             options: StackedBarOptions;
 
-            addLegend(bars: any, x: number)
+            addLegend(bars: any, x: number): void;
         }
 
 
@@ -210,9 +211,11 @@ declare namespace BlessedContrib {
 
             options: CanvasOptions<D>;
 
-            calcSize()
+            calcSize(): void;
 
-            setData(data: D)
+            setData(data: D): void;
+
+            canvasSize: { width: number, height: number }
         }
 
         export interface DonutData {
@@ -266,12 +269,12 @@ declare namespace BlessedContrib {
 
             options: GaugeOptions;
 
-            setPercent(number: number)
+            setPercent(number: number): void;
 
-            setStack(stack: Array<{ percent: number, stroke: string }>)
+            setStack(stack: Array<{ percent: number, stroke: string }>): void;
 
-            setData(percent: number[])
-            setData(percent: number)
+            setData(percent: number[]): void;
+            setData(percent: number): void;
         }
 
 
@@ -292,25 +295,25 @@ declare namespace BlessedContrib {
 
             options: LcdOptions;
 
-            increaseWidth()
+            increaseWidth(): void;
 
-            decreaseWidth()
+            decreaseWidth(): void;
 
-            increaseInterval()
+            increaseInterval(): void;
 
-            decreaseInterval()
+            decreaseInterval(): void;
 
-            increaseStroke()
+            increaseStroke(): void;
 
-            decreaseStroke()
+            decreaseStroke(): void;
 
-            setOptions(options: any)
+            setOptions(options: any): void;
 
-            setDisplay(display)
+            setDisplay(display: any): void;
         }
 
         export interface LogOptions extends ListOptions<ListElementStyle> {
-            border: Border
+            border: Blessed.Widgets.Border
             bufferLength?: number
             logLines?: string[]
             interactive?: boolean
@@ -321,9 +324,9 @@ declare namespace BlessedContrib {
 
             options: LogOptions;
 
-            log(str: string)
+            log(str: string): boolean;
 
-            emit(str:any)
+            emit(str:any): boolean;
         }
 
 
@@ -345,7 +348,7 @@ declare namespace BlessedContrib {
 
             options: SparklineOptions;
 
-            setData(...str: any[])
+            setData(...str: any[]): void;
         }
 
         export interface MarkdownOptions extends CanvasOptions {
@@ -373,10 +376,10 @@ declare namespace BlessedContrib {
         }
 
         export interface TableOptions extends CanvasOptions<TableData> {
-            bold?: boolean
+            bold?: string
             columnSpacing?: number
             columnWidth?: number[]
-            rows?: ListOptions
+            rows?: ListOptions<ListElementStyle>
             selectedFg?: string
             selectedBg?: string
             fg?: string
@@ -405,10 +408,10 @@ declare namespace BlessedContrib {
         export class TreeElement extends BoxElement implements IHasOptions<TreeOptions> {
             constructor(opts: TreeOptions)
 
-            rows: BlessedWidgets.ListElement
+            rows: Blessed.Widgets.ListElement
             nodeLines?: string[]
             lineNbr?: number
-            data?: any
+            data: any
 
             options: TreeOptions;
         }
