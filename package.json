@@ -1,6 +1,6 @@
 {
   "name": "blessed-contrib",
-  "version": "4.8.8",
+  "version": "4.8.9",
   "description": "",
   "main": "index.js",
   "types": "index.d.ts",
@@ -29,7 +29,6 @@
     "memory-streams": "^0.1.0",
     "memorystream": "^0.3.1",
     "picture-tube": "^1.0.0",
-    "request": "^2.68.0",
     "sparkline": "^0.1.1",
     "strip-ansi": "^3.0.0",
     "term-canvas": "0.0.5",
