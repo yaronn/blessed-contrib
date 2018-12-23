@@ -5,7 +5,8 @@
   "main": "index.js",
   "types": "index.d.ts",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "npm run lint",
+    "lint": "eslint lib"
   },
   "repository": {
     "type": "git",
@@ -16,7 +17,13 @@
   "devDependencies": {
     "@types/blessed": "^0.1.6",
     "blessed": "0.1.54",
-    "colors": "^1.1.2"
+    "colors": "^1.1.2",
+    "eslint": "^5.11.0",
+    "eslint-config-standard": "^12.0.0",
+    "eslint-plugin-import": "^2.14.0",
+    "eslint-plugin-node": "^8.0.0",
+    "eslint-plugin-promise": "^4.0.1",
+    "eslint-plugin-standard": "^4.0.0"
   },
   "dependencies": {
     "ansi-term": ">=0.0.2",
