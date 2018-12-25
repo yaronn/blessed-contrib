@@ -1,0 +1,21 @@
+{
+  "env": {
+    "es6": true,
+    "node": true
+  },
+  "extends": "eslint:recommended",
+  "parserOptions": {
+    "ecmaVersion": 2015
+  },
+  "rules": {
+    "brace-style": "error",
+    "no-irregular-whitespace":"error",
+    "no-octal-escape": "error",
+    "no-octal": "error",
+    "no-proto":"error",
+    "strict":["error", "global"],
+    "no-undef":"error",
+    "no-use-before-define": "off",
+    "indent": ["error", 2]
+  }
+}
