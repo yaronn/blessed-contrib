@@ -35,7 +35,7 @@
     "marked-terminal": "^1.5.0",
     "memory-streams": "^0.1.0",
     "memorystream": "^0.3.1",
-    "picture-tube": "^1.0.0",
+    "picture-tuber": "^1.0.1",
     "sparkline": "^0.1.1",
     "strip-ansi": "^3.0.0",
     "term-canvas": "0.0.5",
