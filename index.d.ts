@@ -358,6 +358,10 @@ declare namespace BlessedContrib {
             constructor(opts: MarkdownOptions)
 
             options: MarkdownOptions;
+
+            setOptions(options: any): void;
+
+            setMarkdown(markdown: string): void;
         }
 
 
