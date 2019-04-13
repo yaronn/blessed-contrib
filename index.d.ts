@@ -352,6 +352,12 @@ declare namespace BlessedContrib {
         }
 
         export interface MarkdownOptions extends CanvasOptions {
+          /** 
+           * Markdown text to render.
+           */
+          markdown?: string;
+
+          markdownStyle?: any;
         }
 
         export class MarkdownElement extends CanvasElement implements IHasOptions<MarkdownOptions> {
