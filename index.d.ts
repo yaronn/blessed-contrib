@@ -386,14 +386,19 @@ declare namespace BlessedContrib {
         }
 
         export interface TableOptions extends CanvasOptions<TableData> {
+            parent?: any
             bold?: string
             columnSpacing?: number
             columnWidth?: number[]
             rows?: ListOptions<ListElementStyle>
             selectedFg?: string
             selectedBg?: string
+            label?: string
             fg?: string
             bg?: string
+            width?: string
+            height?: string
+            border?: object
             interactive?: string
         }
 
