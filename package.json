@@ -6,7 +6,8 @@
   "types": "index.d.ts",
   "scripts": {
     "test": "npm run lint",
-    "lint": "eslint lib"
+    "lint": "eslint lib",
+    "lint:fix": "eslint lib --fix"
   },
   "repository": {
     "type": "git",
