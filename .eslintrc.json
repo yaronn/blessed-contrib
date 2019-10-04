@@ -16,6 +16,8 @@
     "strict":["error", "global"],
     "no-undef":"error",
     "no-use-before-define": "off",
-    "indent": ["error", 2]
+    "indent": ["error", 2],
+    "semi": [2, "always"],
+    "quotes": [2, "single"]
   }
 }

@@ -1,12 +1,13 @@
 {
   "name": "blessed-contrib",
-  "version": "4.8.17",
+  "version": "4.8.18",
   "description": "",
   "main": "index.js",
   "types": "index.d.ts",
   "scripts": {
     "test": "npm run lint",
-    "lint": "eslint lib"
+    "lint": "eslint lib",
+    "lint:fix": "eslint lib --fix"
   },
   "repository": {
     "type": "git",
