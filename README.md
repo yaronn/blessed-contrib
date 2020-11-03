@@ -510,7 +510,7 @@ One use case is an office dashboard with rotating views:
 
     var carousel = new contrib.carousel( [page1, page2]
                                        , { screen: screen
-                                         , interval: 3000 //how often to switch views (set 0 to never swicth automatically)
+                                         , interval: 3000 //how often to switch views (set 0 to never switch automatically)
                                          , controlKeys: true  //should right and left keyboard arrows control view rotation
                                          })
     carousel.start()
@@ -575,7 +575,7 @@ One use case is an office dashboard with rotating views:
 See [source code](./examples/dashboard.js)
 
 ## Troubleshooting
-If you see questions marks or some (or all) missign characters try running with these env vars to fix encoding / terminal: 
+If you see questions marks or some (or all) missing characters try running with these env vars to fix encoding / terminal: 
 `````
     $> LANG=en_US.utf8 TERM=xterm-256color node your-code.js 
 `````
