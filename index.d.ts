@@ -214,6 +214,7 @@ declare namespace BlessedContrib {
             calcSize(): void;
 
             setData(data: D): void;
+            setData(titles: string[], data: D): void;
 
             canvasSize: { width: number, height: number }
         }
