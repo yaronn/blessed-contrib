@@ -236,6 +236,22 @@ Data passed in uses `percent` and `label` to draw the donut graph. Color is opti
 
 Updating the donut is as easy as passing in an array to `setData` using the same array format as in the constructor. Pass in as many objects to the array of data as you want, they will automatically resize and try to fit. However, please note that you will still be restricted to actual screen space.
 
+You can also hardcode a specific numeric into the donut's core display instead of the percentage by passing an `percentAltNumber` property to the data, such as:
+
+`````javascript
+   var donut = contrib.donut({
+	label: 'Test',
+	radius: 8,
+	arcWidth: 3,
+	remainColor: 'black',
+	yPadding: 2,
+	data: [
+	  {percentAltNumber: 50, percent: 80, label: 'web1', color: 'green'}
+	]
+  });
+`````
+
+See an example of this in one of the donuts settings on `./examples/donut.js`.
 
 ### LCD Display
 
