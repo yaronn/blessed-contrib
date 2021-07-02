@@ -41,5 +41,8 @@
     "strip-ansi": "^3.0.0",
     "term-canvas": "0.0.5",
     "x256": ">=0.0.1"
+  },
+  "peerDependencies": {
+    "blessed": "*"
   }
 }
