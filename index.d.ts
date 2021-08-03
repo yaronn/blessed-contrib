@@ -410,6 +410,17 @@ declare namespace BlessedContrib {
         }
 
 
+        export interface TreeNode {
+            name?: string,
+            children?: TreeChildren | ((node: TreeNode) => TreeChildren | Promise<TreeChildren>),
+            childrenContent?: TreeChildren,
+            extended?: boolean,
+            parent?: TreeNode,
+            [custom: string]: any
+        }
+
+        export type TreeChildren = Record<string, TreeNode>
+
         export interface TreeOptions extends BoxOptions {
             data?: any
             extended?: boolean
@@ -430,6 +441,8 @@ declare namespace BlessedContrib {
             data: any
 
             options: TreeOptions;
+
+            setData(data: TreeNode): void
         }
 
 
