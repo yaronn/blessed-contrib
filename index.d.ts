@@ -397,6 +397,9 @@ declare namespace BlessedContrib {
             label?: string
             fg?: string
             bg?: string
+            mouse?: boolean
+            keys?: boolean
+            vi?: boolean
             width?: string
             height?: string
             border?: object
