@@ -33,7 +33,11 @@ Works on Linux, OS X and Windows. For Windows follow the [pre requisites](http:/
 
 ## Installation (to build custom projects)
 
-    npm install blessed blessed-contrib
+Please use the latest stable version of [Node.js LTS](https://nodejs.org/en/about/releases) and install `blessed-contrib` and its peer dependency `blessed` as follows:
+
+```sh
+npm install blessed blessed-contrib
+```
 
 ## Usage
 
