@@ -288,7 +288,7 @@ declare namespace BlessedContrib {
             elementSpacing?: number// spacing between each element
             elementPadding?: number// how far away from the edges to put the elements
             color?: 'white' // color for the segments
-            label?: 'Storage Remaining'
+            label?: string
         }
 
         export class LcdElement extends CanvasElement implements IHasOptions<LcdOptions> {
